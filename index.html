@@ -9,19 +9,25 @@
   <!-- html2pdf.js CDN -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
   <style>
+    /* Allow textareas to be resizable */
     textarea {
       resize: both;
     }
-    /* Center the unit dropdown in its cell */
+    /* Center the unit dropdown vertically */
     .unit-select {
-      display: block;
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
       width: 100%;
-      text-align: center;
+      text-align-last: center;
     }
-    /* Collapsible section header styling */
-    .section-header {
+    /* Hide collapse icon when section is expanded */
+    .toggle-button {
       cursor: pointer;
       user-select: none;
+      font-weight: bold;
+      margin-left: 0.5rem;
     }
   </style>
 </head>
@@ -35,16 +41,17 @@
     </header>
     <div id="app">
       <form id="checklistForm">
+        <!-- The sections container -->
         <div id="sectionsContainer">
-          <!-- Each section is wrapped in a container with a header (collapsible) and content -->
+          <!-- Each section is given a subtle background colour on its header and is collapsible -->
           
-          <!-- Site Setup & Preliminaries -->
-          <div class="mb-8 rounded shadow" data-section="siteSetup">
-            <div class="section-header bg-blue-50 px-4 py-2 flex justify-between items-center" onclick="toggleSection(this)">
+          <!-- Section: Site Setup & Preliminaries -->
+          <div class="mb-8 bg-white shadow rounded" data-section="siteSetup">
+            <div class="flex items-center justify-between bg-yellow-100 px-4 py-2 border-b">
               <h2 class="text-xl font-bold">Site Setup & Preliminaries</h2>
-              <span class="toggle-icon">–</span>
+              <span class="toggle-button" data-target="siteSetup">▼</span>
             </div>
-            <div class="section-content bg-white px-4 py-2">
+            <div class="section-content px-4 py-2">
               <table class="w-full">
                 <thead>
                   <tr>
@@ -58,22 +65,20 @@
                     <th class="px-2 py-1 border w-10">Actions</th>
                   </tr>
                 </thead>
-                <tbody class="section-body">
-                  <!-- Prepopulated rows inserted via JS -->
-                </tbody>
+                <tbody class="section-body"></tbody>
               </table>
               <button type="button" class="mt-2 bg-blue-500 text-white px-3 py-1 rounded add-row" data-section="siteSetup">Add Task</button>
               <div class="mt-2 font-bold">Section Total: $<span class="section-total">0.00</span></div>
             </div>
           </div>
-          
-          <!-- Demolition & Rubbish Removal -->
-          <div class="mb-8 rounded shadow" data-section="demolition">
-            <div class="section-header bg-gray-50 px-4 py-2 flex justify-between items-center" onclick="toggleSection(this)">
+
+          <!-- Section: Demolition & Rubbish Removal -->
+          <div class="mb-8 bg-white shadow rounded" data-section="demolition">
+            <div class="flex items-center justify-between bg-gray-100 px-4 py-2 border-b">
               <h2 class="text-xl font-bold">Demolition & Rubbish Removal</h2>
-              <span class="toggle-icon">–</span>
+              <span class="toggle-button" data-target="demolition">▼</span>
             </div>
-            <div class="section-content bg-white px-4 py-2">
+            <div class="section-content px-4 py-2">
               <table class="w-full">
                 <thead>
                   <tr>
@@ -93,14 +98,14 @@
               <div class="mt-2 font-bold">Section Total: $<span class="section-total">0.00</span></div>
             </div>
           </div>
-          
-          <!-- Asbestos (Hazardous Materials) -->
-          <div class="mb-8 rounded shadow" data-section="asbestos">
-            <div class="section-header bg-red-50 px-4 py-2 flex justify-between items-center" onclick="toggleSection(this)">
+
+          <!-- Section: Asbestos (Hazardous Materials) -->
+          <div class="mb-8 bg-white shadow rounded" data-section="asbestos">
+            <div class="flex items-center justify-between bg-red-100 px-4 py-2 border-b">
               <h2 class="text-xl font-bold">Asbestos (Hazardous Materials)</h2>
-              <span class="toggle-icon">–</span>
+              <span class="toggle-button" data-target="asbestos">▼</span>
             </div>
-            <div class="section-content bg-white px-4 py-2">
+            <div class="section-content px-4 py-2">
               <table class="w-full">
                 <thead>
                   <tr>
@@ -116,18 +121,18 @@
                 </thead>
                 <tbody class="section-body"></tbody>
               </table>
-              <button type="button" class="mt-2 bg-red-500 text-white px-3 py-1 rounded add-row" data-section="asbestos">Add Task</button>
+              <button type="button" class="mt-2 bg-blue-500 text-white px-3 py-1 rounded add-row" data-section="asbestos">Add Task</button>
               <div class="mt-2 font-bold">Section Total: $<span class="section-total">0.00</span></div>
             </div>
           </div>
-          
-          <!-- Carpentry & Structural -->
-          <div class="mb-8 rounded shadow" data-section="carpentry">
-            <div class="section-header bg-green-50 px-4 py-2 flex justify-between items-center" onclick="toggleSection(this)">
+
+          <!-- Section: Carpentry & Structural -->
+          <div class="mb-8 bg-white shadow rounded" data-section="carpentry">
+            <div class="flex items-center justify-between bg-green-100 px-4 py-2 border-b">
               <h2 class="text-xl font-bold">Carpentry & Structural</h2>
-              <span class="toggle-icon">–</span>
+              <span class="toggle-button" data-target="carpentry">▼</span>
             </div>
-            <div class="section-content bg-white px-4 py-2">
+            <div class="section-content px-4 py-2">
               <table class="w-full">
                 <thead>
                   <tr>
@@ -143,18 +148,18 @@
                 </thead>
                 <tbody class="section-body"></tbody>
               </table>
-              <button type="button" class="mt-2 bg-green-500 text-white px-3 py-1 rounded add-row" data-section="carpentry">Add Task</button>
+              <button type="button" class="mt-2 bg-blue-500 text-white px-3 py-1 rounded add-row" data-section="carpentry">Add Task</button>
               <div class="mt-2 font-bold">Section Total: $<span class="section-total">0.00</span></div>
             </div>
           </div>
-          
-          <!-- Plumbing -->
-          <div class="mb-8 rounded shadow" data-section="plumbing">
-            <div class="section-header bg-blue-50 px-4 py-2 flex justify-between items-center" onclick="toggleSection(this)">
+
+          <!-- Section: Plumbing -->
+          <div class="mb-8 bg-white shadow rounded" data-section="plumbing">
+            <div class="flex items-center justify-between bg-blue-100 px-4 py-2 border-b">
               <h2 class="text-xl font-bold">Plumbing</h2>
-              <span class="toggle-icon">–</span>
+              <span class="toggle-button" data-target="plumbing">▼</span>
             </div>
-            <div class="section-content bg-white px-4 py-2">
+            <div class="section-content px-4 py-2">
               <table class="w-full">
                 <thead>
                   <tr>
@@ -174,14 +179,14 @@
               <div class="mt-2 font-bold">Section Total: $<span class="section-total">0.00</span></div>
             </div>
           </div>
-          
-          <!-- Electrical -->
-          <div class="mb-8 rounded shadow" data-section="electrical">
-            <div class="section-header bg-yellow-50 px-4 py-2 flex justify-between items-center" onclick="toggleSection(this)">
+
+          <!-- Section: Electrical -->
+          <div class="mb-8 bg-white shadow rounded" data-section="electrical">
+            <div class="flex items-center justify-between bg-orange-100 px-4 py-2 border-b">
               <h2 class="text-xl font-bold">Electrical</h2>
-              <span class="toggle-icon">–</span>
+              <span class="toggle-button" data-target="electrical">▼</span>
             </div>
-            <div class="section-content bg-white px-4 py-2">
+            <div class="section-content px-4 py-2">
               <table class="w-full">
                 <thead>
                   <tr>
@@ -197,18 +202,18 @@
                 </thead>
                 <tbody class="section-body"></tbody>
               </table>
-              <button type="button" class="mt-2 bg-yellow-500 text-white px-3 py-1 rounded add-row" data-section="electrical">Add Task</button>
+              <button type="button" class="mt-2 bg-blue-500 text-white px-3 py-1 rounded add-row" data-section="electrical">Add Task</button>
               <div class="mt-2 font-bold">Section Total: $<span class="section-total">0.00</span></div>
             </div>
           </div>
-          
-          <!-- Waterproofing -->
-          <div class="mb-8 rounded shadow" data-section="waterproofing">
-            <div class="section-header bg-indigo-50 px-4 py-2 flex justify-between items-center" onclick="toggleSection(this)">
+
+          <!-- Section: Waterproofing -->
+          <div class="mb-8 bg-white shadow rounded" data-section="waterproofing">
+            <div class="flex items-center justify-between bg-teal-100 px-4 py-2 border-b">
               <h2 class="text-xl font-bold">Waterproofing</h2>
-              <span class="toggle-icon">–</span>
+              <span class="toggle-button" data-target="waterproofing">▼</span>
             </div>
-            <div class="section-content bg-white px-4 py-2">
+            <div class="section-content px-4 py-2">
               <table class="w-full">
                 <thead>
                   <tr>
@@ -224,18 +229,18 @@
                 </thead>
                 <tbody class="section-body"></tbody>
               </table>
-              <button type="button" class="mt-2 bg-indigo-500 text-white px-3 py-1 rounded add-row" data-section="waterproofing">Add Task</button>
+              <button type="button" class="mt-2 bg-blue-500 text-white px-3 py-1 rounded add-row" data-section="waterproofing">Add Task</button>
               <div class="mt-2 font-bold">Section Total: $<span class="section-total">0.00</span></div>
             </div>
           </div>
-          
-          <!-- Tiling -->
-          <div class="mb-8 rounded shadow" data-section="tiling">
-            <div class="section-header bg-purple-50 px-4 py-2 flex justify-between items-center" onclick="toggleSection(this)">
+
+          <!-- Section: Tiling -->
+          <div class="mb-8 bg-white shadow rounded" data-section="tiling">
+            <div class="flex items-center justify-between bg-purple-100 px-4 py-2 border-b">
               <h2 class="text-xl font-bold">Tiling</h2>
-              <span class="toggle-icon">–</span>
+              <span class="toggle-button" data-target="tiling">▼</span>
             </div>
-            <div class="section-content bg-white px-4 py-2">
+            <div class="section-content px-4 py-2">
               <table class="w-full">
                 <thead>
                   <tr>
@@ -251,18 +256,18 @@
                 </thead>
                 <tbody class="section-body"></tbody>
               </table>
-              <button type="button" class="mt-2 bg-purple-500 text-white px-3 py-1 rounded add-row" data-section="tiling">Add Task</button>
+              <button type="button" class="mt-2 bg-blue-500 text-white px-3 py-1 rounded add-row" data-section="tiling">Add Task</button>
               <div class="mt-2 font-bold">Section Total: $<span class="section-total">0.00</span></div>
             </div>
           </div>
-          
-          <!-- Painting & Finishes -->
-          <div class="mb-8 rounded shadow" data-section="painting">
-            <div class="section-header bg-pink-50 px-4 py-2 flex justify-between items-center" onclick="toggleSection(this)">
+
+          <!-- Section: Painting & Finishes -->
+          <div class="mb-8 bg-white shadow rounded" data-section="painting">
+            <div class="flex items-center justify-between bg-pink-100 px-4 py-2 border-b">
               <h2 class="text-xl font-bold">Painting & Finishes</h2>
-              <span class="toggle-icon">–</span>
+              <span class="toggle-button" data-target="painting">▼</span>
             </div>
-            <div class="section-content bg-white px-4 py-2">
+            <div class="section-content px-4 py-2">
               <table class="w-full">
                 <thead>
                   <tr>
@@ -278,18 +283,18 @@
                 </thead>
                 <tbody class="section-body"></tbody>
               </table>
-              <button type="button" class="mt-2 bg-pink-500 text-white px-3 py-1 rounded add-row" data-section="painting">Add Task</button>
+              <button type="button" class="mt-2 bg-blue-500 text-white px-3 py-1 rounded add-row" data-section="painting">Add Task</button>
               <div class="mt-2 font-bold">Section Total: $<span class="section-total">0.00</span></div>
             </div>
           </div>
-          
-          <!-- Glazing & Fixtures -->
-          <div class="mb-8 rounded shadow" data-section="glazing">
-            <div class="section-header bg-teal-50 px-4 py-2 flex justify-between items-center" onclick="toggleSection(this)">
+
+          <!-- Section: Glazing & Fixtures -->
+          <div class="mb-8 bg-white shadow rounded" data-section="glazing">
+            <div class="flex items-center justify-between bg-indigo-100 px-4 py-2 border-b">
               <h2 class="text-xl font-bold">Glazing & Fixtures</h2>
-              <span class="toggle-icon">–</span>
+              <span class="toggle-button" data-target="glazing">▼</span>
             </div>
-            <div class="section-content bg-white px-4 py-2">
+            <div class="section-content px-4 py-2">
               <table class="w-full">
                 <thead>
                   <tr>
@@ -305,18 +310,18 @@
                 </thead>
                 <tbody class="section-body"></tbody>
               </table>
-              <button type="button" class="mt-2 bg-teal-500 text-white px-3 py-1 rounded add-row" data-section="glazing">Add Task</button>
+              <button type="button" class="mt-2 bg-blue-500 text-white px-3 py-1 rounded add-row" data-section="glazing">Add Task</button>
               <div class="mt-2 font-bold">Section Total: $<span class="section-total">0.00</span></div>
             </div>
           </div>
-          
-          <!-- Final Fit-Off & Accessories -->
-          <div class="mb-8 rounded shadow" data-section="finalFitOff">
-            <div class="section-header bg-orange-50 px-4 py-2 flex justify-between items-center" onclick="toggleSection(this)">
+
+          <!-- Section: Final Fit-Off & Accessories -->
+          <div class="mb-8 bg-white shadow rounded" data-section="finalFitOff">
+            <div class="flex items-center justify-between bg-lime-100 px-4 py-2 border-b">
               <h2 class="text-xl font-bold">Final Fit-Off & Accessories</h2>
-              <span class="toggle-icon">–</span>
+              <span class="toggle-button" data-target="finalFitOff">▼</span>
             </div>
-            <div class="section-content bg-white px-4 py-2">
+            <div class="section-content px-4 py-2">
               <table class="w-full">
                 <thead>
                   <tr>
@@ -332,18 +337,18 @@
                 </thead>
                 <tbody class="section-body"></tbody>
               </table>
-              <button type="button" class="mt-2 bg-orange-500 text-white px-3 py-1 rounded add-row" data-section="finalFitOff">Add Task</button>
+              <button type="button" class="mt-2 bg-blue-500 text-white px-3 py-1 rounded add-row" data-section="finalFitOff">Add Task</button>
               <div class="mt-2 font-bold">Section Total: $<span class="section-total">0.00</span></div>
             </div>
           </div>
-          
-          <!-- Hidden/Unforeseen Work & Contingency -->
-          <div class="mb-8 rounded shadow" data-section="contingency">
-            <div class="section-header bg-red-100 px-4 py-2 flex justify-between items-center" onclick="toggleSection(this)">
+
+          <!-- Section: Hidden/Unforeseen Work & Contingency -->
+          <div class="mb-8 bg-white shadow rounded" data-section="contingency">
+            <div class="flex items-center justify-between bg-red-200 px-4 py-2 border-b">
               <h2 class="text-xl font-bold">Hidden/Unforeseen Work & Contingency</h2>
-              <span class="toggle-icon">–</span>
+              <span class="toggle-button" data-target="contingency">▼</span>
             </div>
-            <div class="section-content bg-white px-4 py-2">
+            <div class="section-content px-4 py-2">
               <table class="w-full">
                 <thead>
                   <tr>
@@ -359,46 +364,37 @@
                 </thead>
                 <tbody class="section-body"></tbody>
               </table>
-              <button type="button" class="mt-2 bg-red-500 text-white px-3 py-1 rounded add-row" data-section="contingency">Add Task</button>
+              <button type="button" class="mt-2 bg-blue-500 text-white px-3 py-1 rounded add-row" data-section="contingency">Add Task</button>
               <div class="mt-2 font-bold">Section Total: $<span class="section-total">0.00</span></div>
             </div>
           </div>
-          
-          <!-- Total Summary Section -->
-          <div class="mb-8 rounded shadow" data-section="summary">
-            <div class="section-header bg-gray-200 px-4 py-2 flex justify-between items-center" onclick="toggleSection(this)">
+
+          <!-- New Section: Total -->
+          <div class="mb-8 bg-white shadow rounded" data-section="total">
+            <div class="flex items-center justify-between bg-indigo-50 px-4 py-2 border-b">
               <h2 class="text-xl font-bold">Total</h2>
-              <span class="toggle-icon">–</span>
             </div>
-            <div class="section-content bg-white px-4 py-2">
-              <div class="flex justify-between py-1">
-                <span class="font-bold">Total Price:</span>
-                <span>$<span id="summaryTotal">0.00</span></span>
-              </div>
-              <div class="flex justify-between py-1">
-                <span class="font-bold">GST (10%):</span>
-                <span>$<span id="summaryGST">0.00</span></span>
-              </div>
-              <div class="flex justify-between py-1">
-                <span class="font-bold">Total + GST:</span>
-                <span>$<span id="summaryTotalGST">0.00</span></span>
+            <div class="section-content px-4 py-2">
+              <div class="flex justify-end space-x-4 text-lg">
+                <div>Total Price: $<span id="totalPrice">0.00</span></div>
+                <div>GST (10%): $<span id="gstAmount">0.00</span></div>
+                <div>Total + GST: $<span id="totalWithGst">0.00</span></div>
               </div>
             </div>
           </div>
-          
-          <!-- Client & Access Notes -->
-          <div class="mb-8 rounded shadow" data-section="clientNotes">
-            <div class="section-header bg-gray-50 px-4 py-2 flex justify-between items-center" onclick="toggleSection(this)">
+
+          <!-- Section: Client & Access Notes -->
+          <div class="mb-8 bg-white shadow rounded" data-section="clientNotes">
+            <div class="flex items-center justify-between bg-gray-50 px-4 py-2 border-b">
               <h2 class="text-xl font-bold">Client & Access Notes</h2>
-              <span class="toggle-icon">–</span>
             </div>
-            <div class="section-content bg-white px-4 py-2">
+            <div class="section-content px-4 py-2">
               <textarea class="w-full border p-2" id="clientNotes" rows="8" placeholder="Enter any client, access, or additional notes here..."></textarea>
             </div>
           </div>
         </div>
       </form>
-      
+
       <div class="flex flex-col md:flex-row justify-end space-y-2 md:space-y-0 md:space-x-2 mt-4">
         <button id="exportCSV" class="bg-green-500 text-white px-4 py-2 rounded">Export CSV</button>
         <button id="exportPDF" class="bg-purple-500 text-white px-4 py-2 rounded">Export PDF</button>
@@ -406,7 +402,7 @@
       <div class="mt-4 text-right font-bold">Overall Total: $<span id="overallTotal">0.00</span></div>
     </div>
   </div>
-  
+
   <!-- Row Template for adding tasks -->
   <template id="rowTemplate">
     <tr class="row">
@@ -419,8 +415,8 @@
       <td class="border px-2 py-1">
         <input type="number" step="any" class="w-full quantity" placeholder="0" />
       </td>
-      <td class="border px-2 py-1">
-        <select class="unit-select block w-full text-center p-1 border rounded">
+      <td class="border px-2 py-1 relative">
+        <select class="unit-select p-1 border rounded" style="width: 100%;">
           <option value="LM">LM</option>
           <option value="Sqm">Sqm</option>
           <option value="ea" selected>ea</option>
@@ -439,11 +435,278 @@
       </td>
     </tr>
   </template>
-  
+
   <script>
-    // Default tasks for each section
+    // Default tasks for each section (prepopulated)
     const defaultTasks = {
       siteSetup: [
         { task: "Protect existing areas", description: "Install floor protection in hallway and cover furniture (Preparation to prevent damage to other areas during works)." },
         { task: "Establish site facilities", description: "Deliver skip bin and site toilet (Ordering a skip for waste and portable toilet if needed for trades)." },
-        {
+        { task: "Safety setup", description: "Isolate power/water, set up dust barriers (Shut off utilities as needed, plastic dust sheets over doorways)." },
+        { task: "Access arrangements", description: "Client to provide access keys, parking permit for van (Notes on how trades will access the site, where to park, etc.)." }
+      ],
+      demolition: [
+        { task: "Remove fixtures", description: "Remove existing toilet, vanity, shower screen (for three fixtures, remove by labourer)." },
+        { task: "Strip wall tiles", description: "Remove wall tiles and plaster back to studs (upper walls); may expose asbestos." },
+        { task: "Strip floor tiles", description: "Jackhammer up floor tiles and bedding; include removal of tile bed/screed if applicable." },
+        { task: "Remove bath or spa", description: "Demolish and remove bathtub (cutting out tub and disposing)." },
+        { task: "Remove fittings/accessories", description: "Take out mirror, towel rails, shower head, tapware (small items may be grouped)." },
+        { task: "Initial plumbing & electrical isolations", description: "Cap off plumbing services and make safe electrical (temporary isolation during demolition)." },
+        { task: "Rubbish disposal", description: "Load debris into skip bin (include dumping fees and disposal)." }
+      ],
+      asbestos: [
+        { task: "Asbestos testing", description: "Test wall sheeting and flooring for asbestos (send samples to lab)." },
+        { task: "Remove asbestos wall linings", description: "Licensed removal of asbestos cement wall panels (if applicable)." },
+        { task: "Remove asbestos flooring", description: "Lift old vinyl flooring with asbestos backing (if applicable)." },
+        { task: "Disposal and clearance", description: "Dispose of asbestos waste and obtain clearance certificate." }
+      ],
+      carpentry: [
+        { task: "Repair/replace subfloor", description: "Replace rotten subfloor sections if demo reveals water damage." },
+        { task: "Frame modifications", description: "Modify wall framing for niche and plumbing (cut/insert framing for shower niche or moving studs)." },
+        { task: "Door adjustments", description: "Widen doorway to 820mm for accessibility (may require new jamb or door)." },
+        { task: "Shower hob or floor recess", description: "Construct shower hob (100mm height) or recess floor for hobless shower (if designing accessible shower)." },
+        { task: "Wall re-sheeting", description: "Install new wall boards (villaboard in wet areas, plaster elsewhere)." },
+        { task: "Ceiling works", description: "Install new ceiling plasterboard and cornice (if ceiling damaged or requires replacement)." },
+        { task: "Install fixtures (carpentry)", description: "Install vanity cabinet and mirror cabinet (securely fix to wall)." },
+        { task: "Backblocking for grab rails", description: "Install noggins in walls for future grab rails (as per AS1428)." },
+        { task: "Other structural modifications", description: "Re-frame window opening or install support for wall-hung toilet cistern as required." }
+      ],
+      plumbing: [
+        { task: "Relocate sewer drain for shower/toilet", description: "Relocate sewer drain if fixture position is moved; note LM of new drain line if needed." },
+        { task: "Run new water lines", description: "Run new hot/cold water lines (copper/PEX) to fixtures; measure total LM." },
+        { task: "Install new floor waste drain", description: "Install or relocate floor waste drain as required." },
+        { task: "Upgrade shower plumbing", description: "Adjust plumbing for shower mixer and rainhead installation." },
+        { task: "Install plumbing for bathtub", description: "Rough-in plumbing for bathtub (waste and filler connections)." },
+        { task: "Fit off new toilet suite", description: "Install new toilet, ensuring proper seals and connections." },
+        { task: "Fit off vanity taps and waste", description: "Install and connect new vanity taps and waste trap." },
+        { task: "Install shower fittings", description: "Fit off shower mixer, head, and rail." },
+        { task: "Connect washing machine taps", description: "Connect washing machine taps if located in bathroom." },
+        { task: "Pressure-limiting valve installation", description: "Install pressure-limiting valve on mains to protect tapware." },
+        { task: "Replace old stopcocks/isolators", description: "Upgrade old valves at fixtures as needed." },
+        { task: "New floor trap with puddle flange", description: "Install new floor trap with puddle flange for wet areas." },
+        { task: "Test and certify plumbing work", description: "Conduct pressure tests and issue compliance certificate." },
+        { task: "Accessible modifications (plumbing)", description: "Install hand-held shower on rail and adjust basin height for wheelchair access; ensure tempering valve is used." }
+      ],
+      electrical: [
+        { task: "Rough-in wiring for ceiling light and exhaust fan", description: "Run new wiring for ceiling light and exhaust fan." },
+        { task: "Add power outlet next to vanity", description: "Install new power outlet next to vanity, including wiring and outlet hardware." },
+        { task: "Wire for heated towel rail", description: "Install wiring for heated towel rail (may need dedicated circuit)." },
+        { task: "Install heat lamp / IXL unit", description: "Install combined heat lamp/exhaust fan/light unit, including wiring and switch installation." },
+        { task: "Move light switch to outside room", description: "Relocate light switch if necessary for safety compliance." },
+        { task: "Install LED downlights", description: "Install LED downlights and connect to circuit." },
+        { task: "Install exhaust fan unit and ducting", description: "Install new exhaust fan, including ducting to roof vent if required." },
+        { task: "Fit off new power outlet (post-paint)", description: "Final connection and installation of power outlet in vanity area." },
+        { task: "Connect heated towel rail and test", description: "Connect heated towel rail, test functionality and ensure safety." },
+        { task: "Replace circuit breaker with RCD", description: "Upgrade circuit breaker to include RCD for bathroom safety." },
+        { task: "Bonding/grounding as required", description: "Perform bonding and grounding of electrical circuits and metal pipes." },
+        { task: "Install mirror light with sensor", description: "Install mirror light with sensor, if required." },
+        { task: "Certificate of Electrical Safety", description: "Obtain and file certificate of electrical safety post-installation." }
+      ],
+      waterproofing: [
+        { task: "Prep for waterproofing", description: "Apply primer to floor and wall surfaces in wet areas." },
+        { task: "Waterproof shower area", description: "Apply 2-coat waterproof membrane to shower walls (1800mm high) and floor." },
+        { task: "Waterproof entire bathroom floor", description: "Waterproof full bathroom floor area if required by code." },
+        { task: "Seal wet area penetrations", description: "Seal around pipes and drains with waterproof collars." },
+        { task: "Install waterstop angle at door", description: "Install waterstop angle at bathroom doorway to prevent water ingress." }
+      ],
+      tiling: [
+        { task: "Floor screed", description: "Screed bathroom floor to create proper falls towards drain." },
+        { task: "Lay floor tiles", description: "Install floor tiles (e.g., 300x300 porcelain), including mosaic areas if applicable." },
+        { task: "Tile shower walls (full height)", description: "Tile shower walls full height (e.g., 2.1m high) with ceramic tiles." },
+        { task: "Tile walls (half height)", description: "Tile remaining walls up to 1.2m (wainscot) if specified." },
+        { task: "Finish niche interior with mosaic tile", description: "Tile niche interior with mosaic tile for a decorative finish." },
+        { task: "Grouting", description: "Apply grout to all tiled surfaces (ensure colour-matched grout)." },
+        { task: "Silicone seal", description: "Apply silicone sealant to all edges and corners after grouting." },
+        { task: "Install aluminum trim on external corners", description: "Install tile edging with aluminum trim on external corners." },
+        { task: "Clean and seal tiles", description: "Acid wash and seal tiles if required (especially for porous stone)." }
+      ],
+      painting: [
+        { task: "Paint ceiling", description: "Prep and paint ceiling using bathroom grade, mold-resistant paint." },
+        { task: "Paint walls above tile line", description: "Paint upper walls above the tile line with suitable interior paint." },
+        { task: "Paint door & trim", description: "Paint entry door and door frame (both sides) after removing hardware." },
+        { task: "Paint window frame", description: "Repaint window architrave/sill as required." },
+        { task: "Touch up new woodwork", description: "Paint any new woodwork such as cupboards or access panels." },
+        { task: "Apply decorative finish", description: "Apply waterproof wallpaper or install wall panels for a feature wall if applicable." }
+      ],
+      glazing: [
+        { task: "Supply & install shower screen", description: "Measure, supply, and install frameless/toughened glass shower screen." },
+        { task: "Install fixed mirror above vanity", description: "Install fixed mirror above vanity (custom size, e.g., 600x900mm)." },
+        { task: "Install glass shelf or additional elements", description: "Install any additional glass elements such as shelves or blocks." },
+        { task: "Replace window glass in shower area", description: "Replace window glass with frosted safety glass if needed." }
+      ],
+      finalFitOff: [
+        { task: "Install accessories", description: "Install various bathroom accessories (towel rails, robe hooks, toilet roll holder)." },
+        { task: "Install grab rails", description: "Install grab rails at shower and toilet areas (per accessibility requirements)." },
+        { task: "Install shower curtain rod/screen seal", description: "Install shower curtain rod or seal if applicable." },
+        { task: "Install bath accessories", description: "Install additional bath accessories like shower shelf or caddy." },
+        { task: "Final silicon touch-ups/caulking", description: "Perform final silicon caulking around fixtures and edges." },
+        { task: "Builders final cleaning", description: "Conduct final cleaning and debris removal after renovation work." }
+      ],
+      contingency: [
+        { task: "Provisional sum – Asbestos removal", description: "Set provisional allowance for asbestos removal if discovered." },
+        { task: "Provisional sum – Subfloor repair", description: "Allowance for replacing rotten subfloor sections or joists if needed." },
+        { task: "Provisional sum – Electrical upgrade", description: "Allowance for upgrading switchboard or RCD if necessary." },
+        { task: "Provisional sum – Hidden plumbing issues", description: "Allowance for re-routing drain or addressing unseen plumbing issues." },
+        { task: "Provisional sum – Structural reinforcement", description: "Allowance for adding stud framing or reinforcing floor for heavy fixtures." },
+        { task: "Provisional sum – Other unforeseen issues", description: "Allowance for any additional hidden issues (e.g., dry rot, substrate problems)." }
+      ]
+    };
+
+    // Format a number to currency format (2 decimals)
+    function formatCurrency(num) {
+      return parseFloat(num).toFixed(2);
+    }
+
+    // Update a single row's total using: Total = (Quantity * Price) + Material Cost
+    function updateRowTotal(row) {
+      const quantity = parseFloat(row.querySelector('.quantity').value) || 0;
+      const price = parseFloat(row.querySelector('.price').value) || 0;
+      const materialCost = parseFloat(row.querySelector('.material-cost').value) || 0;
+      let total = (quantity * price) + materialCost;
+      row.querySelector('.total-task').innerText = formatCurrency(total);
+      row.querySelector('.total-task').setAttribute('data-total', total);
+    }
+
+    // Update the total for a section
+    function updateSectionTotal(sectionBody) {
+      let sectionTotal = 0;
+      sectionBody.querySelectorAll('.row').forEach(row => {
+        updateRowTotal(row);
+        sectionTotal += parseFloat(row.querySelector('.total-task').getAttribute('data-total')) || 0;
+      });
+      const sectionDiv = sectionBody.closest('[data-section]');
+      sectionDiv.querySelector('.section-total').innerText = formatCurrency(sectionTotal);
+      updateOverallTotal();
+    }
+
+    // Update overall total and recalc Total Section
+    function updateOverallTotal() {
+      let overall = 0;
+      document.querySelectorAll('.section-total').forEach(span => {
+        overall += parseFloat(span.innerText) || 0;
+      });
+      document.getElementById('overallTotal').innerText = formatCurrency(overall);
+      updateTotalSection(overall);
+    }
+
+    // Update the Total section with GST calculations (GST 10%)
+    function updateTotalSection(total) {
+      document.getElementById('totalPrice').innerText = formatCurrency(total);
+      const gst = total * 0.10;
+      document.getElementById('gstAmount').innerText = formatCurrency(gst);
+      document.getElementById('totalWithGst').innerText = formatCurrency(total + gst);
+    }
+
+    // Add a new row to a section; defaultData is optional
+    function addRow(sectionName, defaultData) {
+      const sectionDiv = document.querySelector(`[data-section="${sectionName}"]`);
+      const tbody = sectionDiv.querySelector('.section-body');
+      const template = document.getElementById('rowTemplate').content.cloneNode(true);
+      if (defaultData) {
+        template.querySelector('.task').value = defaultData.task || "";
+        template.querySelector('.description').value = defaultData.description || "";
+      }
+      tbody.appendChild(template);
+      updateSectionTotal(tbody);
+    }
+
+    // Delete a row when the delete button is clicked
+    document.addEventListener('click', function(e) {
+      if (e.target && e.target.classList.contains('delete-row')) {
+        const row = e.target.closest('.row');
+        const tbody = row.parentElement;
+        row.remove();
+        updateSectionTotal(tbody);
+      }
+    });
+
+    // Listen for input changes to update totals live (quantity, price, material-cost)
+    document.addEventListener('input', function(e) {
+      if (e.target.matches('.quantity, .price, .material-cost')) {
+        const row = e.target.closest('.row');
+        updateRowTotal(row);
+        updateSectionTotal(row.parentElement);
+      }
+    });
+
+    // Attach event listeners to "Add Task" buttons
+    document.querySelectorAll('.add-row').forEach(button => {
+      button.addEventListener('click', function() {
+        const sectionName = this.getAttribute('data-section');
+        addRow(sectionName);
+      });
+    });
+
+    // Toggle collapse/expand for each section
+    document.querySelectorAll('.toggle-button').forEach(button => {
+      button.addEventListener('click', function() {
+        const targetSection = this.getAttribute('data-target');
+        const sectionDiv = document.querySelector(`[data-section="${targetSection}"]`);
+        const content = sectionDiv.querySelector('.section-content');
+        if (content.classList.contains('hidden')) {
+          content.classList.remove('hidden');
+          this.innerText = "▼";
+        } else {
+          content.classList.add('hidden');
+          this.innerText = "▲";
+        }
+      });
+    });
+
+    // Export the checklist as CSV
+    document.getElementById('exportCSV').addEventListener('click', function() {
+      let csvContent = "data:text/csv;charset=utf-8,";
+      const sections = document.querySelectorAll('[data-section]');
+      sections.forEach(sectionDiv => {
+        if (sectionDiv.getAttribute('data-section') === 'clientNotes') return;
+        if (sectionDiv.getAttribute('data-section') === 'total') return;
+        csvContent += '"' + sectionDiv.querySelector('h2').innerText + '"\n';
+        csvContent += '"Task","Description","Quantity","Unit","Price","Material Cost","Total Task Cost"\n';
+        sectionDiv.querySelectorAll('.row').forEach(row => {
+          const task = row.querySelector('.task').value;
+          const desc = row.querySelector('.description').value;
+          const quantity = row.querySelector('.quantity').value;
+          const unit = row.querySelector('select').value;
+          const price = row.querySelector('.price').value;
+          const materialCost = row.querySelector('.material-cost').value;
+          const total = row.querySelector('.total-task').innerText;
+          csvContent += `"${task}","${desc}",${quantity},${unit},${price},${materialCost},${total}\n`;
+        });
+        csvContent += "\n";
+      });
+      csvContent += `"Overall Total",,,,,,"` + document.getElementById('overallTotal').innerText + `"\n`;
+      const encodedUri = encodeURI(csvContent);
+      const link = document.createElement("a");
+      link.setAttribute("href", encodedUri);
+      link.setAttribute("download", "bathroom_renovation_checklist.csv");
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    });
+
+    // Export the checklist as PDF using html2pdf.js
+    document.getElementById('exportPDF').addEventListener('click', function() {
+      const element = document.getElementById('app');
+      const opt = {
+        margin: 0.5,
+        filename: 'bathroom_renovation_checklist.pdf',
+        image: { type: 'jpeg', quality: 0.98 },
+        html2canvas: { scale: 2 },
+        jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+      };
+      html2pdf().set(opt).from(element).save();
+    });
+
+    // Prepopulate sections with default tasks on page load
+    document.addEventListener("DOMContentLoaded", function() {
+      Object.keys(defaultTasks).forEach(section => {
+        if (defaultTasks[section].length) {
+          defaultTasks[section].forEach(taskObj => {
+            addRow(section, taskObj);
+          });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
