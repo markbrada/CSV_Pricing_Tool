@@ -22,28 +22,30 @@
       width: 100%;
       text-align-last: center;
     }
-    /* Dark Mode overrides can be added here if needed */
+    /* Toggle button styling */
+    .toggle-button {
+      cursor: pointer;
+      user-select: none;
+      font-weight: bold;
+      margin-left: 0.5rem;
+    }
   </style>
 </head>
-<body class="bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-100">
+<body class="bg-gray-100 text-gray-800">
   <div class="container mx-auto p-4">
-    <!-- Header with relative positioning for the Dark Mode toggle -->
-    <div class="relative">
-      <header class="mb-4">
-        <h1 class="text-3xl font-bold text-center">Bathroom Renovation Checklist</h1>
-        <p class="text-center text-gray-600 dark:text-gray-300">
-          Pre-release Preview – features subject to change. Always check your work. Report bugs to Marco.
-        </p>
-      </header>
-      <button id="toggleDarkMode" class="absolute top-0 right-0 mt-2 mr-2 bg-gray-200 text-gray-800 dark:bg-gray-700 dark:text-gray-200 px-4 py-2 rounded">Dark Mode</button>
-    </div>
+    <header class="mb-4">
+      <h1 class="text-3xl font-bold text-center">Bathroom Renovation Checklist</h1>
+      <p class="text-center text-gray-600">
+        Pre-release Preview – features subject to change. Always check your work. Report bugs to Marco.
+      </p>
+    </header>
     <div id="app">
       <form id="checklistForm">
         <!-- The sections container -->
         <div id="sectionsContainer">
           <!-- Section: Site Setup & Preliminaries -->
           <div class="mb-8 bg-white shadow rounded" data-section="siteSetup">
-            <div class="flex items-center justify-between bg-yellow-100 px-4 py-2 border-b">
+            <div class="flex items-center justify-between bg-yellow-100 px-4 py-2 border-b border-gray-300">
               <h2 class="text-xl font-bold">Site Setup & Preliminaries</h2>
               <span class="toggle-button" data-target="siteSetup">▼</span>
             </div>
@@ -51,26 +53,28 @@
               <table class="w-full">
                 <thead>
                   <tr>
-                    <th class="px-2 py-1 border w-1/6">Task</th>
-                    <th class="px-2 py-1 border w-1/2">Description</th>
-                    <th class="px-2 py-1 border w-16 bg-gray-200">Quantity</th>
-                    <th class="px-2 py-1 border w-24 bg-gray-200">Unit</th>
-                    <th class="px-2 py-1 border w-16 bg-gray-200">Price</th>
-                    <th class="px-2 py-1 border w-20 bg-gray-300">Material Cost</th>
-                    <th class="px-2 py-1 border w-20">Total</th>
-                    <th class="px-2 py-1 border w-10">Actions</th>
+                    <th class="px-2 py-1 border border-gray-300 w-1/6">Task</th>
+                    <th class="px-2 py-1 border border-gray-300 w-1/2">Description</th>
+                    <th class="px-2 py-1 border border-gray-300 w-16 bg-gray-200">Quantity</th>
+                    <th class="px-2 py-1 border border-gray-300 w-24 bg-gray-200">Unit</th>
+                    <th class="px-2 py-1 border border-gray-300 w-16 bg-gray-200">Price</th>
+                    <th class="px-2 py-1 border border-gray-300 w-20 bg-gray-300">Material Cost</th>
+                    <th class="px-2 py-1 border border-gray-300 w-20">Total</th>
+                    <th class="px-2 py-1 border border-gray-300 w-10">Actions</th>
                   </tr>
                 </thead>
-                <tbody class="section-body"></tbody>
+                <tbody class="section-body">
+                  <!-- Prepopulated rows will appear here -->
+                </tbody>
               </table>
               <button type="button" class="mt-2 bg-blue-500 text-white px-3 py-1 rounded add-row" data-section="siteSetup">Add Task</button>
-              <div class="mt-2 font-bold">Section Total: $<span class="section-total">0.00</span></div>
+              <div class="mt-2 text-right font-bold">Section Total: $<span class="section-total">0.00</span></div>
             </div>
           </div>
 
           <!-- Section: Demolition & Rubbish Removal -->
           <div class="mb-8 bg-white shadow rounded" data-section="demolition">
-            <div class="flex items-center justify-between bg-gray-100 px-4 py-2 border-b">
+            <div class="flex items-center justify-between bg-gray-100 px-4 py-2 border-b border-gray-300">
               <h2 class="text-xl font-bold">Demolition & Rubbish Removal</h2>
               <span class="toggle-button" data-target="demolition">▼</span>
             </div>
@@ -78,26 +82,26 @@
               <table class="w-full">
                 <thead>
                   <tr>
-                    <th class="px-2 py-1 border w-1/6">Task</th>
-                    <th class="px-2 py-1 border w-1/2">Description</th>
-                    <th class="px-2 py-1 border w-16 bg-gray-200">Quantity</th>
-                    <th class="px-2 py-1 border w-24 bg-gray-200">Unit</th>
-                    <th class="px-2 py-1 border w-16 bg-gray-200">Price</th>
-                    <th class="px-2 py-1 border w-20 bg-gray-300">Material Cost</th>
-                    <th class="px-2 py-1 border w-20">Total</th>
-                    <th class="px-2 py-1 border w-10">Actions</th>
+                    <th class="px-2 py-1 border border-gray-300 w-1/6">Task</th>
+                    <th class="px-2 py-1 border border-gray-300 w-1/2">Description</th>
+                    <th class="px-2 py-1 border border-gray-300 w-16 bg-gray-200">Quantity</th>
+                    <th class="px-2 py-1 border border-gray-300 w-24 bg-gray-200">Unit</th>
+                    <th class="px-2 py-1 border border-gray-300 w-16 bg-gray-200">Price</th>
+                    <th class="px-2 py-1 border border-gray-300 w-20 bg-gray-300">Material Cost</th>
+                    <th class="px-2 py-1 border border-gray-300 w-20">Total</th>
+                    <th class="px-2 py-1 border border-gray-300 w-10">Actions</th>
                   </tr>
                 </thead>
                 <tbody class="section-body"></tbody>
               </table>
               <button type="button" class="mt-2 bg-blue-500 text-white px-3 py-1 rounded add-row" data-section="demolition">Add Task</button>
-              <div class="mt-2 font-bold">Section Total: $<span class="section-total">0.00</span></div>
+              <div class="mt-2 text-right font-bold">Section Total: $<span class="section-total">0.00</span></div>
             </div>
           </div>
 
           <!-- Section: Asbestos (Hazardous Materials) -->
           <div class="mb-8 bg-white shadow rounded" data-section="asbestos">
-            <div class="flex items-center justify-between bg-red-100 px-4 py-2 border-b">
+            <div class="flex items-center justify-between bg-red-100 px-4 py-2 border-b border-gray-300">
               <h2 class="text-xl font-bold">Asbestos (Hazardous Materials)</h2>
               <span class="toggle-button" data-target="asbestos">▼</span>
             </div>
@@ -105,26 +109,26 @@
               <table class="w-full">
                 <thead>
                   <tr>
-                    <th class="px-2 py-1 border w-1/6">Task</th>
-                    <th class="px-2 py-1 border w-1/2">Description</th>
-                    <th class="px-2 py-1 border w-16 bg-gray-200">Quantity</th>
-                    <th class="px-2 py-1 border w-24 bg-gray-200">Unit</th>
-                    <th class="px-2 py-1 border w-16 bg-gray-200">Price</th>
-                    <th class="px-2 py-1 border w-20 bg-gray-300">Material Cost</th>
-                    <th class="px-2 py-1 border w-20">Total</th>
-                    <th class="px-2 py-1 border w-10">Actions</th>
+                    <th class="px-2 py-1 border border-gray-300 w-1/6">Task</th>
+                    <th class="px-2 py-1 border border-gray-300 w-1/2">Description</th>
+                    <th class="px-2 py-1 border border-gray-300 w-16 bg-gray-200">Quantity</th>
+                    <th class="px-2 py-1 border border-gray-300 w-24 bg-gray-200">Unit</th>
+                    <th class="px-2 py-1 border border-gray-300 w-16 bg-gray-200">Price</th>
+                    <th class="px-2 py-1 border border-gray-300 w-20 bg-gray-300">Material Cost</th>
+                    <th class="px-2 py-1 border border-gray-300 w-20">Total</th>
+                    <th class="px-2 py-1 border border-gray-300 w-10">Actions</th>
                   </tr>
                 </thead>
                 <tbody class="section-body"></tbody>
               </table>
               <button type="button" class="mt-2 bg-blue-500 text-white px-3 py-1 rounded add-row" data-section="asbestos">Add Task</button>
-              <div class="mt-2 font-bold">Section Total: $<span class="section-total">0.00</span></div>
+              <div class="mt-2 text-right font-bold">Section Total: $<span class="section-total">0.00</span></div>
             </div>
           </div>
 
           <!-- Section: Carpentry & Structural -->
           <div class="mb-8 bg-white shadow rounded" data-section="carpentry">
-            <div class="flex items-center justify-between bg-green-100 px-4 py-2 border-b">
+            <div class="flex items-center justify-between bg-green-100 px-4 py-2 border-b border-gray-300">
               <h2 class="text-xl font-bold">Carpentry & Structural</h2>
               <span class="toggle-button" data-target="carpentry">▼</span>
             </div>
@@ -132,26 +136,26 @@
               <table class="w-full">
                 <thead>
                   <tr>
-                    <th class="px-2 py-1 border w-1/6">Task</th>
-                    <th class="px-2 py-1 border w-1/2">Description</th>
-                    <th class="px-2 py-1 border w-16 bg-gray-200">Quantity</th>
-                    <th class="px-2 py-1 border w-24 bg-gray-200">Unit</th>
-                    <th class="px-2 py-1 border w-16 bg-gray-200">Price</th>
-                    <th class="px-2 py-1 border w-20 bg-gray-300">Material Cost</th>
-                    <th class="px-2 py-1 border w-20">Total</th>
-                    <th class="px-2 py-1 border w-10">Actions</th>
+                    <th class="px-2 py-1 border border-gray-300 w-1/6">Task</th>
+                    <th class="px-2 py-1 border border-gray-300 w-1/2">Description</th>
+                    <th class="px-2 py-1 border border-gray-300 w-16 bg-gray-200">Quantity</th>
+                    <th class="px-2 py-1 border border-gray-300 w-24 bg-gray-200">Unit</th>
+                    <th class="px-2 py-1 border border-gray-300 w-16 bg-gray-200">Price</th>
+                    <th class="px-2 py-1 border border-gray-300 w-20 bg-gray-300">Material Cost</th>
+                    <th class="px-2 py-1 border border-gray-300 w-20">Total</th>
+                    <th class="px-2 py-1 border border-gray-300 w-10">Actions</th>
                   </tr>
                 </thead>
                 <tbody class="section-body"></tbody>
               </table>
               <button type="button" class="mt-2 bg-blue-500 text-white px-3 py-1 rounded add-row" data-section="carpentry">Add Task</button>
-              <div class="mt-2 font-bold">Section Total: $<span class="section-total">0.00</span></div>
+              <div class="mt-2 text-right font-bold">Section Total: $<span class="section-total">0.00</span></div>
             </div>
           </div>
 
           <!-- Section: Plumbing -->
           <div class="mb-8 bg-white shadow rounded" data-section="plumbing">
-            <div class="flex items-center justify-between bg-blue-100 px-4 py-2 border-b">
+            <div class="flex items-center justify-between bg-blue-100 px-4 py-2 border-b border-gray-300">
               <h2 class="text-xl font-bold">Plumbing</h2>
               <span class="toggle-button" data-target="plumbing">▼</span>
             </div>
@@ -159,26 +163,26 @@
               <table class="w-full">
                 <thead>
                   <tr>
-                    <th class="px-2 py-1 border w-1/6">Task</th>
-                    <th class="px-2 py-1 border w-1/2">Description</th>
-                    <th class="px-2 py-1 border w-16 bg-gray-200">Quantity</th>
-                    <th class="px-2 py-1 border w-24 bg-gray-200">Unit</th>
-                    <th class="px-2 py-1 border w-16 bg-gray-200">Price</th>
-                    <th class="px-2 py-1 border w-20 bg-gray-300">Material Cost</th>
-                    <th class="px-2 py-1 border w-20">Total</th>
-                    <th class="px-2 py-1 border w-10">Actions</th>
+                    <th class="px-2 py-1 border border-gray-300 w-1/6">Task</th>
+                    <th class="px-2 py-1 border border-gray-300 w-1/2">Description</th>
+                    <th class="px-2 py-1 border border-gray-300 w-16 bg-gray-200">Quantity</th>
+                    <th class="px-2 py-1 border border-gray-300 w-24 bg-gray-200">Unit</th>
+                    <th class="px-2 py-1 border border-gray-300 w-16 bg-gray-200">Price</th>
+                    <th class="px-2 py-1 border border-gray-300 w-20 bg-gray-300">Material Cost</th>
+                    <th class="px-2 py-1 border border-gray-300 w-20">Total</th>
+                    <th class="px-2 py-1 border border-gray-300 w-10">Actions</th>
                   </tr>
                 </thead>
                 <tbody class="section-body"></tbody>
               </table>
               <button type="button" class="mt-2 bg-blue-500 text-white px-3 py-1 rounded add-row" data-section="plumbing">Add Task</button>
-              <div class="mt-2 font-bold">Section Total: $<span class="section-total">0.00</span></div>
+              <div class="mt-2 text-right font-bold">Section Total: $<span class="section-total">0.00</span></div>
             </div>
           </div>
 
           <!-- Section: Electrical -->
           <div class="mb-8 bg-white shadow rounded" data-section="electrical">
-            <div class="flex items-center justify-between bg-orange-100 px-4 py-2 border-b">
+            <div class="flex items-center justify-between bg-orange-100 px-4 py-2 border-b border-gray-300">
               <h2 class="text-xl font-bold">Electrical</h2>
               <span class="toggle-button" data-target="electrical">▼</span>
             </div>
@@ -186,26 +190,26 @@
               <table class="w-full">
                 <thead>
                   <tr>
-                    <th class="px-2 py-1 border w-1/6">Task</th>
-                    <th class="px-2 py-1 border w-1/2">Description</th>
-                    <th class="px-2 py-1 border w-16 bg-gray-200">Quantity</th>
-                    <th class="px-2 py-1 border w-24 bg-gray-200">Unit</th>
-                    <th class="px-2 py-1 border w-16 bg-gray-200">Price</th>
-                    <th class="px-2 py-1 border w-20 bg-gray-300">Material Cost</th>
-                    <th class="px-2 py-1 border w-20">Total</th>
-                    <th class="px-2 py-1 border w-10">Actions</th>
+                    <th class="px-2 py-1 border border-gray-300 w-1/6">Task</th>
+                    <th class="px-2 py-1 border border-gray-300 w-1/2">Description</th>
+                    <th class="px-2 py-1 border border-gray-300 w-16 bg-gray-200">Quantity</th>
+                    <th class="px-2 py-1 border border-gray-300 w-24 bg-gray-200">Unit</th>
+                    <th class="px-2 py-1 border border-gray-300 w-16 bg-gray-200">Price</th>
+                    <th class="px-2 py-1 border border-gray-300 w-20 bg-gray-300">Material Cost</th>
+                    <th class="px-2 py-1 border border-gray-300 w-20">Total</th>
+                    <th class="px-2 py-1 border border-gray-300 w-10">Actions</th>
                   </tr>
                 </thead>
                 <tbody class="section-body"></tbody>
               </table>
               <button type="button" class="mt-2 bg-blue-500 text-white px-3 py-1 rounded add-row" data-section="electrical">Add Task</button>
-              <div class="mt-2 font-bold">Section Total: $<span class="section-total">0.00</span></div>
+              <div class="mt-2 text-right font-bold">Section Total: $<span class="section-total">0.00</span></div>
             </div>
           </div>
 
           <!-- Section: Waterproofing -->
           <div class="mb-8 bg-white shadow rounded" data-section="waterproofing">
-            <div class="flex items-center justify-between bg-teal-100 px-4 py-2 border-b">
+            <div class="flex items-center justify-between bg-teal-100 px-4 py-2 border-b border-gray-300">
               <h2 class="text-xl font-bold">Waterproofing</h2>
               <span class="toggle-button" data-target="waterproofing">▼</span>
             </div>
@@ -213,26 +217,26 @@
               <table class="w-full">
                 <thead>
                   <tr>
-                    <th class="px-2 py-1 border w-1/6">Task</th>
-                    <th class="px-2 py-1 border w-1/2">Description</th>
-                    <th class="px-2 py-1 border w-16 bg-gray-200">Quantity</th>
-                    <th class="px-2 py-1 border w-24 bg-gray-200">Unit</th>
-                    <th class="px-2 py-1 border w-16 bg-gray-200">Price</th>
-                    <th class="px-2 py-1 border w-20 bg-gray-300">Material Cost</th>
-                    <th class="px-2 py-1 border w-20">Total</th>
-                    <th class="px-2 py-1 border w-10">Actions</th>
+                    <th class="px-2 py-1 border border-gray-300 w-1/6">Task</th>
+                    <th class="px-2 py-1 border border-gray-300 w-1/2">Description</th>
+                    <th class="px-2 py-1 border border-gray-300 w-16 bg-gray-200">Quantity</th>
+                    <th class="px-2 py-1 border border-gray-300 w-24 bg-gray-200">Unit</th>
+                    <th class="px-2 py-1 border border-gray-300 w-16 bg-gray-200">Price</th>
+                    <th class="px-2 py-1 border border-gray-300 w-20 bg-gray-300">Material Cost</th>
+                    <th class="px-2 py-1 border border-gray-300 w-20">Total</th>
+                    <th class="px-2 py-1 border border-gray-300 w-10">Actions</th>
                   </tr>
                 </thead>
                 <tbody class="section-body"></tbody>
               </table>
               <button type="button" class="mt-2 bg-blue-500 text-white px-3 py-1 rounded add-row" data-section="waterproofing">Add Task</button>
-              <div class="mt-2 font-bold">Section Total: $<span class="section-total">0.00</span></div>
+              <div class="mt-2 text-right font-bold">Section Total: $<span class="section-total">0.00</span></div>
             </div>
           </div>
 
           <!-- Section: Tiling -->
           <div class="mb-8 bg-white shadow rounded" data-section="tiling">
-            <div class="flex items-center justify-between bg-purple-100 px-4 py-2 border-b">
+            <div class="flex items-center justify-between bg-purple-100 px-4 py-2 border-b border-gray-300">
               <h2 class="text-xl font-bold">Tiling</h2>
               <span class="toggle-button" data-target="tiling">▼</span>
             </div>
@@ -240,26 +244,26 @@
               <table class="w-full">
                 <thead>
                   <tr>
-                    <th class="px-2 py-1 border w-1/6">Task</th>
-                    <th class="px-2 py-1 border w-1/2">Description</th>
-                    <th class="px-2 py-1 border w-16 bg-gray-200">Quantity</th>
-                    <th class="px-2 py-1 border w-24 bg-gray-200">Unit</th>
-                    <th class="px-2 py-1 border w-16 bg-gray-200">Price</th>
-                    <th class="px-2 py-1 border w-20 bg-gray-300">Material Cost</th>
-                    <th class="px-2 py-1 border w-20">Total</th>
-                    <th class="px-2 py-1 border w-10">Actions</th>
+                    <th class="px-2 py-1 border border-gray-300 w-1/6">Task</th>
+                    <th class="px-2 py-1 border border-gray-300 w-1/2">Description</th>
+                    <th class="px-2 py-1 border border-gray-300 w-16 bg-gray-200">Quantity</th>
+                    <th class="px-2 py-1 border border-gray-300 w-24 bg-gray-200">Unit</th>
+                    <th class="px-2 py-1 border border-gray-300 w-16 bg-gray-200">Price</th>
+                    <th class="px-2 py-1 border border-gray-300 w-20 bg-gray-300">Material Cost</th>
+                    <th class="px-2 py-1 border border-gray-300 w-20">Total</th>
+                    <th class="px-2 py-1 border border-gray-300 w-10">Actions</th>
                   </tr>
                 </thead>
                 <tbody class="section-body"></tbody>
               </table>
               <button type="button" class="mt-2 bg-blue-500 text-white px-3 py-1 rounded add-row" data-section="tiling">Add Task</button>
-              <div class="mt-2 font-bold">Section Total: $<span class="section-total">0.00</span></div>
+              <div class="mt-2 text-right font-bold">Section Total: $<span class="section-total">0.00</span></div>
             </div>
           </div>
 
           <!-- Section: Painting & Finishes -->
           <div class="mb-8 bg-white shadow rounded" data-section="painting">
-            <div class="flex items-center justify-between bg-pink-100 px-4 py-2 border-b">
+            <div class="flex items-center justify-between bg-pink-100 px-4 py-2 border-b border-gray-300">
               <h2 class="text-xl font-bold">Painting & Finishes</h2>
               <span class="toggle-button" data-target="painting">▼</span>
             </div>
@@ -267,26 +271,26 @@
               <table class="w-full">
                 <thead>
                   <tr>
-                    <th class="px-2 py-1 border w-1/6">Task</th>
-                    <th class="px-2 py-1 border w-1/2">Description</th>
-                    <th class="px-2 py-1 border w-16 bg-gray-200">Quantity</th>
-                    <th class="px-2 py-1 border w-24 bg-gray-200">Unit</th>
-                    <th class="px-2 py-1 border w-16 bg-gray-200">Price</th>
-                    <th class="px-2 py-1 border w-20 bg-gray-300">Material Cost</th>
-                    <th class="px-2 py-1 border w-20">Total</th>
-                    <th class="px-2 py-1 border w-10">Actions</th>
+                    <th class="px-2 py-1 border border-gray-300 w-1/6">Task</th>
+                    <th class="px-2 py-1 border border-gray-300 w-1/2">Description</th>
+                    <th class="px-2 py-1 border border-gray-300 w-16 bg-gray-200">Quantity</th>
+                    <th class="px-2 py-1 border border-gray-300 w-24 bg-gray-200">Unit</th>
+                    <th class="px-2 py-1 border border-gray-300 w-16 bg-gray-200">Price</th>
+                    <th class="px-2 py-1 border border-gray-300 w-20 bg-gray-300">Material Cost</th>
+                    <th class="px-2 py-1 border border-gray-300 w-20">Total</th>
+                    <th class="px-2 py-1 border border-gray-300 w-10">Actions</th>
                   </tr>
                 </thead>
                 <tbody class="section-body"></tbody>
               </table>
               <button type="button" class="mt-2 bg-blue-500 text-white px-3 py-1 rounded add-row" data-section="painting">Add Task</button>
-              <div class="mt-2 font-bold">Section Total: $<span class="section-total">0.00</span></div>
+              <div class="mt-2 text-right font-bold">Section Total: $<span class="section-total">0.00</span></div>
             </div>
           </div>
 
           <!-- Section: Glazing & Fixtures -->
           <div class="mb-8 bg-white shadow rounded" data-section="glazing">
-            <div class="flex items-center justify-between bg-indigo-100 px-4 py-2 border-b">
+            <div class="flex items-center justify-between bg-indigo-100 px-4 py-2 border-b border-gray-300">
               <h2 class="text-xl font-bold">Glazing & Fixtures</h2>
               <span class="toggle-button" data-target="glazing">▼</span>
             </div>
@@ -294,26 +298,26 @@
               <table class="w-full">
                 <thead>
                   <tr>
-                    <th class="px-2 py-1 border w-1/6">Task</th>
-                    <th class="px-2 py-1 border w-1/2">Description</th>
-                    <th class="px-2 py-1 border w-16 bg-gray-200">Quantity</th>
-                    <th class="px-2 py-1 border w-24 bg-gray-200">Unit</th>
-                    <th class="px-2 py-1 border w-16 bg-gray-200">Price</th>
-                    <th class="px-2 py-1 border w-20 bg-gray-300">Material Cost</th>
-                    <th class="px-2 py-1 border w-20">Total</th>
-                    <th class="px-2 py-1 border w-10">Actions</th>
+                    <th class="px-2 py-1 border border-gray-300 w-1/6">Task</th>
+                    <th class="px-2 py-1 border border-gray-300 w-1/2">Description</th>
+                    <th class="px-2 py-1 border border-gray-300 w-16 bg-gray-200">Quantity</th>
+                    <th class="px-2 py-1 border border-gray-300 w-24 bg-gray-200">Unit</th>
+                    <th class="px-2 py-1 border border-gray-300 w-16 bg-gray-200">Price</th>
+                    <th class="px-2 py-1 border border-gray-300 w-20 bg-gray-300">Material Cost</th>
+                    <th class="px-2 py-1 border border-gray-300 w-20">Total</th>
+                    <th class="px-2 py-1 border border-gray-300 w-10">Actions</th>
                   </tr>
                 </thead>
                 <tbody class="section-body"></tbody>
               </table>
               <button type="button" class="mt-2 bg-blue-500 text-white px-3 py-1 rounded add-row" data-section="glazing">Add Task</button>
-              <div class="mt-2 font-bold">Section Total: $<span class="section-total">0.00</span></div>
+              <div class="mt-2 text-right font-bold">Section Total: $<span class="section-total">0.00</span></div>
             </div>
           </div>
 
           <!-- Section: Final Fit-Off & Accessories -->
           <div class="mb-8 bg-white shadow rounded" data-section="finalFitOff">
-            <div class="flex items-center justify-between bg-lime-100 px-4 py-2 border-b">
+            <div class="flex items-center justify-between bg-lime-100 px-4 py-2 border-b border-gray-300">
               <h2 class="text-xl font-bold">Final Fit-Off & Accessories</h2>
               <span class="toggle-button" data-target="finalFitOff">▼</span>
             </div>
@@ -321,26 +325,26 @@
               <table class="w-full">
                 <thead>
                   <tr>
-                    <th class="px-2 py-1 border w-1/6">Task</th>
-                    <th class="px-2 py-1 border w-1/2">Description</th>
-                    <th class="px-2 py-1 border w-16 bg-gray-200">Quantity</th>
-                    <th class="px-2 py-1 border w-24 bg-gray-200">Unit</th>
-                    <th class="px-2 py-1 border w-16 bg-gray-200">Price</th>
-                    <th class="px-2 py-1 border w-20 bg-gray-300">Material Cost</th>
-                    <th class="px-2 py-1 border w-20">Total</th>
-                    <th class="px-2 py-1 border w-10">Actions</th>
+                    <th class="px-2 py-1 border border-gray-300 w-1/6">Task</th>
+                    <th class="px-2 py-1 border border-gray-300 w-1/2">Description</th>
+                    <th class="px-2 py-1 border border-gray-300 w-16 bg-gray-200">Quantity</th>
+                    <th class="px-2 py-1 border border-gray-300 w-24 bg-gray-200">Unit</th>
+                    <th class="px-2 py-1 border border-gray-300 w-16 bg-gray-200">Price</th>
+                    <th class="px-2 py-1 border border-gray-300 w-20 bg-gray-300">Material Cost</th>
+                    <th class="px-2 py-1 border border-gray-300 w-20">Total</th>
+                    <th class="px-2 py-1 border border-gray-300 w-10">Actions</th>
                   </tr>
                 </thead>
                 <tbody class="section-body"></tbody>
               </table>
               <button type="button" class="mt-2 bg-blue-500 text-white px-3 py-1 rounded add-row" data-section="finalFitOff">Add Task</button>
-              <div class="mt-2 font-bold">Section Total: $<span class="section-total">0.00</span></div>
+              <div class="mt-2 text-right font-bold">Section Total: $<span class="section-total">0.00</span></div>
             </div>
           </div>
 
           <!-- Section: Hidden/Unforeseen Work & Contingency -->
           <div class="mb-8 bg-white shadow rounded" data-section="contingency">
-            <div class="flex items-center justify-between bg-red-200 px-4 py-2 border-b">
+            <div class="flex items-center justify-between bg-red-200 px-4 py-2 border-b border-gray-300">
               <h2 class="text-xl font-bold">Hidden/Unforeseen Work & Contingency</h2>
               <span class="toggle-button" data-target="contingency">▼</span>
             </div>
@@ -348,44 +352,42 @@
               <table class="w-full">
                 <thead>
                   <tr>
-                    <th class="px-2 py-1 border w-1/6">Task</th>
-                    <th class="px-2 py-1 border w-1/2">Description</th>
-                    <th class="px-2 py-1 border w-16 bg-gray-200">Quantity</th>
-                    <th class="px-2 py-1 border w-24 bg-gray-200">Unit</th>
-                    <th class="px-2 py-1 border w-16 bg-gray-200">Price</th>
-                    <th class="px-2 py-1 border w-20 bg-gray-300">Material Cost</th>
-                    <th class="px-2 py-1 border w-20">Total</th>
-                    <th class="px-2 py-1 border w-10">Actions</th>
+                    <th class="px-2 py-1 border border-gray-300 w-1/6">Task</th>
+                    <th class="px-2 py-1 border border-gray-300 w-1/2">Description</th>
+                    <th class="px-2 py-1 border border-gray-300 w-16 bg-gray-200">Quantity</th>
+                    <th class="px-2 py-1 border border-gray-300 w-24 bg-gray-200">Unit</th>
+                    <th class="px-2 py-1 border border-gray-300 w-16 bg-gray-200">Price</th>
+                    <th class="px-2 py-1 border border-gray-300 w-20 bg-gray-300">Material Cost</th>
+                    <th class="px-2 py-1 border border-gray-300 w-20">Total</th>
+                    <th class="px-2 py-1 border border-gray-300 w-10">Actions</th>
                   </tr>
                 </thead>
                 <tbody class="section-body"></tbody>
               </table>
               <button type="button" class="mt-2 bg-blue-500 text-white px-3 py-1 rounded add-row" data-section="contingency">Add Task</button>
-              <div class="mt-2 font-bold">Section Total: $<span class="section-total">0.00</span></div>
+              <div class="mt-2 text-right font-bold">Section Total: $<span class="section-total">0.00</span></div>
             </div>
           </div>
 
           <!-- New Section: Total -->
           <div class="mb-8 bg-white shadow rounded" data-section="total">
-            <div class="flex items-center justify-between bg-indigo-50 px-4 py-2 border-b">
+            <div class="flex items-center justify-between bg-indigo-50 px-4 py-2 border-b border-gray-300">
               <h2 class="text-xl font-bold">Total</h2>
             </div>
-            <div class="section-content px-4 py-2">
-              <div class="text-lg space-y-2">
-                <div>Total Price: $<span id="totalPrice">0.00</span></div>
-                <div>GST (10%): $<span id="gstAmount">0.00</span></div>
-                <div>Total + GST: $<span id="totalWithGst">0.00</span></div>
-              </div>
+            <div class="section-content px-4 py-2 text-right">
+              <div class="mb-2">Total Price: $<span id="totalPrice">0.00</span></div>
+              <div class="mb-2">GST (10%): $<span id="gstAmount">0.00</span></div>
+              <div>Total + GST: $<span id="totalWithGst">0.00</span></div>
             </div>
           </div>
 
           <!-- Section: Client & Access Notes -->
           <div class="mb-8 bg-white shadow rounded" data-section="clientNotes">
-            <div class="flex items-center justify-between bg-gray-50 px-4 py-2 border-b">
+            <div class="flex items-center justify-between bg-gray-50 px-4 py-2 border-b border-gray-300">
               <h2 class="text-xl font-bold">Client & Access Notes</h2>
             </div>
             <div class="section-content px-4 py-2">
-              <textarea class="w-full border p-2" id="clientNotes" rows="8" placeholder="Enter any client, access, or additional notes here..."></textarea>
+              <textarea class="w-full border border-gray-300 p-2" id="clientNotes" rows="8" placeholder="Enter any client, access, or additional notes here..."></textarea>
             </div>
           </div>
         </div>
@@ -402,16 +404,16 @@
   <!-- Row Template for adding tasks -->
   <template id="rowTemplate">
     <tr class="row">
-      <td class="border px-2 py-1">
+      <td class="border border-gray-300 px-2 py-1">
         <textarea class="w-full task" rows="2" placeholder="Task"></textarea>
       </td>
-      <td class="border px-2 py-1">
+      <td class="border border-gray-300 px-2 py-1">
         <textarea class="w-full description" rows="2" placeholder="Description"></textarea>
       </td>
-      <td class="border px-2 py-1 bg-gray-200">
+      <td class="border border-gray-300 px-2 py-1 bg-gray-200">
         <input type="number" step="any" class="w-full quantity" placeholder="0" />
       </td>
-      <td class="border px-2 py-1 relative bg-gray-200">
+      <td class="border border-gray-300 px-2 py-1 relative bg-gray-200">
         <select class="unit-select p-1 border rounded" style="width: 100%;">
           <option value="LM">LM</option>
           <option value="Sqm">Sqm</option>
@@ -419,14 +421,14 @@
           <option value="Hrs">Hrs</option>
         </select>
       </td>
-      <td class="border px-2 py-1 bg-gray-200">
+      <td class="border border-gray-300 px-2 py-1 bg-gray-200">
         <input type="number" step="any" class="w-full price" placeholder="0" />
       </td>
-      <td class="border px-2 py-1 bg-gray-300">
+      <td class="border border-gray-300 px-2 py-1 bg-gray-300">
         <input type="number" step="any" class="w-full material-cost" placeholder="0" />
       </td>
-      <td class="border px-2 py-1 total-task" data-total="0">0.00</td>
-      <td class="border px-2 py-1">
+      <td class="border border-gray-300 px-2 py-1 total-task" data-total="0">0.00</td>
+      <td class="border border-gray-300 px-2 py-1">
         <button type="button" class="text-red-500 delete-row">X</button>
       </td>
     </tr>
@@ -647,13 +649,6 @@
           this.innerText = "▲";
         }
       });
-    });
-
-    // Dark Mode Toggle
-    document.getElementById('toggleDarkMode').addEventListener('click', function() {
-      document.documentElement.classList.toggle('dark');
-      // Optionally update button text based on mode
-      this.innerText = document.documentElement.classList.contains('dark') ? "Light Mode" : "Dark Mode";
     });
 
     // Export the checklist as CSV
