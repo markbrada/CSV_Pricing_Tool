@@ -8,9 +8,11 @@
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <!-- html2pdf.js CDN -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
-  <!-- FileSaver.js CDN (optional if needed for CSV export, but our CSV export here uses built-in methods) -->
   <style>
-    /* Optional custom styles */
+    /* Ensure textareas are resizable */
+    textarea {
+      resize: both;
+    }
   </style>
 </head>
 <body class="bg-gray-100 text-gray-800">
@@ -23,13 +25,16 @@
       <form id="checklistForm">
         <!-- The sections container -->
         <div id="sectionsContainer">
+          <!-- Section Template (columns: Task, Description, Quantity/Area, Unit, Estimated Hours, Rate, Material Cost, Total Task Cost, Actions) -->
+
           <!-- Section: Site Setup & Preliminaries -->
           <div class="mb-8 bg-white shadow rounded p-4" data-section="siteSetup">
             <h2 class="text-xl font-bold border-b pb-2 mb-4">Site Setup & Preliminaries</h2>
             <table class="w-full">
               <thead>
                 <tr>
-                  <th class="px-2 py-1 border">Task Description</th>
+                  <th class="px-2 py-1 border">Task</th>
+                  <th class="px-2 py-1 border">Description</th>
                   <th class="px-2 py-1 border">Quantity/Area</th>
                   <th class="px-2 py-1 border">Unit</th>
                   <th class="px-2 py-1 border">Estimated Hours</th>
@@ -40,20 +45,21 @@
                 </tr>
               </thead>
               <tbody class="section-body">
-                <!-- Rows added dynamically -->
+                <!-- Prepopulated rows will appear here -->
               </tbody>
             </table>
             <button type="button" class="mt-2 bg-blue-500 text-white px-3 py-1 rounded add-row" data-section="siteSetup">Add Task</button>
             <div class="mt-2 font-bold">Section Total: $<span class="section-total">0.00</span></div>
           </div>
 
-          <!-- Section: Demolition & Rubbish Removal -->
+          <!-- Section: Demolition & Strip-Out -->
           <div class="mb-8 bg-white shadow rounded p-4" data-section="demolition">
             <h2 class="text-xl font-bold border-b pb-2 mb-4">Demolition & Rubbish Removal</h2>
             <table class="w-full">
               <thead>
                 <tr>
-                  <th class="px-2 py-1 border">Task Description</th>
+                  <th class="px-2 py-1 border">Task</th>
+                  <th class="px-2 py-1 border">Description</th>
                   <th class="px-2 py-1 border">Quantity/Area</th>
                   <th class="px-2 py-1 border">Unit</th>
                   <th class="px-2 py-1 border">Estimated Hours</th>
@@ -75,7 +81,8 @@
             <table class="w-full">
               <thead>
                 <tr>
-                  <th class="px-2 py-1 border">Task Description</th>
+                  <th class="px-2 py-1 border">Task</th>
+                  <th class="px-2 py-1 border">Description</th>
                   <th class="px-2 py-1 border">Quantity/Area</th>
                   <th class="px-2 py-1 border">Unit</th>
                   <th class="px-2 py-1 border">Estimated Hours</th>
@@ -97,7 +104,8 @@
             <table class="w-full">
               <thead>
                 <tr>
-                  <th class="px-2 py-1 border">Task Description</th>
+                  <th class="px-2 py-1 border">Task</th>
+                  <th class="px-2 py-1 border">Description</th>
                   <th class="px-2 py-1 border">Quantity/Area</th>
                   <th class="px-2 py-1 border">Unit</th>
                   <th class="px-2 py-1 border">Estimated Hours</th>
@@ -119,7 +127,8 @@
             <table class="w-full">
               <thead>
                 <tr>
-                  <th class="px-2 py-1 border">Task Description</th>
+                  <th class="px-2 py-1 border">Task</th>
+                  <th class="px-2 py-1 border">Description</th>
                   <th class="px-2 py-1 border">Quantity/Area</th>
                   <th class="px-2 py-1 border">Unit</th>
                   <th class="px-2 py-1 border">Estimated Hours</th>
@@ -141,7 +150,8 @@
             <table class="w-full">
               <thead>
                 <tr>
-                  <th class="px-2 py-1 border">Task Description</th>
+                  <th class="px-2 py-1 border">Task</th>
+                  <th class="px-2 py-1 border">Description</th>
                   <th class="px-2 py-1 border">Quantity/Area</th>
                   <th class="px-2 py-1 border">Unit</th>
                   <th class="px-2 py-1 border">Estimated Hours</th>
@@ -163,7 +173,8 @@
             <table class="w-full">
               <thead>
                 <tr>
-                  <th class="px-2 py-1 border">Task Description</th>
+                  <th class="px-2 py-1 border">Task</th>
+                  <th class="px-2 py-1 border">Description</th>
                   <th class="px-2 py-1 border">Quantity/Area</th>
                   <th class="px-2 py-1 border">Unit</th>
                   <th class="px-2 py-1 border">Estimated Hours</th>
@@ -185,7 +196,8 @@
             <table class="w-full">
               <thead>
                 <tr>
-                  <th class="px-2 py-1 border">Task Description</th>
+                  <th class="px-2 py-1 border">Task</th>
+                  <th class="px-2 py-1 border">Description</th>
                   <th class="px-2 py-1 border">Quantity/Area</th>
                   <th class="px-2 py-1 border">Unit</th>
                   <th class="px-2 py-1 border">Estimated Hours</th>
@@ -207,7 +219,8 @@
             <table class="w-full">
               <thead>
                 <tr>
-                  <th class="px-2 py-1 border">Task Description</th>
+                  <th class="px-2 py-1 border">Task</th>
+                  <th class="px-2 py-1 border">Description</th>
                   <th class="px-2 py-1 border">Quantity/Area</th>
                   <th class="px-2 py-1 border">Unit</th>
                   <th class="px-2 py-1 border">Estimated Hours</th>
@@ -229,7 +242,8 @@
             <table class="w-full">
               <thead>
                 <tr>
-                  <th class="px-2 py-1 border">Task Description</th>
+                  <th class="px-2 py-1 border">Task</th>
+                  <th class="px-2 py-1 border">Description</th>
                   <th class="px-2 py-1 border">Quantity/Area</th>
                   <th class="px-2 py-1 border">Unit</th>
                   <th class="px-2 py-1 border">Estimated Hours</th>
@@ -251,7 +265,8 @@
             <table class="w-full">
               <thead>
                 <tr>
-                  <th class="px-2 py-1 border">Task Description</th>
+                  <th class="px-2 py-1 border">Task</th>
+                  <th class="px-2 py-1 border">Description</th>
                   <th class="px-2 py-1 border">Quantity/Area</th>
                   <th class="px-2 py-1 border">Unit</th>
                   <th class="px-2 py-1 border">Estimated Hours</th>
@@ -273,7 +288,8 @@
             <table class="w-full">
               <thead>
                 <tr>
-                  <th class="px-2 py-1 border">Task Description</th>
+                  <th class="px-2 py-1 border">Task</th>
+                  <th class="px-2 py-1 border">Description</th>
                   <th class="px-2 py-1 border">Quantity/Area</th>
                   <th class="px-2 py-1 border">Unit</th>
                   <th class="px-2 py-1 border">Estimated Hours</th>
@@ -289,10 +305,10 @@
             <div class="mt-2 font-bold">Section Total: $<span class="section-total">0.00</span></div>
           </div>
 
-          <!-- Section: Client & Access Notes -->
+          <!-- Section: Client & Access Notes (Full width text area) -->
           <div class="mb-8 bg-white shadow rounded p-4" data-section="clientNotes">
             <h2 class="text-xl font-bold border-b pb-2 mb-4">Client & Access Notes</h2>
-            <textarea class="w-full border p-2" id="clientNotes" rows="5" placeholder="Enter any client, access, or additional notes here..."></textarea>
+            <textarea class="w-full border p-2" id="clientNotes" rows="8" placeholder="Enter any client, access, or additional notes here..."></textarea>
           </div>
         </div>
       </form>
@@ -309,7 +325,10 @@
   <template id="rowTemplate">
     <tr class="row">
       <td class="border px-2 py-1">
-        <input type="text" class="w-full task-desc" placeholder="E.g. Remove tiles, relocate plumbing" />
+        <textarea class="w-full task" style="resize: both;" rows="2" placeholder="Task"></textarea>
+      </td>
+      <td class="border px-2 py-1">
+        <textarea class="w-full description" style="resize: both;" rows="2" placeholder="Description"></textarea>
       </td>
       <td class="border px-2 py-1">
         <input type="number" step="any" class="w-full quantity" placeholder="0" />
@@ -334,18 +353,132 @@
   </template>
 
   <script>
+    // Default tasks for each section
+    const defaultTasks = {
+      siteSetup: [
+        { task: "Protect existing areas", description: "Install floor protection in hallway and cover furniture (Preparation to prevent damage to other areas during works)." },
+        { task: "Establish site facilities", description: "Deliver skip bin and site toilet (Ordering a skip for waste and portable toilet if needed for trades)." },
+        { task: "Safety setup", description: "Isolate power/water, set up dust barriers (Shut off utilities as needed, plastic dust sheets over doorways)." },
+        { task: "Access arrangements", description: "Client to provide access keys, parking permit for van (Notes on how trades will access the site, where to park, etc.)." }
+      ],
+      demolition: [
+        { task: "Remove fixtures", description: "Remove existing toilet, vanity, shower screen (for three fixtures, remove by labourer)." },
+        { task: "Strip wall tiles", description: "Remove wall tiles and plaster back to studs (upper walls); may expose asbestos." },
+        { task: "Strip floor tiles", description: "Jackhammer up floor tiles and bedding; include removal of tile bed/screed if applicable." },
+        { task: "Remove bath or spa", description: "Demolish and remove bathtub (cutting out tub and disposing)." },
+        { task: "Remove fittings/accessories", description: "Take out mirror, towel rails, shower head, tapware (small items may be grouped)." },
+        { task: "Initial plumbing & electrical isolations", description: "Cap off plumbing services and make safe electrical (temporary isolation during demolition)." },
+        { task: "Rubbish disposal", description: "Load debris into skip bin (include dumping fees and disposal)." }
+      ],
+      asbestos: [
+        { task: "Asbestos testing", description: "Test wall sheeting and flooring for asbestos (send samples to lab)." },
+        { task: "Remove asbestos wall linings", description: "Licensed removal of asbestos cement wall panels (if applicable)." },
+        { task: "Remove asbestos flooring", description: "Lift old vinyl flooring with asbestos backing (if applicable)." },
+        { task: "Disposal and clearance", description: "Dispose of asbestos waste and obtain clearance certificate." }
+      ],
+      carpentry: [
+        { task: "Repair/replace subfloor", description: "Replace rotten subfloor sections if demo reveals water damage." },
+        { task: "Frame modifications", description: "Modify wall framing for niche and plumbing (cut/insert framing for shower niche or moving studs)." },
+        { task: "Door adjustments", description: "Widen doorway to 820mm for accessibility (may require new jamb or door)." },
+        { task: "Shower hob or floor recess", description: "Construct shower hob (100mm height) or recess floor for hobless shower (if designing accessible shower)." },
+        { task: "Wall re-sheeting", description: "Install new wall boards (villaboard in wet areas, plaster elsewhere)." },
+        { task: "Ceiling works", description: "Install new ceiling plasterboard and cornice (if ceiling damaged or requires replacement)." },
+        { task: "Install fixtures (carpentry)", description: "Install vanity cabinet and mirror cabinet (securely fix to wall)." },
+        { task: "Backblocking for grab rails", description: "Install noggins in walls for future grab rails (as per AS1428)." },
+        { task: "Other structural modifications", description: "Re-frame window opening or install support for wall-hung toilet cistern as required." }
+      ],
+      plumbing: [
+        { task: "Relocate sewer drain for shower/toilet", description: "Relocate sewer drain if fixture position is moved; note LM of new drain line if needed." },
+        { task: "Run new water lines", description: "Run new hot/cold water lines (copper/PEX) to fixtures; measure total LM." },
+        { task: "Install new floor waste drain", description: "Install or relocate floor waste drain as required." },
+        { task: "Upgrade shower plumbing", description: "Adjust plumbing for shower mixer and rainhead installation." },
+        { task: "Install plumbing for bathtub", description: "Rough-in plumbing for bathtub (waste and filler connections)." },
+        { task: "Fit off new toilet suite", description: "Install new toilet, ensuring proper seals and connections." },
+        { task: "Fit off vanity taps and waste", description: "Install and connect new vanity taps and waste trap." },
+        { task: "Install shower fittings", description: "Fit off shower mixer, head, and rail." },
+        { task: "Connect washing machine taps", description: "Connect washing machine taps if located in bathroom." },
+        { task: "Pressure-limiting valve installation", description: "Install pressure-limiting valve on mains to protect tapware." },
+        { task: "Replace old stopcocks/isolators", description: "Upgrade old valves at fixtures as needed." },
+        { task: "New floor trap with puddle flange", description: "Install new floor trap with puddle flange for wet areas." },
+        { task: "Test and certify plumbing work", description: "Conduct pressure tests and issue compliance certificate." },
+        { task: "Accessible modifications (plumbing)", description: "Install hand-held shower on rail and adjust basin height for wheelchair access; ensure tempering valve is used." }
+      ],
+      electrical: [
+        { task: "Rough-in wiring for ceiling light and exhaust fan", description: "Run new wiring for ceiling light and exhaust fan." },
+        { task: "Add power outlet next to vanity", description: "Install new power outlet next to vanity, including wiring and outlet hardware." },
+        { task: "Wire for heated towel rail", description: "Install wiring for heated towel rail (may need dedicated circuit)." },
+        { task: "Install heat lamp / IXL unit", description: "Install combined heat lamp/exhaust fan/light unit, including wiring and switch installation." },
+        { task: "Move light switch to outside room", description: "Relocate light switch if necessary for safety compliance." },
+        { task: "Install LED downlights", description: "Install LED downlights and connect to circuit." },
+        { task: "Install exhaust fan unit and ducting", description: "Install new exhaust fan, including ducting to roof vent if required." },
+        { task: "Fit off new power outlet (post-paint)", description: "Final connection and installation of power outlet in vanity area." },
+        { task: "Connect heated towel rail and test", description: "Connect heated towel rail, test functionality and ensure safety." },
+        { task: "Replace circuit breaker with RCD", description: "Upgrade circuit breaker to include RCD for bathroom safety." },
+        { task: "Bonding/grounding as required", description: "Perform bonding and grounding of electrical circuits and metal pipes." },
+        { task: "Install mirror light with sensor", description: "Install mirror light with sensor, if required." },
+        { task: "Certificate of Electrical Safety", description: "Obtain and file certificate of electrical safety post-installation." }
+      ],
+      waterproofing: [
+        { task: "Prep for waterproofing", description: "Apply primer to floor and wall surfaces in wet areas." },
+        { task: "Waterproof shower area", description: "Apply 2-coat waterproof membrane to shower walls (1800mm high) and floor." },
+        { task: "Waterproof entire bathroom floor", description: "Waterproof full bathroom floor area if required by code." },
+        { task: "Seal wet area penetrations", description: "Seal around pipes and drains with waterproof collars." },
+        { task: "Install waterstop angle at door", description: "Install waterstop angle at bathroom doorway to prevent water ingress." }
+      ],
+      tiling: [
+        { task: "Floor screed", description: "Screed bathroom floor to create proper falls towards drain." },
+        { task: "Lay floor tiles", description: "Install floor tiles (e.g., 300x300 porcelain), including mosaic areas if applicable." },
+        { task: "Tile shower walls (full height)", description: "Tile shower walls full height (e.g., 2.1m high) with ceramic tiles." },
+        { task: "Tile walls (half height)", description: "Tile remaining walls up to 1.2m (wainscot) if specified." },
+        { task: "Finish niche interior with mosaic tile", description: "Tile niche interior with mosaic tile for a decorative finish." },
+        { task: "Grouting", description: "Apply grout to all tiled surfaces (ensure colour-matched grout)." },
+        { task: "Silicone seal", description: "Apply silicone sealant to all edges and corners after grouting." },
+        { task: "Install aluminum trim on external corners", description: "Install tile edging with aluminum trim on external corners." },
+        { task: "Clean and seal tiles", description: "Acid wash and seal tiles if required (especially for porous stone)." }
+      ],
+      painting: [
+        { task: "Paint ceiling", description: "Prep and paint ceiling using bathroom grade, mold-resistant paint." },
+        { task: "Paint walls above tile line", description: "Paint upper walls above the tile line with suitable interior paint." },
+        { task: "Paint door & trim", description: "Paint entry door and door frame (both sides) after removing hardware." },
+        { task: "Paint window frame", description: "Repaint window architrave/sill as required." },
+        { task: "Touch up new woodwork", description: "Paint any new woodwork such as cupboards or access panels." },
+        { task: "Apply decorative finish", description: "Apply waterproof wallpaper or install wall panels for a feature wall if applicable." }
+      ],
+      glazing: [
+        { task: "Supply & install shower screen", description: "Measure, supply, and install frameless/toughened glass shower screen." },
+        { task: "Install fixed mirror above vanity", description: "Install fixed mirror above vanity (custom size, e.g., 600x900mm)." },
+        { task: "Install glass shelf or other glass elements", description: "Install any additional glass elements such as shelves or blocks." },
+        { task: "Replace window glass in shower area", description: "Replace window glass with frosted safety glass if needed." }
+      ],
+      finalFitOff: [
+        { task: "Install accessories", description: "Install various bathroom accessories (towel rails, robe hooks, toilet roll holder)." },
+        { task: "Install grab rails", description: "Install grab rails at shower and toilet areas (per accessibility requirements)." },
+        { task: "Install shower curtain rod/screen seal", description: "Install shower curtain rod or seal if applicable." },
+        { task: "Install bath accessories", description: "Install additional bath accessories like shower shelf or caddy." },
+        { task: "Final silicon touch-ups/caulking", description: "Perform final silicon caulking around fixtures and edges." },
+        { task: "Builders final cleaning", description: "Conduct final cleaning and debris removal after renovation work." }
+      ],
+      contingency: [
+        { task: "Provisional sum – Asbestos removal", description: "Set provisional allowance for asbestos removal if discovered." },
+        { task: "Provisional sum – Subfloor repair", description: "Allowance for replacing rotten subfloor sections or joists if needed." },
+        { task: "Provisional sum – Electrical upgrade", description: "Allowance for upgrading switchboard or RCD if necessary." },
+        { task: "Provisional sum – Hidden plumbing issues", description: "Allowance for re-routing drain or addressing unseen plumbing issues." },
+        { task: "Provisional sum – Structural reinforcement", description: "Allowance for adding stud framing or reinforcing floor for heavy fixtures." },
+        { task: "Provisional sum – Other unforeseen issues", description: "Allowance for any additional hidden issues (e.g., dry rot, substrate problems)." }
+      ]
+    };
+
     // Format a number to currency format (2 decimals)
     function formatCurrency(num) {
       return parseFloat(num).toFixed(2);
     }
 
-    // Update a single row's total
+    // Update a single row's total (does not affect task/description fields)
     function updateRowTotal(row) {
       const quantity = parseFloat(row.querySelector('.quantity').value) || 0;
       const hours = parseFloat(row.querySelector('.hours').value) || 0;
       const rate = parseFloat(row.querySelector('.rate').value) || 0;
       const materialCost = parseFloat(row.querySelector('.material-cost').value) || 0;
-      // Calculate labor: use hours * rate if hours provided; otherwise quantity * rate.
       let laborCost = hours > 0 ? hours * rate : quantity * rate;
       let total = laborCost + materialCost;
       row.querySelector('.total-task').innerText = formatCurrency(total);
@@ -359,7 +492,6 @@
         updateRowTotal(row);
         sectionTotal += parseFloat(row.querySelector('.total-task').getAttribute('data-total')) || 0;
       });
-      // Update the corresponding section's total display
       const sectionDiv = sectionBody.closest('[data-section]');
       sectionDiv.querySelector('.section-total').innerText = formatCurrency(sectionTotal);
       updateOverallTotal();
@@ -374,11 +506,15 @@
       document.getElementById('overallTotal').innerText = formatCurrency(overall);
     }
 
-    // Add a new row to a section
-    function addRow(sectionName) {
+    // Add a new row to a section; defaultData is an optional object with task & description
+    function addRow(sectionName, defaultData) {
       const sectionDiv = document.querySelector(`[data-section="${sectionName}"]`);
       const tbody = sectionDiv.querySelector('.section-body');
       const template = document.getElementById('rowTemplate').content.cloneNode(true);
+      if (defaultData) {
+        template.querySelector('.task').value = defaultData.task || "";
+        template.querySelector('.description').value = defaultData.description || "";
+      }
       tbody.appendChild(template);
       updateSectionTotal(tbody);
     }
@@ -393,7 +529,7 @@
       }
     });
 
-    // Listen for input changes in quantity, hours, rate, or material cost to update totals live
+    // Listen for input changes to update totals live
     document.addEventListener('input', function(e) {
       if (e.target.matches('.quantity, .hours, .rate, .material-cost')) {
         const row = e.target.closest('.row');
@@ -415,23 +551,23 @@
       let csvContent = "data:text/csv;charset=utf-8,";
       const sections = document.querySelectorAll('[data-section]');
       sections.forEach(sectionDiv => {
-        // Skip the Client & Access Notes section
         if (sectionDiv.getAttribute('data-section') === 'clientNotes') return;
-        csvContent += sectionDiv.querySelector('h2').innerText + "\n";
-        csvContent += "Task Description,Quantity/Area,Unit,Estimated Hours,Rate,Material Cost,Total Task Cost\n";
+        csvContent += '"' + sectionDiv.querySelector('h2').innerText + '"\n';
+        csvContent += '"Task","Description","Quantity/Area","Unit","Estimated Hours","Rate","Material Cost","Total Task Cost"\n';
         sectionDiv.querySelectorAll('.row').forEach(row => {
-          const task = row.querySelector('.task-desc').value;
+          const task = row.querySelector('.task').value;
+          const desc = row.querySelector('.description').value;
           const quantity = row.querySelector('.quantity').value;
           const unit = row.querySelector('.unit').value;
           const hours = row.querySelector('.hours').value;
           const rate = row.querySelector('.rate').value;
           const materialCost = row.querySelector('.material-cost').value;
           const total = row.querySelector('.total-task').innerText;
-          csvContent += `"${task}",${quantity},${unit},${hours},${rate},${materialCost},${total}\n`;
+          csvContent += `"${task}","${desc}",${quantity},${unit},${hours},${rate},${materialCost},${total}\n`;
         });
         csvContent += "\n";
       });
-      csvContent += "Overall Total,,,,,," + document.getElementById('overallTotal').innerText + "\n";
+      csvContent += `"Overall Total",,,,,,,"` + document.getElementById('overallTotal').innerText + `"\n`;
       const encodedUri = encodeURI(csvContent);
       const link = document.createElement("a");
       link.setAttribute("href", encodedUri);
@@ -445,15 +581,25 @@
     document.getElementById('exportPDF').addEventListener('click', function() {
       const element = document.getElementById('app');
       const opt = {
-        margin:       0.5,
-        filename:     'bathroom_renovation_checklist.pdf',
-        image:        { type: 'jpeg', quality: 0.98 },
-        html2canvas:  { scale: 2 },
-        jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+        margin: 0.5,
+        filename: 'bathroom_renovation_checklist.pdf',
+        image: { type: 'jpeg', quality: 0.98 },
+        html2canvas: { scale: 2 },
+        jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
       };
       html2pdf().set(opt).from(element).save();
+    });
+
+    // Prepopulate sections with default tasks on page load
+    document.addEventListener("DOMContentLoaded", function() {
+      Object.keys(defaultTasks).forEach(section => {
+        if (defaultTasks[section].length) {
+          defaultTasks[section].forEach(taskObj => {
+            addRow(section, taskObj);
+          });
+        }
+      });
     });
   </script>
 </body>
 </html>
-
