@@ -2,238 +2,458 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Bathroom Renovation Checklist</title>
   <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <!-- html2pdf.js CDN -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+  <!-- FileSaver.js CDN (optional if needed for CSV export, but our CSV export here uses built-in methods) -->
+  <style>
+    /* Optional custom styles */
+  </style>
 </head>
-<body class="bg-gray-50 text-gray-800">
-  <header class="bg-blue-600 text-white p-4 text-center">
-    <h1 class="text-2xl font-bold">Bathroom Renovation Checklist</h1>
-  </header>
+<body class="bg-gray-100 text-gray-800">
+  <div class="container mx-auto p-4">
+    <header class="mb-4">
+      <h1 class="text-3xl font-bold text-center">Bathroom Renovation Checklist</h1>
+      <p class="text-center text-gray-600">Comprehensive tool for quoting & cost estimation</p>
+    </header>
+    <div id="app">
+      <form id="checklistForm">
+        <!-- The sections container -->
+        <div id="sectionsContainer">
+          <!-- Section: Site Setup & Preliminaries -->
+          <div class="mb-8 bg-white shadow rounded p-4" data-section="siteSetup">
+            <h2 class="text-xl font-bold border-b pb-2 mb-4">Site Setup & Preliminaries</h2>
+            <table class="w-full">
+              <thead>
+                <tr>
+                  <th class="px-2 py-1 border">Task Description</th>
+                  <th class="px-2 py-1 border">Quantity/Area</th>
+                  <th class="px-2 py-1 border">Unit</th>
+                  <th class="px-2 py-1 border">Estimated Hours</th>
+                  <th class="px-2 py-1 border">Rate</th>
+                  <th class="px-2 py-1 border">Material Cost</th>
+                  <th class="px-2 py-1 border">Total Task Cost</th>
+                  <th class="px-2 py-1 border">Actions</th>
+                </tr>
+              </thead>
+              <tbody class="section-body">
+                <!-- Rows added dynamically -->
+              </tbody>
+            </table>
+            <button type="button" class="mt-2 bg-blue-500 text-white px-3 py-1 rounded add-row" data-section="siteSetup">Add Task</button>
+            <div class="mt-2 font-bold">Section Total: $<span class="section-total">0.00</span></div>
+          </div>
 
-  <main class="max-w-7xl mx-auto p-4">
-    <!-- Export Buttons -->
-    <div class="flex flex-wrap gap-4 justify-end mb-6">
-      <button id="exportCSV" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded shadow">
-        Export CSV
-      </button>
-      <button id="exportPDF" class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded shadow">
-        Export PDF
-      </button>
-    </div>
+          <!-- Section: Demolition & Rubbish Removal -->
+          <div class="mb-8 bg-white shadow rounded p-4" data-section="demolition">
+            <h2 class="text-xl font-bold border-b pb-2 mb-4">Demolition & Rubbish Removal</h2>
+            <table class="w-full">
+              <thead>
+                <tr>
+                  <th class="px-2 py-1 border">Task Description</th>
+                  <th class="px-2 py-1 border">Quantity/Area</th>
+                  <th class="px-2 py-1 border">Unit</th>
+                  <th class="px-2 py-1 border">Estimated Hours</th>
+                  <th class="px-2 py-1 border">Rate</th>
+                  <th class="px-2 py-1 border">Material Cost</th>
+                  <th class="px-2 py-1 border">Total Task Cost</th>
+                  <th class="px-2 py-1 border">Actions</th>
+                </tr>
+              </thead>
+              <tbody class="section-body"></tbody>
+            </table>
+            <button type="button" class="mt-2 bg-blue-500 text-white px-3 py-1 rounded add-row" data-section="demolition">Add Task</button>
+            <div class="mt-2 font-bold">Section Total: $<span class="section-total">0.00</span></div>
+          </div>
 
-    <!-- Sections Container -->
-    <div id="checklistContainer">
-      <!-- DEMOLITION SECTION -->
-      <section class="bg-white shadow rounded mb-6 p-4" data-section="Demolition">
-        <h2 class="text-xl font-semibold mb-4 border-b pb-2">Demolition</h2>
-        <table class="min-w-full divide-y divide-gray-200 mb-4">
-          <thead class="bg-gray-100">
-            <tr>
-              <th class="px-2 py-1 text-left">Task Description</th>
-              <th class="px-2 py-1 text-left">Calc Type</th>
-              <th class="px-2 py-1 text-left">Quantity</th>
-              <th class="px-2 py-1 text-left">Hours</th>
-              <th class="px-2 py-1 text-left">Rate ($)</th>
-              <th class="px-2 py-1 text-left">Material Cost ($)</th>
-              <th class="px-2 py-1 text-left">Total ($)</th>
-            </tr>
-          </thead>
-          <tbody class="divide-y divide-gray-100" id="demolitionBody">
-            <!-- Sample Row -->
-            <tr class="task-row">
-              <td class="px-2 py-1">
-                <input type="text" class="w-full border rounded p-1" value="Remove floor tiles" />
-              </td>
-              <td class="px-2 py-1">
-                <select class="calc-type border rounded p-1">
-                  <option value="quantity" selected>Quantity</option>
-                  <option value="hours">Hours</option>
-                </select>
-              </td>
-              <td class="px-2 py-1">
-                <input type="number" step="any" class="quantity w-full border rounded p-1" value="5" />
-              </td>
-              <td class="px-2 py-1">
-                <input type="number" step="any" class="hours w-full border rounded p-1" value="" />
-              </td>
-              <td class="px-2 py-1">
-                <input type="number" step="any" class="rate w-full border rounded p-1" value="20" />
-              </td>
-              <td class="px-2 py-1">
-                <input type="number" step="any" class="material-cost w-full border rounded p-1" value="50" />
-              </td>
-              <td class="px-2 py-1">
-                <input type="number" step="any" class="total-cost w-full border rounded p-1 bg-gray-100" readonly />
-              </td>
-            </tr>
-          </tbody>
-        </table>
-        <!-- Section Total -->
-        <div class="flex justify-end font-semibold">
-          Section Total: $<span class="section-total">0</span>
+          <!-- Section: Asbestos (Hazardous Materials) -->
+          <div class="mb-8 bg-white shadow rounded p-4" data-section="asbestos">
+            <h2 class="text-xl font-bold border-b pb-2 mb-4">Asbestos (Hazardous Materials)</h2>
+            <table class="w-full">
+              <thead>
+                <tr>
+                  <th class="px-2 py-1 border">Task Description</th>
+                  <th class="px-2 py-1 border">Quantity/Area</th>
+                  <th class="px-2 py-1 border">Unit</th>
+                  <th class="px-2 py-1 border">Estimated Hours</th>
+                  <th class="px-2 py-1 border">Rate</th>
+                  <th class="px-2 py-1 border">Material Cost</th>
+                  <th class="px-2 py-1 border">Total Task Cost</th>
+                  <th class="px-2 py-1 border">Actions</th>
+                </tr>
+              </thead>
+              <tbody class="section-body"></tbody>
+            </table>
+            <button type="button" class="mt-2 bg-blue-500 text-white px-3 py-1 rounded add-row" data-section="asbestos">Add Task</button>
+            <div class="mt-2 font-bold">Section Total: $<span class="section-total">0.00</span></div>
+          </div>
+
+          <!-- Section: Carpentry & Structural -->
+          <div class="mb-8 bg-white shadow rounded p-4" data-section="carpentry">
+            <h2 class="text-xl font-bold border-b pb-2 mb-4">Carpentry & Structural</h2>
+            <table class="w-full">
+              <thead>
+                <tr>
+                  <th class="px-2 py-1 border">Task Description</th>
+                  <th class="px-2 py-1 border">Quantity/Area</th>
+                  <th class="px-2 py-1 border">Unit</th>
+                  <th class="px-2 py-1 border">Estimated Hours</th>
+                  <th class="px-2 py-1 border">Rate</th>
+                  <th class="px-2 py-1 border">Material Cost</th>
+                  <th class="px-2 py-1 border">Total Task Cost</th>
+                  <th class="px-2 py-1 border">Actions</th>
+                </tr>
+              </thead>
+              <tbody class="section-body"></tbody>
+            </table>
+            <button type="button" class="mt-2 bg-blue-500 text-white px-3 py-1 rounded add-row" data-section="carpentry">Add Task</button>
+            <div class="mt-2 font-bold">Section Total: $<span class="section-total">0.00</span></div>
+          </div>
+
+          <!-- Section: Plumbing -->
+          <div class="mb-8 bg-white shadow rounded p-4" data-section="plumbing">
+            <h2 class="text-xl font-bold border-b pb-2 mb-4">Plumbing</h2>
+            <table class="w-full">
+              <thead>
+                <tr>
+                  <th class="px-2 py-1 border">Task Description</th>
+                  <th class="px-2 py-1 border">Quantity/Area</th>
+                  <th class="px-2 py-1 border">Unit</th>
+                  <th class="px-2 py-1 border">Estimated Hours</th>
+                  <th class="px-2 py-1 border">Rate</th>
+                  <th class="px-2 py-1 border">Material Cost</th>
+                  <th class="px-2 py-1 border">Total Task Cost</th>
+                  <th class="px-2 py-1 border">Actions</th>
+                </tr>
+              </thead>
+              <tbody class="section-body"></tbody>
+            </table>
+            <button type="button" class="mt-2 bg-blue-500 text-white px-3 py-1 rounded add-row" data-section="plumbing">Add Task</button>
+            <div class="mt-2 font-bold">Section Total: $<span class="section-total">0.00</span></div>
+          </div>
+
+          <!-- Section: Electrical -->
+          <div class="mb-8 bg-white shadow rounded p-4" data-section="electrical">
+            <h2 class="text-xl font-bold border-b pb-2 mb-4">Electrical</h2>
+            <table class="w-full">
+              <thead>
+                <tr>
+                  <th class="px-2 py-1 border">Task Description</th>
+                  <th class="px-2 py-1 border">Quantity/Area</th>
+                  <th class="px-2 py-1 border">Unit</th>
+                  <th class="px-2 py-1 border">Estimated Hours</th>
+                  <th class="px-2 py-1 border">Rate</th>
+                  <th class="px-2 py-1 border">Material Cost</th>
+                  <th class="px-2 py-1 border">Total Task Cost</th>
+                  <th class="px-2 py-1 border">Actions</th>
+                </tr>
+              </thead>
+              <tbody class="section-body"></tbody>
+            </table>
+            <button type="button" class="mt-2 bg-blue-500 text-white px-3 py-1 rounded add-row" data-section="electrical">Add Task</button>
+            <div class="mt-2 font-bold">Section Total: $<span class="section-total">0.00</span></div>
+          </div>
+
+          <!-- Section: Waterproofing -->
+          <div class="mb-8 bg-white shadow rounded p-4" data-section="waterproofing">
+            <h2 class="text-xl font-bold border-b pb-2 mb-4">Waterproofing</h2>
+            <table class="w-full">
+              <thead>
+                <tr>
+                  <th class="px-2 py-1 border">Task Description</th>
+                  <th class="px-2 py-1 border">Quantity/Area</th>
+                  <th class="px-2 py-1 border">Unit</th>
+                  <th class="px-2 py-1 border">Estimated Hours</th>
+                  <th class="px-2 py-1 border">Rate</th>
+                  <th class="px-2 py-1 border">Material Cost</th>
+                  <th class="px-2 py-1 border">Total Task Cost</th>
+                  <th class="px-2 py-1 border">Actions</th>
+                </tr>
+              </thead>
+              <tbody class="section-body"></tbody>
+            </table>
+            <button type="button" class="mt-2 bg-blue-500 text-white px-3 py-1 rounded add-row" data-section="waterproofing">Add Task</button>
+            <div class="mt-2 font-bold">Section Total: $<span class="section-total">0.00</span></div>
+          </div>
+
+          <!-- Section: Tiling -->
+          <div class="mb-8 bg-white shadow rounded p-4" data-section="tiling">
+            <h2 class="text-xl font-bold border-b pb-2 mb-4">Tiling</h2>
+            <table class="w-full">
+              <thead>
+                <tr>
+                  <th class="px-2 py-1 border">Task Description</th>
+                  <th class="px-2 py-1 border">Quantity/Area</th>
+                  <th class="px-2 py-1 border">Unit</th>
+                  <th class="px-2 py-1 border">Estimated Hours</th>
+                  <th class="px-2 py-1 border">Rate</th>
+                  <th class="px-2 py-1 border">Material Cost</th>
+                  <th class="px-2 py-1 border">Total Task Cost</th>
+                  <th class="px-2 py-1 border">Actions</th>
+                </tr>
+              </thead>
+              <tbody class="section-body"></tbody>
+            </table>
+            <button type="button" class="mt-2 bg-blue-500 text-white px-3 py-1 rounded add-row" data-section="tiling">Add Task</button>
+            <div class="mt-2 font-bold">Section Total: $<span class="section-total">0.00</span></div>
+          </div>
+
+          <!-- Section: Painting & Finishes -->
+          <div class="mb-8 bg-white shadow rounded p-4" data-section="painting">
+            <h2 class="text-xl font-bold border-b pb-2 mb-4">Painting & Finishes</h2>
+            <table class="w-full">
+              <thead>
+                <tr>
+                  <th class="px-2 py-1 border">Task Description</th>
+                  <th class="px-2 py-1 border">Quantity/Area</th>
+                  <th class="px-2 py-1 border">Unit</th>
+                  <th class="px-2 py-1 border">Estimated Hours</th>
+                  <th class="px-2 py-1 border">Rate</th>
+                  <th class="px-2 py-1 border">Material Cost</th>
+                  <th class="px-2 py-1 border">Total Task Cost</th>
+                  <th class="px-2 py-1 border">Actions</th>
+                </tr>
+              </thead>
+              <tbody class="section-body"></tbody>
+            </table>
+            <button type="button" class="mt-2 bg-blue-500 text-white px-3 py-1 rounded add-row" data-section="painting">Add Task</button>
+            <div class="mt-2 font-bold">Section Total: $<span class="section-total">0.00</span></div>
+          </div>
+
+          <!-- Section: Glazing & Fixtures -->
+          <div class="mb-8 bg-white shadow rounded p-4" data-section="glazing">
+            <h2 class="text-xl font-bold border-b pb-2 mb-4">Glazing & Fixtures</h2>
+            <table class="w-full">
+              <thead>
+                <tr>
+                  <th class="px-2 py-1 border">Task Description</th>
+                  <th class="px-2 py-1 border">Quantity/Area</th>
+                  <th class="px-2 py-1 border">Unit</th>
+                  <th class="px-2 py-1 border">Estimated Hours</th>
+                  <th class="px-2 py-1 border">Rate</th>
+                  <th class="px-2 py-1 border">Material Cost</th>
+                  <th class="px-2 py-1 border">Total Task Cost</th>
+                  <th class="px-2 py-1 border">Actions</th>
+                </tr>
+              </thead>
+              <tbody class="section-body"></tbody>
+            </table>
+            <button type="button" class="mt-2 bg-blue-500 text-white px-3 py-1 rounded add-row" data-section="glazing">Add Task</button>
+            <div class="mt-2 font-bold">Section Total: $<span class="section-total">0.00</span></div>
+          </div>
+
+          <!-- Section: Final Fit-Off & Accessories -->
+          <div class="mb-8 bg-white shadow rounded p-4" data-section="finalFitOff">
+            <h2 class="text-xl font-bold border-b pb-2 mb-4">Final Fit-Off & Accessories</h2>
+            <table class="w-full">
+              <thead>
+                <tr>
+                  <th class="px-2 py-1 border">Task Description</th>
+                  <th class="px-2 py-1 border">Quantity/Area</th>
+                  <th class="px-2 py-1 border">Unit</th>
+                  <th class="px-2 py-1 border">Estimated Hours</th>
+                  <th class="px-2 py-1 border">Rate</th>
+                  <th class="px-2 py-1 border">Material Cost</th>
+                  <th class="px-2 py-1 border">Total Task Cost</th>
+                  <th class="px-2 py-1 border">Actions</th>
+                </tr>
+              </thead>
+              <tbody class="section-body"></tbody>
+            </table>
+            <button type="button" class="mt-2 bg-blue-500 text-white px-3 py-1 rounded add-row" data-section="finalFitOff">Add Task</button>
+            <div class="mt-2 font-bold">Section Total: $<span class="section-total">0.00</span></div>
+          </div>
+
+          <!-- Section: Hidden/Unforeseen Work & Contingency -->
+          <div class="mb-8 bg-white shadow rounded p-4" data-section="contingency">
+            <h2 class="text-xl font-bold border-b pb-2 mb-4">Hidden/Unforeseen Work & Contingency</h2>
+            <table class="w-full">
+              <thead>
+                <tr>
+                  <th class="px-2 py-1 border">Task Description</th>
+                  <th class="px-2 py-1 border">Quantity/Area</th>
+                  <th class="px-2 py-1 border">Unit</th>
+                  <th class="px-2 py-1 border">Estimated Hours</th>
+                  <th class="px-2 py-1 border">Rate</th>
+                  <th class="px-2 py-1 border">Material Cost</th>
+                  <th class="px-2 py-1 border">Total Task Cost</th>
+                  <th class="px-2 py-1 border">Actions</th>
+                </tr>
+              </thead>
+              <tbody class="section-body"></tbody>
+            </table>
+            <button type="button" class="mt-2 bg-blue-500 text-white px-3 py-1 rounded add-row" data-section="contingency">Add Task</button>
+            <div class="mt-2 font-bold">Section Total: $<span class="section-total">0.00</span></div>
+          </div>
+
+          <!-- Section: Client & Access Notes -->
+          <div class="mb-8 bg-white shadow rounded p-4" data-section="clientNotes">
+            <h2 class="text-xl font-bold border-b pb-2 mb-4">Client & Access Notes</h2>
+            <textarea class="w-full border p-2" id="clientNotes" rows="5" placeholder="Enter any client, access, or additional notes here..."></textarea>
+          </div>
         </div>
-      </section>
+      </form>
 
-      <!-- PLUMBING SECTION -->
-      <section class="bg-white shadow rounded mb-6 p-4" data-section="Plumbing">
-        <h2 class="text-xl font-semibold mb-4 border-b pb-2">Plumbing</h2>
-        <table class="min-w-full divide-y divide-gray-200 mb-4">
-          <thead class="bg-gray-100">
-            <tr>
-              <th class="px-2 py-1 text-left">Task Description</th>
-              <th class="px-2 py-1 text-left">Calc Type</th>
-              <th class="px-2 py-1 text-left">Quantity</th>
-              <th class="px-2 py-1 text-left">Hours</th>
-              <th class="px-2 py-1 text-left">Rate ($)</th>
-              <th class="px-2 py-1 text-left">Material Cost ($)</th>
-              <th class="px-2 py-1 text-left">Total ($)</th>
-            </tr>
-          </thead>
-          <tbody class="divide-y divide-gray-100" id="plumbingBody">
-            <!-- Sample Row -->
-            <tr class="task-row">
-              <td class="px-2 py-1">
-                <input type="text" class="w-full border rounded p-1" value="Install new sink" />
-              </td>
-              <td class="px-2 py-1">
-                <select class="calc-type border rounded p-1">
-                  <option value="quantity">Quantity</option>
-                  <option value="hours" selected>Hours</option>
-                </select>
-              </td>
-              <td class="px-2 py-1">
-                <input type="number" step="any" class="quantity w-full border rounded p-1" value="" />
-              </td>
-              <td class="px-2 py-1">
-                <input type="number" step="any" class="hours w-full border rounded p-1" value="2" />
-              </td>
-              <td class="px-2 py-1">
-                <input type="number" step="any" class="rate w-full border rounded p-1" value="100" />
-              </td>
-              <td class="px-2 py-1">
-                <input type="number" step="any" class="material-cost w-full border rounded p-1" value="30" />
-              </td>
-              <td class="px-2 py-1">
-                <input type="number" step="any" class="total-cost w-full border rounded p-1 bg-gray-100" readonly />
-              </td>
-            </tr>
-          </tbody>
-        </table>
-        <!-- Section Total -->
-        <div class="flex justify-end font-semibold">
-          Section Total: $<span class="section-total">0</span>
-        </div>
-      </section>
-
-      <!-- Grand Total -->
-      <div class="flex justify-end font-bold text-xl border-t pt-4">
-        Grand Total: $<span id="grandTotal">0</span>
+      <div class="flex flex-col md:flex-row justify-end space-y-2 md:space-y-0 md:space-x-2 mt-4">
+        <button id="exportCSV" class="bg-green-500 text-white px-4 py-2 rounded">Export CSV</button>
+        <button id="exportPDF" class="bg-purple-500 text-white px-4 py-2 rounded">Export PDF</button>
       </div>
+      <div class="mt-4 text-right font-bold">Overall Total: $<span id="overallTotal">0.00</span></div>
     </div>
-  </main>
+  </div>
+
+  <!-- Row Template for adding tasks -->
+  <template id="rowTemplate">
+    <tr class="row">
+      <td class="border px-2 py-1">
+        <input type="text" class="w-full task-desc" placeholder="E.g. Remove tiles, relocate plumbing" />
+      </td>
+      <td class="border px-2 py-1">
+        <input type="number" step="any" class="w-full quantity" placeholder="0" />
+      </td>
+      <td class="border px-2 py-1">
+        <input type="text" class="w-full unit" placeholder="m², LM, ea" />
+      </td>
+      <td class="border px-2 py-1">
+        <input type="number" step="any" class="w-full hours" placeholder="0" />
+      </td>
+      <td class="border px-2 py-1">
+        <input type="number" step="any" class="w-full rate" placeholder="0" />
+      </td>
+      <td class="border px-2 py-1">
+        <input type="number" step="any" class="w-full material-cost" placeholder="0" />
+      </td>
+      <td class="border px-2 py-1 total-task" data-total="0">0.00</td>
+      <td class="border px-2 py-1">
+        <button type="button" class="text-red-500 delete-row">X</button>
+      </td>
+    </tr>
+  </template>
 
   <script>
-    // Function to calculate row total based on selected calculation method
-    function calculateRow(row) {
-      const calcType = row.querySelector(".calc-type").value;
-      const quantity = parseFloat(row.querySelector(".quantity").value) || 0;
-      const hours = parseFloat(row.querySelector(".hours").value) || 0;
-      const rate = parseFloat(row.querySelector(".rate").value) || 0;
-      const materialCost = parseFloat(row.querySelector(".material-cost").value) || 0;
-      let laborCost = 0;
-
-      if (calcType === "hours") {
-        laborCost = hours * rate;
-      } else {
-        laborCost = quantity * rate;
-      }
-      return laborCost + materialCost;
+    // Format a number to currency format (2 decimals)
+    function formatCurrency(num) {
+      return parseFloat(num).toFixed(2);
     }
 
-    // Function to update totals for a given section element
-    function updateSectionTotals(section) {
-      const rows = section.querySelectorAll(".task-row");
+    // Update a single row's total
+    function updateRowTotal(row) {
+      const quantity = parseFloat(row.querySelector('.quantity').value) || 0;
+      const hours = parseFloat(row.querySelector('.hours').value) || 0;
+      const rate = parseFloat(row.querySelector('.rate').value) || 0;
+      const materialCost = parseFloat(row.querySelector('.material-cost').value) || 0;
+      // Calculate labor: use hours * rate if hours provided; otherwise quantity * rate.
+      let laborCost = hours > 0 ? hours * rate : quantity * rate;
+      let total = laborCost + materialCost;
+      row.querySelector('.total-task').innerText = formatCurrency(total);
+      row.querySelector('.total-task').setAttribute('data-total', total);
+    }
+
+    // Update the total for a section
+    function updateSectionTotal(sectionBody) {
       let sectionTotal = 0;
-      rows.forEach((row) => {
-        const total = calculateRow(row);
-        row.querySelector(".total-cost").value = total.toFixed(2);
-        sectionTotal += total;
+      sectionBody.querySelectorAll('.row').forEach(row => {
+        updateRowTotal(row);
+        sectionTotal += parseFloat(row.querySelector('.total-task').getAttribute('data-total')) || 0;
       });
-      section.querySelector(".section-total").textContent = sectionTotal.toFixed(2);
-      return sectionTotal;
+      // Update the corresponding section's total display
+      const sectionDiv = sectionBody.closest('[data-section]');
+      sectionDiv.querySelector('.section-total').innerText = formatCurrency(sectionTotal);
+      updateOverallTotal();
     }
 
-    // Update all totals (per section and grand total)
-    function updateTotals() {
-      const sections = document.querySelectorAll("section[data-section]");
-      let grandTotal = 0;
-      sections.forEach((section) => {
-        grandTotal += updateSectionTotals(section);
+    // Update overall total from all sections
+    function updateOverallTotal() {
+      let overall = 0;
+      document.querySelectorAll('.section-total').forEach(span => {
+        overall += parseFloat(span.innerText) || 0;
       });
-      document.getElementById("grandTotal").textContent = grandTotal.toFixed(2);
+      document.getElementById('overallTotal').innerText = formatCurrency(overall);
     }
 
-    // Attach event listeners to input fields for live calculations
-    function attachListeners() {
-      const inputs = document.querySelectorAll("input, select");
-      inputs.forEach((input) => {
-        input.addEventListener("input", updateTotals);
-        input.addEventListener("change", updateTotals);
-      });
+    // Add a new row to a section
+    function addRow(sectionName) {
+      const sectionDiv = document.querySelector(`[data-section="${sectionName}"]`);
+      const tbody = sectionDiv.querySelector('.section-body');
+      const template = document.getElementById('rowTemplate').content.cloneNode(true);
+      tbody.appendChild(template);
+      updateSectionTotal(tbody);
     }
 
-    // CSV Export functionality
-    function exportCSV() {
+    // Delete a row when the delete button is clicked
+    document.addEventListener('click', function(e) {
+      if (e.target && e.target.classList.contains('delete-row')) {
+        const row = e.target.closest('.row');
+        const tbody = row.parentElement;
+        row.remove();
+        updateSectionTotal(tbody);
+      }
+    });
+
+    // Listen for input changes in quantity, hours, rate, or material cost to update totals live
+    document.addEventListener('input', function(e) {
+      if (e.target.matches('.quantity, .hours, .rate, .material-cost')) {
+        const row = e.target.closest('.row');
+        updateRowTotal(row);
+        updateSectionTotal(row.parentElement);
+      }
+    });
+
+    // Attach event listeners to "Add Task" buttons
+    document.querySelectorAll('.add-row').forEach(button => {
+      button.addEventListener('click', function() {
+        const sectionName = this.getAttribute('data-section');
+        addRow(sectionName);
+      });
+    });
+
+    // Export the checklist as CSV
+    document.getElementById('exportCSV').addEventListener('click', function() {
       let csvContent = "data:text/csv;charset=utf-8,";
-      csvContent += "Section,Task Description,Calc Type,Quantity,Hours,Rate,Material Cost,Total\n";
-      const sections = document.querySelectorAll("section[data-section]");
-      sections.forEach((section) => {
-        const sectionName = section.getAttribute("data-section");
-        const rows = section.querySelectorAll(".task-row");
-        rows.forEach((row) => {
-          const desc = row.querySelector("input[type='text']").value;
-          const calcType = row.querySelector(".calc-type").value;
-          const quantity = row.querySelector(".quantity").value;
-          const hours = row.querySelector(".hours").value;
-          const rate = row.querySelector(".rate").value;
-          const materialCost = row.querySelector(".material-cost").value;
-          const total = row.querySelector(".total-cost").value;
-          csvContent += `${sectionName},"${desc}",${calcType},${quantity},${hours},${rate},${materialCost},${total}\n`;
+      const sections = document.querySelectorAll('[data-section]');
+      sections.forEach(sectionDiv => {
+        // Skip the Client & Access Notes section
+        if (sectionDiv.getAttribute('data-section') === 'clientNotes') return;
+        csvContent += sectionDiv.querySelector('h2').innerText + "\n";
+        csvContent += "Task Description,Quantity/Area,Unit,Estimated Hours,Rate,Material Cost,Total Task Cost\n";
+        sectionDiv.querySelectorAll('.row').forEach(row => {
+          const task = row.querySelector('.task-desc').value;
+          const quantity = row.querySelector('.quantity').value;
+          const unit = row.querySelector('.unit').value;
+          const hours = row.querySelector('.hours').value;
+          const rate = row.querySelector('.rate').value;
+          const materialCost = row.querySelector('.material-cost').value;
+          const total = row.querySelector('.total-task').innerText;
+          csvContent += `"${task}",${quantity},${unit},${hours},${rate},${materialCost},${total}\n`;
         });
+        csvContent += "\n";
       });
+      csvContent += "Overall Total,,,,,," + document.getElementById('overallTotal').innerText + "\n";
       const encodedUri = encodeURI(csvContent);
       const link = document.createElement("a");
       link.setAttribute("href", encodedUri);
-      link.setAttribute("download", "bathroom_reno_checklist.csv");
+      link.setAttribute("download", "bathroom_renovation_checklist.csv");
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
-    }
+    });
 
-    // PDF Export functionality using html2pdf.js
-    function exportPDF() {
-      const element = document.getElementById("checklistContainer");
+    // Export the checklist as PDF using html2pdf.js
+    document.getElementById('exportPDF').addEventListener('click', function() {
+      const element = document.getElementById('app');
       const opt = {
         margin:       0.5,
-        filename:     'bathroom_reno_checklist.pdf',
+        filename:     'bathroom_renovation_checklist.pdf',
         image:        { type: 'jpeg', quality: 0.98 },
         html2canvas:  { scale: 2 },
         jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
       };
       html2pdf().set(opt).from(element).save();
-    }
-
-    // Attach event listeners to export buttons
-    document.getElementById("exportCSV").addEventListener("click", exportCSV);
-    document.getElementById("exportPDF").addEventListener("click", exportPDF);
-
-    // Initialize calculations on page load
-    attachListeners();
-    updateTotals();
+    });
   </script>
 </body>
 </html>
+
