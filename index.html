@@ -22,29 +22,25 @@
       width: 100%;
       text-align-last: center;
     }
-    /* Hide collapse icon when section is expanded */
-    .toggle-button {
-      cursor: pointer;
-      user-select: none;
-      font-weight: bold;
-      margin-left: 0.5rem;
-    }
+    /* Dark Mode overrides can be added here if needed */
   </style>
 </head>
-<body class="bg-gray-100 text-gray-800">
+<body class="bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-100">
   <div class="container mx-auto p-4">
-    <header class="mb-4">
-      <h1 class="text-3xl font-bold text-center">Bathroom Renovation Checklist</h1>
-      <p class="text-center text-gray-600">
-        Pre-release Preview – features subject to change. Always check your work. Report bugs to marco@inaminnit.com.au
-      </p>
-    </header>
+    <!-- Header with relative positioning for the Dark Mode toggle -->
+    <div class="relative">
+      <header class="mb-4">
+        <h1 class="text-3xl font-bold text-center">Bathroom Renovation Checklist</h1>
+        <p class="text-center text-gray-600 dark:text-gray-300">
+          Pre-release Preview – features subject to change. Always check your work. Report bugs to Marco.
+        </p>
+      </header>
+      <button id="toggleDarkMode" class="absolute top-0 right-0 mt-2 mr-2 bg-gray-200 text-gray-800 dark:bg-gray-700 dark:text-gray-200 px-4 py-2 rounded">Dark Mode</button>
+    </div>
     <div id="app">
       <form id="checklistForm">
         <!-- The sections container -->
         <div id="sectionsContainer">
-          <!-- Each section is given a subtle background colour on its header and is collapsible -->
-          
           <!-- Section: Site Setup & Preliminaries -->
           <div class="mb-8 bg-white shadow rounded" data-section="siteSetup">
             <div class="flex items-center justify-between bg-yellow-100 px-4 py-2 border-b">
@@ -57,10 +53,10 @@
                   <tr>
                     <th class="px-2 py-1 border w-1/6">Task</th>
                     <th class="px-2 py-1 border w-1/2">Description</th>
-                    <th class="px-2 py-1 border w-16">Quantity</th>
-                    <th class="px-2 py-1 border w-24">Unit</th>
-                    <th class="px-2 py-1 border w-16">Price</th>
-                    <th class="px-2 py-1 border w-20">Material Cost</th>
+                    <th class="px-2 py-1 border w-16 bg-gray-200">Quantity</th>
+                    <th class="px-2 py-1 border w-24 bg-gray-200">Unit</th>
+                    <th class="px-2 py-1 border w-16 bg-gray-200">Price</th>
+                    <th class="px-2 py-1 border w-20 bg-gray-300">Material Cost</th>
                     <th class="px-2 py-1 border w-20">Total</th>
                     <th class="px-2 py-1 border w-10">Actions</th>
                   </tr>
@@ -84,10 +80,10 @@
                   <tr>
                     <th class="px-2 py-1 border w-1/6">Task</th>
                     <th class="px-2 py-1 border w-1/2">Description</th>
-                    <th class="px-2 py-1 border w-16">Quantity</th>
-                    <th class="px-2 py-1 border w-24">Unit</th>
-                    <th class="px-2 py-1 border w-16">Price</th>
-                    <th class="px-2 py-1 border w-20">Material Cost</th>
+                    <th class="px-2 py-1 border w-16 bg-gray-200">Quantity</th>
+                    <th class="px-2 py-1 border w-24 bg-gray-200">Unit</th>
+                    <th class="px-2 py-1 border w-16 bg-gray-200">Price</th>
+                    <th class="px-2 py-1 border w-20 bg-gray-300">Material Cost</th>
                     <th class="px-2 py-1 border w-20">Total</th>
                     <th class="px-2 py-1 border w-10">Actions</th>
                   </tr>
@@ -111,10 +107,10 @@
                   <tr>
                     <th class="px-2 py-1 border w-1/6">Task</th>
                     <th class="px-2 py-1 border w-1/2">Description</th>
-                    <th class="px-2 py-1 border w-16">Quantity</th>
-                    <th class="px-2 py-1 border w-24">Unit</th>
-                    <th class="px-2 py-1 border w-16">Price</th>
-                    <th class="px-2 py-1 border w-20">Material Cost</th>
+                    <th class="px-2 py-1 border w-16 bg-gray-200">Quantity</th>
+                    <th class="px-2 py-1 border w-24 bg-gray-200">Unit</th>
+                    <th class="px-2 py-1 border w-16 bg-gray-200">Price</th>
+                    <th class="px-2 py-1 border w-20 bg-gray-300">Material Cost</th>
                     <th class="px-2 py-1 border w-20">Total</th>
                     <th class="px-2 py-1 border w-10">Actions</th>
                   </tr>
@@ -138,10 +134,10 @@
                   <tr>
                     <th class="px-2 py-1 border w-1/6">Task</th>
                     <th class="px-2 py-1 border w-1/2">Description</th>
-                    <th class="px-2 py-1 border w-16">Quantity</th>
-                    <th class="px-2 py-1 border w-24">Unit</th>
-                    <th class="px-2 py-1 border w-16">Price</th>
-                    <th class="px-2 py-1 border w-20">Material Cost</th>
+                    <th class="px-2 py-1 border w-16 bg-gray-200">Quantity</th>
+                    <th class="px-2 py-1 border w-24 bg-gray-200">Unit</th>
+                    <th class="px-2 py-1 border w-16 bg-gray-200">Price</th>
+                    <th class="px-2 py-1 border w-20 bg-gray-300">Material Cost</th>
                     <th class="px-2 py-1 border w-20">Total</th>
                     <th class="px-2 py-1 border w-10">Actions</th>
                   </tr>
@@ -165,10 +161,10 @@
                   <tr>
                     <th class="px-2 py-1 border w-1/6">Task</th>
                     <th class="px-2 py-1 border w-1/2">Description</th>
-                    <th class="px-2 py-1 border w-16">Quantity</th>
-                    <th class="px-2 py-1 border w-24">Unit</th>
-                    <th class="px-2 py-1 border w-16">Price</th>
-                    <th class="px-2 py-1 border w-20">Material Cost</th>
+                    <th class="px-2 py-1 border w-16 bg-gray-200">Quantity</th>
+                    <th class="px-2 py-1 border w-24 bg-gray-200">Unit</th>
+                    <th class="px-2 py-1 border w-16 bg-gray-200">Price</th>
+                    <th class="px-2 py-1 border w-20 bg-gray-300">Material Cost</th>
                     <th class="px-2 py-1 border w-20">Total</th>
                     <th class="px-2 py-1 border w-10">Actions</th>
                   </tr>
@@ -192,10 +188,10 @@
                   <tr>
                     <th class="px-2 py-1 border w-1/6">Task</th>
                     <th class="px-2 py-1 border w-1/2">Description</th>
-                    <th class="px-2 py-1 border w-16">Quantity</th>
-                    <th class="px-2 py-1 border w-24">Unit</th>
-                    <th class="px-2 py-1 border w-16">Price</th>
-                    <th class="px-2 py-1 border w-20">Material Cost</th>
+                    <th class="px-2 py-1 border w-16 bg-gray-200">Quantity</th>
+                    <th class="px-2 py-1 border w-24 bg-gray-200">Unit</th>
+                    <th class="px-2 py-1 border w-16 bg-gray-200">Price</th>
+                    <th class="px-2 py-1 border w-20 bg-gray-300">Material Cost</th>
                     <th class="px-2 py-1 border w-20">Total</th>
                     <th class="px-2 py-1 border w-10">Actions</th>
                   </tr>
@@ -219,10 +215,10 @@
                   <tr>
                     <th class="px-2 py-1 border w-1/6">Task</th>
                     <th class="px-2 py-1 border w-1/2">Description</th>
-                    <th class="px-2 py-1 border w-16">Quantity</th>
-                    <th class="px-2 py-1 border w-24">Unit</th>
-                    <th class="px-2 py-1 border w-16">Price</th>
-                    <th class="px-2 py-1 border w-20">Material Cost</th>
+                    <th class="px-2 py-1 border w-16 bg-gray-200">Quantity</th>
+                    <th class="px-2 py-1 border w-24 bg-gray-200">Unit</th>
+                    <th class="px-2 py-1 border w-16 bg-gray-200">Price</th>
+                    <th class="px-2 py-1 border w-20 bg-gray-300">Material Cost</th>
                     <th class="px-2 py-1 border w-20">Total</th>
                     <th class="px-2 py-1 border w-10">Actions</th>
                   </tr>
@@ -246,10 +242,10 @@
                   <tr>
                     <th class="px-2 py-1 border w-1/6">Task</th>
                     <th class="px-2 py-1 border w-1/2">Description</th>
-                    <th class="px-2 py-1 border w-16">Quantity</th>
-                    <th class="px-2 py-1 border w-24">Unit</th>
-                    <th class="px-2 py-1 border w-16">Price</th>
-                    <th class="px-2 py-1 border w-20">Material Cost</th>
+                    <th class="px-2 py-1 border w-16 bg-gray-200">Quantity</th>
+                    <th class="px-2 py-1 border w-24 bg-gray-200">Unit</th>
+                    <th class="px-2 py-1 border w-16 bg-gray-200">Price</th>
+                    <th class="px-2 py-1 border w-20 bg-gray-300">Material Cost</th>
                     <th class="px-2 py-1 border w-20">Total</th>
                     <th class="px-2 py-1 border w-10">Actions</th>
                   </tr>
@@ -273,10 +269,10 @@
                   <tr>
                     <th class="px-2 py-1 border w-1/6">Task</th>
                     <th class="px-2 py-1 border w-1/2">Description</th>
-                    <th class="px-2 py-1 border w-16">Quantity</th>
-                    <th class="px-2 py-1 border w-24">Unit</th>
-                    <th class="px-2 py-1 border w-16">Price</th>
-                    <th class="px-2 py-1 border w-20">Material Cost</th>
+                    <th class="px-2 py-1 border w-16 bg-gray-200">Quantity</th>
+                    <th class="px-2 py-1 border w-24 bg-gray-200">Unit</th>
+                    <th class="px-2 py-1 border w-16 bg-gray-200">Price</th>
+                    <th class="px-2 py-1 border w-20 bg-gray-300">Material Cost</th>
                     <th class="px-2 py-1 border w-20">Total</th>
                     <th class="px-2 py-1 border w-10">Actions</th>
                   </tr>
@@ -300,10 +296,10 @@
                   <tr>
                     <th class="px-2 py-1 border w-1/6">Task</th>
                     <th class="px-2 py-1 border w-1/2">Description</th>
-                    <th class="px-2 py-1 border w-16">Quantity</th>
-                    <th class="px-2 py-1 border w-24">Unit</th>
-                    <th class="px-2 py-1 border w-16">Price</th>
-                    <th class="px-2 py-1 border w-20">Material Cost</th>
+                    <th class="px-2 py-1 border w-16 bg-gray-200">Quantity</th>
+                    <th class="px-2 py-1 border w-24 bg-gray-200">Unit</th>
+                    <th class="px-2 py-1 border w-16 bg-gray-200">Price</th>
+                    <th class="px-2 py-1 border w-20 bg-gray-300">Material Cost</th>
                     <th class="px-2 py-1 border w-20">Total</th>
                     <th class="px-2 py-1 border w-10">Actions</th>
                   </tr>
@@ -327,10 +323,10 @@
                   <tr>
                     <th class="px-2 py-1 border w-1/6">Task</th>
                     <th class="px-2 py-1 border w-1/2">Description</th>
-                    <th class="px-2 py-1 border w-16">Quantity</th>
-                    <th class="px-2 py-1 border w-24">Unit</th>
-                    <th class="px-2 py-1 border w-16">Price</th>
-                    <th class="px-2 py-1 border w-20">Material Cost</th>
+                    <th class="px-2 py-1 border w-16 bg-gray-200">Quantity</th>
+                    <th class="px-2 py-1 border w-24 bg-gray-200">Unit</th>
+                    <th class="px-2 py-1 border w-16 bg-gray-200">Price</th>
+                    <th class="px-2 py-1 border w-20 bg-gray-300">Material Cost</th>
                     <th class="px-2 py-1 border w-20">Total</th>
                     <th class="px-2 py-1 border w-10">Actions</th>
                   </tr>
@@ -354,10 +350,10 @@
                   <tr>
                     <th class="px-2 py-1 border w-1/6">Task</th>
                     <th class="px-2 py-1 border w-1/2">Description</th>
-                    <th class="px-2 py-1 border w-16">Quantity</th>
-                    <th class="px-2 py-1 border w-24">Unit</th>
-                    <th class="px-2 py-1 border w-16">Price</th>
-                    <th class="px-2 py-1 border w-20">Material Cost</th>
+                    <th class="px-2 py-1 border w-16 bg-gray-200">Quantity</th>
+                    <th class="px-2 py-1 border w-24 bg-gray-200">Unit</th>
+                    <th class="px-2 py-1 border w-16 bg-gray-200">Price</th>
+                    <th class="px-2 py-1 border w-20 bg-gray-300">Material Cost</th>
                     <th class="px-2 py-1 border w-20">Total</th>
                     <th class="px-2 py-1 border w-10">Actions</th>
                   </tr>
@@ -375,7 +371,7 @@
               <h2 class="text-xl font-bold">Total</h2>
             </div>
             <div class="section-content px-4 py-2">
-              <div class="flex justify-end space-x-4 text-lg">
+              <div class="text-lg space-y-2">
                 <div>Total Price: $<span id="totalPrice">0.00</span></div>
                 <div>GST (10%): $<span id="gstAmount">0.00</span></div>
                 <div>Total + GST: $<span id="totalWithGst">0.00</span></div>
@@ -412,10 +408,10 @@
       <td class="border px-2 py-1">
         <textarea class="w-full description" rows="2" placeholder="Description"></textarea>
       </td>
-      <td class="border px-2 py-1">
+      <td class="border px-2 py-1 bg-gray-200">
         <input type="number" step="any" class="w-full quantity" placeholder="0" />
       </td>
-      <td class="border px-2 py-1 relative">
+      <td class="border px-2 py-1 relative bg-gray-200">
         <select class="unit-select p-1 border rounded" style="width: 100%;">
           <option value="LM">LM</option>
           <option value="Sqm">Sqm</option>
@@ -423,10 +419,10 @@
           <option value="Hrs">Hrs</option>
         </select>
       </td>
-      <td class="border px-2 py-1">
+      <td class="border px-2 py-1 bg-gray-200">
         <input type="number" step="any" class="w-full price" placeholder="0" />
       </td>
-      <td class="border px-2 py-1">
+      <td class="border px-2 py-1 bg-gray-300">
         <input type="number" step="any" class="w-full material-cost" placeholder="0" />
       </td>
       <td class="border px-2 py-1 total-task" data-total="0">0.00</td>
@@ -651,6 +647,13 @@
           this.innerText = "▲";
         }
       });
+    });
+
+    // Dark Mode Toggle
+    document.getElementById('toggleDarkMode').addEventListener('click', function() {
+      document.documentElement.classList.toggle('dark');
+      // Optionally update button text based on mode
+      this.innerText = document.documentElement.classList.contains('dark') ? "Light Mode" : "Dark Mode";
     });
 
     // Export the checklist as CSV
