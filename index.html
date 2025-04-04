@@ -13,6 +13,10 @@
     textarea {
       resize: both;
     }
+    /* Style the unit dropdown to float right in its cell */
+    .unit-select {
+      float: right;
+    }
   </style>
 </head>
 <body class="bg-gray-100 text-gray-800">
@@ -25,8 +29,6 @@
       <form id="checklistForm">
         <!-- The sections container -->
         <div id="sectionsContainer">
-          <!-- Section Template (columns: Task, Description, Quantity/Area, Unit, Estimated Hours, Rate, Material Cost, Total Task Cost, Actions) -->
-
           <!-- Section: Site Setup & Preliminaries -->
           <div class="mb-8 bg-white shadow rounded p-4" data-section="siteSetup">
             <h2 class="text-xl font-bold border-b pb-2 mb-4">Site Setup & Preliminaries</h2>
@@ -35,10 +37,9 @@
                 <tr>
                   <th class="px-2 py-1 border">Task</th>
                   <th class="px-2 py-1 border">Description</th>
-                  <th class="px-2 py-1 border">Quantity/Area</th>
+                  <th class="px-2 py-1 border">Quantity</th>
                   <th class="px-2 py-1 border">Unit</th>
-                  <th class="px-2 py-1 border">Estimated Hours</th>
-                  <th class="px-2 py-1 border">Rate</th>
+                  <th class="px-2 py-1 border">Price</th>
                   <th class="px-2 py-1 border">Material Cost</th>
                   <th class="px-2 py-1 border">Total Task Cost</th>
                   <th class="px-2 py-1 border">Actions</th>
@@ -52,7 +53,7 @@
             <div class="mt-2 font-bold">Section Total: $<span class="section-total">0.00</span></div>
           </div>
 
-          <!-- Section: Demolition & Strip-Out -->
+          <!-- Section: Demolition & Rubbish Removal -->
           <div class="mb-8 bg-white shadow rounded p-4" data-section="demolition">
             <h2 class="text-xl font-bold border-b pb-2 mb-4">Demolition & Rubbish Removal</h2>
             <table class="w-full">
@@ -60,10 +61,9 @@
                 <tr>
                   <th class="px-2 py-1 border">Task</th>
                   <th class="px-2 py-1 border">Description</th>
-                  <th class="px-2 py-1 border">Quantity/Area</th>
+                  <th class="px-2 py-1 border">Quantity</th>
                   <th class="px-2 py-1 border">Unit</th>
-                  <th class="px-2 py-1 border">Estimated Hours</th>
-                  <th class="px-2 py-1 border">Rate</th>
+                  <th class="px-2 py-1 border">Price</th>
                   <th class="px-2 py-1 border">Material Cost</th>
                   <th class="px-2 py-1 border">Total Task Cost</th>
                   <th class="px-2 py-1 border">Actions</th>
@@ -83,10 +83,9 @@
                 <tr>
                   <th class="px-2 py-1 border">Task</th>
                   <th class="px-2 py-1 border">Description</th>
-                  <th class="px-2 py-1 border">Quantity/Area</th>
+                  <th class="px-2 py-1 border">Quantity</th>
                   <th class="px-2 py-1 border">Unit</th>
-                  <th class="px-2 py-1 border">Estimated Hours</th>
-                  <th class="px-2 py-1 border">Rate</th>
+                  <th class="px-2 py-1 border">Price</th>
                   <th class="px-2 py-1 border">Material Cost</th>
                   <th class="px-2 py-1 border">Total Task Cost</th>
                   <th class="px-2 py-1 border">Actions</th>
@@ -106,10 +105,9 @@
                 <tr>
                   <th class="px-2 py-1 border">Task</th>
                   <th class="px-2 py-1 border">Description</th>
-                  <th class="px-2 py-1 border">Quantity/Area</th>
+                  <th class="px-2 py-1 border">Quantity</th>
                   <th class="px-2 py-1 border">Unit</th>
-                  <th class="px-2 py-1 border">Estimated Hours</th>
-                  <th class="px-2 py-1 border">Rate</th>
+                  <th class="px-2 py-1 border">Price</th>
                   <th class="px-2 py-1 border">Material Cost</th>
                   <th class="px-2 py-1 border">Total Task Cost</th>
                   <th class="px-2 py-1 border">Actions</th>
@@ -129,10 +127,9 @@
                 <tr>
                   <th class="px-2 py-1 border">Task</th>
                   <th class="px-2 py-1 border">Description</th>
-                  <th class="px-2 py-1 border">Quantity/Area</th>
+                  <th class="px-2 py-1 border">Quantity</th>
                   <th class="px-2 py-1 border">Unit</th>
-                  <th class="px-2 py-1 border">Estimated Hours</th>
-                  <th class="px-2 py-1 border">Rate</th>
+                  <th class="px-2 py-1 border">Price</th>
                   <th class="px-2 py-1 border">Material Cost</th>
                   <th class="px-2 py-1 border">Total Task Cost</th>
                   <th class="px-2 py-1 border">Actions</th>
@@ -152,10 +149,9 @@
                 <tr>
                   <th class="px-2 py-1 border">Task</th>
                   <th class="px-2 py-1 border">Description</th>
-                  <th class="px-2 py-1 border">Quantity/Area</th>
+                  <th class="px-2 py-1 border">Quantity</th>
                   <th class="px-2 py-1 border">Unit</th>
-                  <th class="px-2 py-1 border">Estimated Hours</th>
-                  <th class="px-2 py-1 border">Rate</th>
+                  <th class="px-2 py-1 border">Price</th>
                   <th class="px-2 py-1 border">Material Cost</th>
                   <th class="px-2 py-1 border">Total Task Cost</th>
                   <th class="px-2 py-1 border">Actions</th>
@@ -175,10 +171,9 @@
                 <tr>
                   <th class="px-2 py-1 border">Task</th>
                   <th class="px-2 py-1 border">Description</th>
-                  <th class="px-2 py-1 border">Quantity/Area</th>
+                  <th class="px-2 py-1 border">Quantity</th>
                   <th class="px-2 py-1 border">Unit</th>
-                  <th class="px-2 py-1 border">Estimated Hours</th>
-                  <th class="px-2 py-1 border">Rate</th>
+                  <th class="px-2 py-1 border">Price</th>
                   <th class="px-2 py-1 border">Material Cost</th>
                   <th class="px-2 py-1 border">Total Task Cost</th>
                   <th class="px-2 py-1 border">Actions</th>
@@ -198,10 +193,9 @@
                 <tr>
                   <th class="px-2 py-1 border">Task</th>
                   <th class="px-2 py-1 border">Description</th>
-                  <th class="px-2 py-1 border">Quantity/Area</th>
+                  <th class="px-2 py-1 border">Quantity</th>
                   <th class="px-2 py-1 border">Unit</th>
-                  <th class="px-2 py-1 border">Estimated Hours</th>
-                  <th class="px-2 py-1 border">Rate</th>
+                  <th class="px-2 py-1 border">Price</th>
                   <th class="px-2 py-1 border">Material Cost</th>
                   <th class="px-2 py-1 border">Total Task Cost</th>
                   <th class="px-2 py-1 border">Actions</th>
@@ -221,10 +215,9 @@
                 <tr>
                   <th class="px-2 py-1 border">Task</th>
                   <th class="px-2 py-1 border">Description</th>
-                  <th class="px-2 py-1 border">Quantity/Area</th>
+                  <th class="px-2 py-1 border">Quantity</th>
                   <th class="px-2 py-1 border">Unit</th>
-                  <th class="px-2 py-1 border">Estimated Hours</th>
-                  <th class="px-2 py-1 border">Rate</th>
+                  <th class="px-2 py-1 border">Price</th>
                   <th class="px-2 py-1 border">Material Cost</th>
                   <th class="px-2 py-1 border">Total Task Cost</th>
                   <th class="px-2 py-1 border">Actions</th>
@@ -244,10 +237,9 @@
                 <tr>
                   <th class="px-2 py-1 border">Task</th>
                   <th class="px-2 py-1 border">Description</th>
-                  <th class="px-2 py-1 border">Quantity/Area</th>
+                  <th class="px-2 py-1 border">Quantity</th>
                   <th class="px-2 py-1 border">Unit</th>
-                  <th class="px-2 py-1 border">Estimated Hours</th>
-                  <th class="px-2 py-1 border">Rate</th>
+                  <th class="px-2 py-1 border">Price</th>
                   <th class="px-2 py-1 border">Material Cost</th>
                   <th class="px-2 py-1 border">Total Task Cost</th>
                   <th class="px-2 py-1 border">Actions</th>
@@ -267,10 +259,9 @@
                 <tr>
                   <th class="px-2 py-1 border">Task</th>
                   <th class="px-2 py-1 border">Description</th>
-                  <th class="px-2 py-1 border">Quantity/Area</th>
+                  <th class="px-2 py-1 border">Quantity</th>
                   <th class="px-2 py-1 border">Unit</th>
-                  <th class="px-2 py-1 border">Estimated Hours</th>
-                  <th class="px-2 py-1 border">Rate</th>
+                  <th class="px-2 py-1 border">Price</th>
                   <th class="px-2 py-1 border">Material Cost</th>
                   <th class="px-2 py-1 border">Total Task Cost</th>
                   <th class="px-2 py-1 border">Actions</th>
@@ -290,10 +281,9 @@
                 <tr>
                   <th class="px-2 py-1 border">Task</th>
                   <th class="px-2 py-1 border">Description</th>
-                  <th class="px-2 py-1 border">Quantity/Area</th>
+                  <th class="px-2 py-1 border">Quantity</th>
                   <th class="px-2 py-1 border">Unit</th>
-                  <th class="px-2 py-1 border">Estimated Hours</th>
-                  <th class="px-2 py-1 border">Rate</th>
+                  <th class="px-2 py-1 border">Price</th>
                   <th class="px-2 py-1 border">Material Cost</th>
                   <th class="px-2 py-1 border">Total Task Cost</th>
                   <th class="px-2 py-1 border">Actions</th>
@@ -325,22 +315,25 @@
   <template id="rowTemplate">
     <tr class="row">
       <td class="border px-2 py-1">
-        <textarea class="w-full task" style="resize: both;" rows="2" placeholder="Task"></textarea>
+        <textarea class="w-full task" rows="2" placeholder="Task"></textarea>
       </td>
       <td class="border px-2 py-1">
-        <textarea class="w-full description" style="resize: both;" rows="2" placeholder="Description"></textarea>
+        <textarea class="w-full description" rows="2" placeholder="Description"></textarea>
       </td>
       <td class="border px-2 py-1">
         <input type="number" step="any" class="w-full quantity" placeholder="0" />
       </td>
-      <td class="border px-2 py-1">
-        <input type="text" class="w-full unit" placeholder="m², LM, ea" />
+      <td class="border px-2 py-1 relative">
+        <!-- The dropdown is placed within the same cell -->
+        <select class="unit-select absolute right-0 top-0 p-1 border rounded" style="width: auto;">
+          <option value="LM">LM</option>
+          <option value="Sqm">Sqm</option>
+          <option value="ea">ea</option>
+          <option value="Hrs">Hrs</option>
+        </select>
       </td>
       <td class="border px-2 py-1">
-        <input type="number" step="any" class="w-full hours" placeholder="0" />
-      </td>
-      <td class="border px-2 py-1">
-        <input type="number" step="any" class="w-full rate" placeholder="0" />
+        <input type="number" step="any" class="w-full price" placeholder="0" />
       </td>
       <td class="border px-2 py-1">
         <input type="number" step="any" class="w-full material-cost" placeholder="0" />
@@ -353,7 +346,7 @@
   </template>
 
   <script>
-    // Default tasks for each section
+    // Default tasks for each section (prepopulated)
     const defaultTasks = {
       siteSetup: [
         { task: "Protect existing areas", description: "Install floor protection in hallway and cover furniture (Preparation to prevent damage to other areas during works)." },
@@ -447,7 +440,7 @@
       glazing: [
         { task: "Supply & install shower screen", description: "Measure, supply, and install frameless/toughened glass shower screen." },
         { task: "Install fixed mirror above vanity", description: "Install fixed mirror above vanity (custom size, e.g., 600x900mm)." },
-        { task: "Install glass shelf or other glass elements", description: "Install any additional glass elements such as shelves or blocks." },
+        { task: "Install glass shelf or additional elements", description: "Install any additional glass elements such as shelves or blocks." },
         { task: "Replace window glass in shower area", description: "Replace window glass with frosted safety glass if needed." }
       ],
       finalFitOff: [
@@ -473,13 +466,12 @@
       return parseFloat(num).toFixed(2);
     }
 
-    // Update a single row's total (does not affect task/description fields)
+    // Update a single row's total using the new formula: Total = (Quantity * Price) + Material Cost
     function updateRowTotal(row) {
       const quantity = parseFloat(row.querySelector('.quantity').value) || 0;
-      const hours = parseFloat(row.querySelector('.hours').value) || 0;
-      const rate = parseFloat(row.querySelector('.rate').value) || 0;
+      const price = parseFloat(row.querySelector('.price').value) || 0;
       const materialCost = parseFloat(row.querySelector('.material-cost').value) || 0;
-      let laborCost = hours > 0 ? hours * rate : quantity * rate;
+      let laborCost = quantity * price;
       let total = laborCost + materialCost;
       row.querySelector('.total-task').innerText = formatCurrency(total);
       row.querySelector('.total-task').setAttribute('data-total', total);
@@ -529,9 +521,9 @@
       }
     });
 
-    // Listen for input changes to update totals live
+    // Listen for input changes to update totals live (quantity, price, material-cost)
     document.addEventListener('input', function(e) {
-      if (e.target.matches('.quantity, .hours, .rate, .material-cost')) {
+      if (e.target.matches('.quantity, .price, .material-cost')) {
         const row = e.target.closest('.row');
         updateRowTotal(row);
         updateSectionTotal(row.parentElement);
@@ -553,21 +545,20 @@
       sections.forEach(sectionDiv => {
         if (sectionDiv.getAttribute('data-section') === 'clientNotes') return;
         csvContent += '"' + sectionDiv.querySelector('h2').innerText + '"\n';
-        csvContent += '"Task","Description","Quantity/Area","Unit","Estimated Hours","Rate","Material Cost","Total Task Cost"\n';
+        csvContent += '"Task","Description","Quantity","Unit","Price","Material Cost","Total Task Cost"\n';
         sectionDiv.querySelectorAll('.row').forEach(row => {
           const task = row.querySelector('.task').value;
           const desc = row.querySelector('.description').value;
           const quantity = row.querySelector('.quantity').value;
-          const unit = row.querySelector('.unit').value;
-          const hours = row.querySelector('.hours').value;
-          const rate = row.querySelector('.rate').value;
+          const unit = row.querySelector('select').value;
+          const price = row.querySelector('.price').value;
           const materialCost = row.querySelector('.material-cost').value;
           const total = row.querySelector('.total-task').innerText;
-          csvContent += `"${task}","${desc}",${quantity},${unit},${hours},${rate},${materialCost},${total}\n`;
+          csvContent += `"${task}","${desc}",${quantity},${unit},${price},${materialCost},${total}\n`;
         });
         csvContent += "\n";
       });
-      csvContent += `"Overall Total",,,,,,,"` + document.getElementById('overallTotal').innerText + `"\n`;
+      csvContent += `"Overall Total",,,,,,"` + document.getElementById('overallTotal').innerText + `"\n`;
       const encodedUri = encodeURI(csvContent);
       const link = document.createElement("a");
       link.setAttribute("href", encodedUri);
