@@ -48,7 +48,7 @@
             <h2 class="text-xl font-bold">Client &amp; Project Details</h2>
           </div>
           <!-- Left-aligned, shorter container -->
-          <div class="section-content px-4 py-2">
+          <div class="section-content px-4 py-2 hidden">
             <div class="max-w-md space-y-4">
               <div>
                 <label for="clientName" class="block font-semibold">Client Name</label>
@@ -88,9 +88,9 @@
         <div class="mb-8 bg-white shadow rounded" data-section="siteSetup">
           <div class="flex items-center justify-between bg-yellow-100 px-4 py-2 border-b border-gray-300">
             <h2 class="text-xl font-bold">Site Setup &amp; Preliminaries</h2>
-            <span class="toggle-button" data-target="siteSetup">▼</span>
+            <span class="toggle-button" data-target="siteSetup" role="button" aria-expanded="false">►</span>
           </div>
-          <div class="section-content px-4 py-2">
+          <div class="section-content px-4 py-2 hidden">
             <p class="mb-2 text-sm text-gray-700">
               Capture tasks and considerations for preparing the site.
             </p>
@@ -127,9 +127,9 @@
         <div class="mb-8 bg-white shadow rounded" data-section="demolition">
           <div class="flex items-center justify-between bg-gray-100 px-4 py-2 border-b border-gray-300">
             <h2 class="text-xl font-bold">Demolition &amp; Rubbish Removal</h2>
-            <span class="toggle-button" data-target="demolition">▼</span>
+            <span class="toggle-button" data-target="demolition" role="button" aria-expanded="false">►</span>
           </div>
-          <div class="section-content px-4 py-2">
+          <div class="section-content px-4 py-2 hidden">
             <p class="mb-2 text-sm text-gray-700">
               Log tasks related to removing the existing bathroom.
             </p>
@@ -164,9 +164,9 @@
         <div class="mb-8 bg-white shadow rounded" data-section="asbestos">
           <div class="flex items-center justify-between bg-red-100 px-4 py-2 border-b border-gray-300">
             <h2 class="text-xl font-bold">Asbestos (Hazardous Materials)</h2>
-            <span class="toggle-button" data-target="asbestos">▼</span>
+            <span class="toggle-button" data-target="asbestos" role="button" aria-expanded="false">►</span>
           </div>
-          <div class="section-content px-4 py-2">
+          <div class="section-content px-4 py-2 hidden">
             <p class="mb-2 text-sm text-gray-700">
               Determine the need for hazardous materials handling.
             </p>
@@ -199,9 +199,9 @@
         <div class="mb-8 bg-white shadow rounded" data-section="carpentry">
           <div class="flex items-center justify-between bg-green-100 px-4 py-2 border-b border-gray-300">
             <h2 class="text-xl font-bold">Carpentry &amp; Structural</h2>
-            <span class="toggle-button" data-target="carpentry">▼</span>
+            <span class="toggle-button" data-target="carpentry" role="button" aria-expanded="false">►</span>
           </div>
-          <div class="section-content px-4 py-2">
+          <div class="section-content px-4 py-2 hidden">
             <p class="mb-2 text-sm text-gray-700">
               Identify required carpentry and structural works.
             </p>
@@ -240,9 +240,9 @@
         <div class="mb-8 bg-white shadow rounded" data-section="plumbing">
           <div class="flex items-center justify-between bg-blue-100 px-4 py-2 border-b border-gray-300">
             <h2 class="text-xl font-bold">Plumbing</h2>
-            <span class="toggle-button" data-target="plumbing">▼</span>
+            <span class="toggle-button" data-target="plumbing" role="button" aria-expanded="false">►</span>
           </div>
-          <div class="section-content px-4 py-2">
+          <div class="section-content px-4 py-2 hidden">
             <p class="mb-2 text-sm text-gray-700">
               Determine all plumbing requirements.
             </p>
@@ -284,9 +284,9 @@
         <div class="mb-8 bg-white shadow rounded" data-section="electrical">
           <div class="flex items-center justify-between bg-orange-100 px-4 py-2 border-b border-gray-300">
             <h2 class="text-xl font-bold">Electrical</h2>
-            <span class="toggle-button" data-target="electrical">▼</span>
+            <span class="toggle-button" data-target="electrical" role="button" aria-expanded="false">►</span>
           </div>
-          <div class="section-content px-4 py-2">
+          <div class="section-content px-4 py-2 hidden">
             <p class="mb-2 text-sm text-gray-700">
               Determine all electrical requirements.
             </p>
@@ -327,9 +327,9 @@
         <div class="mb-8 bg-white shadow rounded" data-section="waterproofing">
           <div class="flex items-center justify-between bg-teal-100 px-4 py-2 border-b border-gray-300">
             <h2 class="text-xl font-bold">Waterproofing</h2>
-            <span class="toggle-button" data-target="waterproofing">▼</span>
+            <span class="toggle-button" data-target="waterproofing" role="button" aria-expanded="false">►</span>
           </div>
-          <div class="section-content px-4 py-2">
+          <div class="section-content px-4 py-2 hidden">
             <p class="mb-2 text-sm text-gray-700">
               Outline the waterproofing requirements.
             </p>
@@ -364,9 +364,9 @@
         <div class="mb-8 bg-white shadow rounded" data-section="tiling">
           <div class="flex items-center justify-between bg-purple-100 px-4 py-2 border-b border-gray-300">
             <h2 class="text-xl font-bold">Tiling</h2>
-            <span class="toggle-button" data-target="tiling">▼</span>
+            <span class="toggle-button" data-target="tiling" role="button" aria-expanded="false">►</span>
           </div>
-          <div class="section-content px-4 py-2">
+          <div class="section-content px-4 py-2 hidden">
             <p class="mb-2 text-sm text-gray-700">
               Record all tiling requirements.
             </p>
@@ -404,9 +404,9 @@
         <div class="mb-8 bg-white shadow rounded" data-section="painting">
           <div class="flex items-center justify-between bg-pink-100 px-4 py-2 border-b border-gray-300">
             <h2 class="text-xl font-bold">Painting &amp; Finishes</h2>
-            <span class="toggle-button" data-target="painting">▼</span>
+            <span class="toggle-button" data-target="painting" role="button" aria-expanded="false">►</span>
           </div>
-          <div class="section-content px-4 py-2">
+          <div class="section-content px-4 py-2 hidden">
             <p class="mb-2 text-sm text-gray-700">
               Determine painting and finishing requirements.
             </p>
@@ -442,9 +442,9 @@
         <div class="mb-8 bg-white shadow rounded" data-section="glazing">
           <div class="flex items-center justify-between bg-indigo-100 px-4 py-2 border-b border-gray-300">
             <h2 class="text-xl font-bold">Glazing &amp; Fixtures</h2>
-            <span class="toggle-button" data-target="glazing">▼</span>
+            <span class="toggle-button" data-target="glazing" role="button" aria-expanded="false">►</span>
           </div>
-          <div class="section-content px-4 py-2">
+          <div class="section-content px-4 py-2 hidden">
             <p class="mb-2 text-sm text-gray-700">
               Determine the glazing and fixture requirements.
             </p>
@@ -478,9 +478,9 @@
         <div class="mb-8 bg-white shadow rounded" data-section="finalFitOff">
           <div class="flex items-center justify-between bg-lime-100 px-4 py-2 border-b border-gray-300">
             <h2 class="text-xl font-bold">Final Fit-Off &amp; Accessories</h2>
-            <span class="toggle-button" data-target="finalFitOff">▼</span>
+            <span class="toggle-button" data-target="finalFitOff" role="button" aria-expanded="false">►</span>
           </div>
-          <div class="section-content px-4 py-2">
+          <div class="section-content px-4 py-2 hidden">
             <p class="mb-2 text-sm text-gray-700">
               List finishing touches and hardware installations.
             </p>
@@ -516,9 +516,9 @@
         <div class="mb-8 bg-white shadow rounded" data-section="contingency">
           <div class="flex items-center justify-between bg-red-200 px-4 py-2 border-b border-gray-300">
             <h2 class="text-xl font-bold">Hidden/Unforeseen Work &amp; Contingency</h2>
-            <span class="toggle-button" data-target="contingency">▼</span>
+            <span class="toggle-button" data-target="contingency" role="button" aria-expanded="false">►</span>
           </div>
-          <div class="section-content px-4 py-2">
+          <div class="section-content px-4 py-2 hidden">
             <p class="mb-2 text-sm text-gray-700">
               Note potential extra work or risks.
             </p>
@@ -567,7 +567,7 @@
           <div class="flex items-center justify-between bg-gray-50 px-4 py-2 border-b border-gray-300">
             <h2 class="text-xl font-bold">Client &amp; Access Notes</h2>
           </div>
-          <div class="section-content px-4 py-2">
+          <div class="section-content px-4 py-2 hidden">
             <p class="mb-2 text-sm text-gray-700">
               Record any client-specific instructions or site restrictions.
             </p>
@@ -628,20 +628,18 @@
   <script>
     // ---- Core Functions ----
 
-    function formatCurrency(num) {
-      return parseFloat(num).toFixed(2);
-    }
+    const formatCurrency = (num) => parseFloat(num).toFixed(2);
 
-    function updateRowTotal(row) {
+    const updateRowTotal = (row) => {
       const quantity = parseFloat(row.querySelector('.quantity').value) || 0;
       const price = parseFloat(row.querySelector('.price').value) || 0;
       const materialCost = parseFloat(row.querySelector('.material-cost').value) || 0;
-      let total = (quantity * price) + materialCost;
+      const total = (quantity * price) + materialCost;
       row.querySelector('.total-task').innerText = formatCurrency(total);
       row.querySelector('.total-task').setAttribute('data-total', total);
-    }
+    };
 
-    function updateSectionTotal(sectionBody) {
+    const updateSectionTotal = (sectionBody) => {
       let sectionTotal = 0;
       sectionBody.querySelectorAll('.row').forEach(row => {
         updateRowTotal(row);
@@ -650,25 +648,25 @@
       const sectionDiv = sectionBody.closest('[data-section]');
       sectionDiv.querySelector('.section-total').innerText = formatCurrency(sectionTotal);
       updateOverallTotal();
-    }
+    };
 
-    function updateOverallTotal() {
+    const updateOverallTotal = () => {
       let overall = 0;
       document.querySelectorAll('.section-total').forEach(span => {
         overall += parseFloat(span.innerText) || 0;
       });
       document.getElementById('overallTotal').innerText = formatCurrency(overall);
       updateTotalSection(overall);
-    }
+    };
 
-    function updateTotalSection(total) {
+    const updateTotalSection = (total) => {
       document.getElementById('totalPrice').innerText = formatCurrency(total);
       const gst = total * 0.10;
       document.getElementById('gstAmount').innerText = formatCurrency(gst);
       document.getElementById('totalWithGst').innerText = formatCurrency(total + gst);
-    }
+    };
 
-    function addRow(sectionName, defaultData) {
+    const addRow = (sectionName, defaultData) => {
       const sectionDiv = document.querySelector(`[data-section="${sectionName}"]`);
       const tbody = sectionDiv.querySelector('.section-body');
       const template = document.getElementById('rowTemplate').content.cloneNode(true);
@@ -678,11 +676,11 @@
       }
       tbody.appendChild(template);
       updateSectionTotal(tbody);
-    }
+    };
 
     // ---- Event Listeners ----
 
-    document.addEventListener('click', function(e) {
+    document.addEventListener('click', (e) => {
       if (e.target && e.target.classList.contains('delete-row')) {
         const row = e.target.closest('.row');
         const tbody = row.parentElement;
@@ -691,7 +689,7 @@
       }
     });
 
-    document.addEventListener('input', function(e) {
+    document.addEventListener('input', (e) => {
       if (e.target.matches('.quantity, .price, .material-cost')) {
         const row = e.target.closest('.row');
         updateRowTotal(row);
@@ -700,28 +698,32 @@
     });
 
     document.querySelectorAll('.add-row').forEach(button => {
-      button.addEventListener('click', function() {
-        const sectionName = this.getAttribute('data-section');
+      button.addEventListener('click', () => {
+        const sectionName = button.getAttribute('data-section');
         addRow(sectionName);
       });
     });
 
     document.querySelectorAll('.toggle-button').forEach(button => {
-      button.addEventListener('click', function() {
-        const targetSection = this.getAttribute('data-target');
+      button.addEventListener('click', (e) => {
+        const btn = e.currentTarget;
+        const targetSection = btn.getAttribute('data-target');
         const sectionDiv = document.querySelector(`[data-section="${targetSection}"]`);
         const content = sectionDiv.querySelector('.section-content');
-        if (content.classList.contains('hidden')) {
+        const isHidden = content.classList.contains('hidden');
+        if (isHidden) {
           content.classList.remove('hidden');
-          this.innerText = "▼";
+          btn.innerText = "▼";
+          btn.setAttribute('aria-expanded', 'true');
         } else {
           content.classList.add('hidden');
-          this.innerText = "▲";
+          btn.innerText = "►";
+          btn.setAttribute('aria-expanded', 'false');
         }
       });
     });
 
-    document.getElementById('exportCSV').addEventListener('click', function() {
+    document.getElementById('exportCSV').addEventListener('click', () => {
       let csvData = "";
       const sections = document.querySelectorAll('[data-section]');
       sections.forEach(sectionDiv => {
@@ -754,7 +756,7 @@
       document.body.removeChild(link);
     });
 
-    document.getElementById('exportPDF').addEventListener('click', function() {
+    document.getElementById('exportPDF').addEventListener('click', () => {
       const element = document.getElementById('app');
       const opt = {
         margin: 0.5,
@@ -766,7 +768,7 @@
       html2pdf().set(opt).from(element).save();
     });
 
-    document.addEventListener('click', function(e) {
+    document.addEventListener('click', (e) => {
       if (e.target.closest('.photo-button')) {
         const row = e.target.closest('.row');
         const fileInput = document.createElement('input');
@@ -774,11 +776,11 @@
         fileInput.accept = 'image/*';
         fileInput.capture = 'environment';
         fileInput.style.display = 'none';
-        fileInput.addEventListener('change', function(event) {
+        fileInput.addEventListener('change', (event) => {
           const file = event.target.files[0];
           if (file) {
             const reader = new FileReader();
-            reader.onload = function(evt) {
+            reader.onload = (evt) => {
               const imgSrc = evt.target.result;
               const taskName = row.querySelector('.task').value.trim() || "Unnamed Task";
               const sectionDiv = row.closest('[data-section]');
@@ -805,8 +807,9 @@
               imgContainer.className = "inline-block mr-2 mb-2 text-center";
               const imgElement = document.createElement('img');
               imgElement.src = imgSrc;
+              imgElement.alt = "Photo for " + taskName;
               imgElement.className = "w-24 h-24 object-cover border rounded cursor-pointer";
-              imgElement.addEventListener('click', function() {
+              imgElement.addEventListener('click', () => {
                 const newWindow = window.open('', '_blank');
                 newWindow.document.write(
                   `<html>
@@ -815,7 +818,7 @@
                       <style>body { margin:0; display:flex; justify-content:center; align-items:center; height:100vh; background:#000; }</style>
                     </head>
                     <body>
-                      <img src="${this.src}" style="max-width:100%; max-height:100%;">
+                      <img src="${imgElement.src}" style="max-width:100%; max-height:100%;">
                     </body>
                   </html>`
                 );
@@ -826,6 +829,15 @@
               caption.innerText = "Photo " + photoCount;
               imgContainer.appendChild(imgElement);
               imgContainer.appendChild(caption);
+              // Add delete photo option
+              const deletePhotoButton = document.createElement('button');
+              deletePhotoButton.type = "button";
+              deletePhotoButton.innerText = "Delete";
+              deletePhotoButton.className = "mt-1 bg-red-500 text-white text-xs px-2 py-1 rounded";
+              deletePhotoButton.addEventListener('click', () => {
+                imgContainer.remove();
+              });
+              imgContainer.appendChild(deletePhotoButton);
               groupDiv.appendChild(imgContainer);
             };
             reader.readAsDataURL(file);
@@ -835,18 +847,18 @@
       }
     });
 
-    document.getElementById('otReportAvailable').addEventListener('change', function() {
+    document.getElementById('otReportAvailable').addEventListener('change', (e) => {
       const container = document.getElementById('otReportAttachmentContainer');
-      if (this.value === 'yes') {
+      if (e.target.value === 'yes') {
         container.classList.remove('hidden');
       } else {
         container.classList.add('hidden');
       }
     });
 
-    document.getElementById('drawingsAvailable').addEventListener('change', function() {
+    document.getElementById('drawingsAvailable').addEventListener('change', (e) => {
       const container = document.getElementById('drawingsAttachmentContainer');
-      if (this.value === 'yes') {
+      if (e.target.value === 'yes') {
         container.classList.remove('hidden');
       } else {
         container.classList.add('hidden');
