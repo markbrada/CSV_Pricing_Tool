@@ -46,35 +46,38 @@
           <div class="flex items-center justify-between bg-indigo-100 px-4 py-2 border-b border-gray-300">
             <h2 class="text-xl font-bold">Client &amp; Project Details</h2>
           </div>
+          <!-- Wrap details in a centered container -->
           <div class="section-content px-4 py-2">
-            <div class="mb-4">
-              <label for="clientName" class="block font-semibold">Client Name</label>
-              <input type="text" id="clientName" class="w-full border border-gray-300 p-2" placeholder="Enter client name">
-            </div>
-            <div class="mb-4">
-              <label for="clientAddress" class="block font-semibold">Client Address</label>
-              <textarea id="clientAddress" class="w-full border border-gray-300 p-2" rows="3" placeholder="Enter client address"></textarea>
-            </div>
-            <div class="mb-4">
-              <label for="otReportAvailable" class="block font-semibold">OT Report Available?</label>
-              <select id="otReportAvailable" class="w-full border border-gray-300 p-2">
-                <option value="no" selected>No</option>
-                <option value="yes">Yes</option>
-              </select>
-              <div id="otReportAttachmentContainer" class="mt-2 hidden">
-                <label class="block font-semibold">Attach OT Report (PDF)</label>
-                <input type="file" id="otReportAttachment" accept="application/pdf" class="w-full border border-gray-300 p-2">
+            <div class="max-w-lg mx-auto space-y-4">
+              <div>
+                <label for="clientName" class="block font-semibold">Client Name</label>
+                <input type="text" id="clientName" class="w-full border border-gray-300 p-2" placeholder="Enter client name">
               </div>
-            </div>
-            <div class="mb-4">
-              <label for="drawingsAvailable" class="block font-semibold">Drawings Available?</label>
-              <select id="drawingsAvailable" class="w-full border border-gray-300 p-2">
-                <option value="no" selected>No</option>
-                <option value="yes">Yes</option>
-              </select>
-              <div id="drawingsAttachmentContainer" class="mt-2 hidden">
-                <label class="block font-semibold">Attach Drawings (PDF)</label>
-                <input type="file" id="drawingsAttachment" accept="application/pdf" class="w-full border border-gray-300 p-2">
+              <div>
+                <label for="clientAddress" class="block font-semibold">Client Address</label>
+                <textarea id="clientAddress" class="w-full border border-gray-300 p-2" rows="3" placeholder="Enter client address"></textarea>
+              </div>
+              <div>
+                <label for="otReportAvailable" class="block font-semibold">OT Report Available?</label>
+                <select id="otReportAvailable" class="w-full border border-gray-300 p-2">
+                  <option value="no" selected>No</option>
+                  <option value="yes">Yes</option>
+                </select>
+                <div id="otReportAttachmentContainer" class="mt-2 hidden">
+                  <label class="block font-semibold">Attach OT Report(s) (PDF)</label>
+                  <input type="file" id="otReportAttachment" accept="application/pdf" class="w-full border border-gray-300 p-2" multiple>
+                </div>
+              </div>
+              <div>
+                <label for="drawingsAvailable" class="block font-semibold">Drawings Available?</label>
+                <select id="drawingsAvailable" class="w-full border border-gray-300 p-2">
+                  <option value="no" selected>No</option>
+                  <option value="yes">Yes</option>
+                </select>
+                <div id="drawingsAttachmentContainer" class="mt-2 hidden">
+                  <label class="block font-semibold">Attach Drawings (PDF)</label>
+                  <input type="file" id="drawingsAttachment" accept="application/pdf" class="w-full border border-gray-300 p-2" multiple>
+                </div>
               </div>
             </div>
           </div>
@@ -88,19 +91,19 @@
           </div>
           <div class="section-content px-4 py-2">
             <p class="mb-2 text-sm text-gray-700">
-              Purpose: Capture tasks and considerations for preparing the site before demolition or construction begins. Use this section to note protective measures, site facility arrangements, and access details.
+              Purpose: Capture tasks and considerations for preparing the site before demolition or construction begins.
             </p>
             <table class="w-full">
               <thead>
                 <tr>
                   <th class="px-2 py-1 border border-gray-300 w-1/6">Task</th>
                   <th class="px-2 py-1 border border-gray-300 w-1/2">Description</th>
-                  <th class="px-2 py-1 border border-gray-300 w-16 bg-gray-200">Quantity</th>
+                  <th class="px-2 py-1 border border-gray-300 w-24 bg-gray-200">Quantity</th>
                   <th class="px-2 py-1 border border-gray-300 w-24 bg-gray-200">Unit</th>
-                  <th class="px-2 py-1 border border-gray-300 w-16 bg-gray-200">Price</th>
-                  <th class="px-2 py-1 border border-gray-300 w-20 bg-gray-300">Material Cost</th>
-                  <th class="px-2 py-1 border border-gray-300 w-20">Total</th>
-                  <th class="px-2 py-1 border border-gray-300 w-10">Actions</th>
+                  <th class="px-2 py-1 border border-gray-300 w-24 bg-gray-200">Price</th>
+                  <th class="px-2 py-1 border border-gray-300 w-24 bg-gray-300">Material Cost</th>
+                  <th class="px-2 py-1 border border-gray-300 w-24">Total</th>
+                  <th class="px-2 py-1 border border-gray-300 w-24">Actions</th>
                 </tr>
               </thead>
               <tbody class="section-body"></tbody>
@@ -110,6 +113,7 @@
           </div>
         </div>
 
+        <!-- Repeat similar updated table headers for each section below -->
         <!-- Section: Demolition & Rubbish Removal -->
         <div class="mb-8 bg-white shadow rounded" data-section="demolition">
           <div class="flex items-center justify-between bg-gray-100 px-4 py-2 border-b border-gray-300">
@@ -117,20 +121,18 @@
             <span class="toggle-button" data-target="demolition">▼</span>
           </div>
           <div class="section-content px-4 py-2">
-            <p class="mb-2 text-sm text-gray-700">
-              Purpose: Log all tasks related to removing the old bathroom elements – one of the first on-site activities. This section ensures you capture the full scope of demolition and disposal for accurate quoting and planning.
-            </p>
+            <p class="mb-2 text-sm text-gray-700">Purpose: Log all tasks related to removing the old bathroom elements.</p>
             <table class="w-full">
               <thead>
                 <tr>
                   <th class="px-2 py-1 border border-gray-300 w-1/6">Task</th>
                   <th class="px-2 py-1 border border-gray-300 w-1/2">Description</th>
-                  <th class="px-2 py-1 border border-gray-300 w-16 bg-gray-200">Quantity</th>
+                  <th class="px-2 py-1 border border-gray-300 w-24 bg-gray-200">Quantity</th>
                   <th class="px-2 py-1 border border-gray-300 w-24 bg-gray-200">Unit</th>
-                  <th class="px-2 py-1 border border-gray-300 w-16 bg-gray-200">Price</th>
-                  <th class="px-2 py-1 border border-gray-300 w-20 bg-gray-300">Material Cost</th>
-                  <th class="px-2 py-1 border border-gray-300 w-20">Total</th>
-                  <th class="px-2 py-1 border border-gray-300 w-10">Actions</th>
+                  <th class="px-2 py-1 border border-gray-300 w-24 bg-gray-200">Price</th>
+                  <th class="px-2 py-1 border border-gray-300 w-24 bg-gray-300">Material Cost</th>
+                  <th class="px-2 py-1 border border-gray-300 w-24">Total</th>
+                  <th class="px-2 py-1 border border-gray-300 w-24">Actions</th>
                 </tr>
               </thead>
               <tbody class="section-body"></tbody>
@@ -147,20 +149,18 @@
             <span class="toggle-button" data-target="asbestos">▼</span>
           </div>
           <div class="section-content px-4 py-2">
-            <p class="mb-2 text-sm text-gray-700">
-              Purpose: Account for hazardous material handling if asbestos is suspected or present. Use this section to note testing, removal, and disposal tasks.
-            </p>
+            <p class="mb-2 text-sm text-gray-700">Purpose: Account for hazardous material handling if asbestos is suspected.</p>
             <table class="w-full">
               <thead>
                 <tr>
                   <th class="px-2 py-1 border border-gray-300 w-1/6">Task</th>
                   <th class="px-2 py-1 border border-gray-300 w-1/2">Description</th>
-                  <th class="px-2 py-1 border border-gray-300 w-16 bg-gray-200">Quantity</th>
+                  <th class="px-2 py-1 border border-gray-300 w-24 bg-gray-200">Quantity</th>
                   <th class="px-2 py-1 border border-gray-300 w-24 bg-gray-200">Unit</th>
-                  <th class="px-2 py-1 border border-gray-300 w-16 bg-gray-200">Price</th>
-                  <th class="px-2 py-1 border border-gray-300 w-20 bg-gray-300">Material Cost</th>
-                  <th class="px-2 py-1 border border-gray-300 w-20">Total</th>
-                  <th class="px-2 py-1 border border-gray-300 w-10">Actions</th>
+                  <th class="px-2 py-1 border border-gray-300 w-24 bg-gray-200">Price</th>
+                  <th class="px-2 py-1 border border-gray-300 w-24 bg-gray-300">Material Cost</th>
+                  <th class="px-2 py-1 border border-gray-300 w-24">Total</th>
+                  <th class="px-2 py-1 border border-gray-300 w-24">Actions</th>
                 </tr>
               </thead>
               <tbody class="section-body"></tbody>
@@ -177,20 +177,18 @@
             <span class="toggle-button" data-target="carpentry">▼</span>
           </div>
           <div class="section-content px-4 py-2">
-            <p class="mb-2 text-sm text-gray-700">
-              Purpose: Capture all building and carpentry tasks after demolition. This section covers structural modifications, framing, and fixture installations necessary to prepare for the new design.
-            </p>
+            <p class="mb-2 text-sm text-gray-700">Purpose: Capture all building and carpentry tasks after demolition.</p>
             <table class="w-full">
               <thead>
                 <tr>
                   <th class="px-2 py-1 border border-gray-300 w-1/6">Task</th>
                   <th class="px-2 py-1 border border-gray-300 w-1/2">Description</th>
-                  <th class="px-2 py-1 border border-gray-300 w-16 bg-gray-200">Quantity</th>
+                  <th class="px-2 py-1 border border-gray-300 w-24 bg-gray-200">Quantity</th>
                   <th class="px-2 py-1 border border-gray-300 w-24 bg-gray-200">Unit</th>
-                  <th class="px-2 py-1 border border-gray-300 w-16 bg-gray-200">Price</th>
-                  <th class="px-2 py-1 border border-gray-300 w-20 bg-gray-300">Material Cost</th>
-                  <th class="px-2 py-1 border border-gray-300 w-20">Total</th>
-                  <th class="px-2 py-1 border border-gray-300 w-10">Actions</th>
+                  <th class="px-2 py-1 border border-gray-300 w-24 bg-gray-200">Price</th>
+                  <th class="px-2 py-1 border border-gray-300 w-24 bg-gray-300">Material Cost</th>
+                  <th class="px-2 py-1 border border-gray-300 w-24">Total</th>
+                  <th class="px-2 py-1 border border-gray-300 w-24">Actions</th>
                 </tr>
               </thead>
               <tbody class="section-body"></tbody>
@@ -207,20 +205,18 @@
             <span class="toggle-button" data-target="plumbing">▼</span>
           </div>
           <div class="section-content px-4 py-2">
-            <p class="mb-2 text-sm text-gray-700">
-              Purpose: Record all plumbing tasks, both rough-in and fixture installations. This section is key for ensuring all water and waste line modifications are documented for accurate quoting.
-            </p>
+            <p class="mb-2 text-sm text-gray-700">Purpose: Record all plumbing tasks, both rough-in and fixture installations.</p>
             <table class="w-full">
               <thead>
                 <tr>
                   <th class="px-2 py-1 border border-gray-300 w-1/6">Task</th>
                   <th class="px-2 py-1 border border-gray-300 w-1/2">Description</th>
-                  <th class="px-2 py-1 border border-gray-300 w-16 bg-gray-200">Quantity</th>
+                  <th class="px-2 py-1 border border-gray-300 w-24 bg-gray-200">Quantity</th>
                   <th class="px-2 py-1 border border-gray-300 w-24 bg-gray-200">Unit</th>
-                  <th class="px-2 py-1 border border-gray-300 w-16 bg-gray-200">Price</th>
-                  <th class="px-2 py-1 border border-gray-300 w-20 bg-gray-300">Material Cost</th>
-                  <th class="px-2 py-1 border border-gray-300 w-20">Total</th>
-                  <th class="px-2 py-1 border border-gray-300 w-10">Actions</th>
+                  <th class="px-2 py-1 border border-gray-300 w-24 bg-gray-200">Price</th>
+                  <th class="px-2 py-1 border border-gray-300 w-24 bg-gray-300">Material Cost</th>
+                  <th class="px-2 py-1 border border-gray-300 w-24">Total</th>
+                  <th class="px-2 py-1 border border-gray-300 w-24">Actions</th>
                 </tr>
               </thead>
               <tbody class="section-body"></tbody>
@@ -237,20 +233,18 @@
             <span class="toggle-button" data-target="electrical">▼</span>
           </div>
           <div class="section-content px-4 py-2">
-            <p class="mb-2 text-sm text-gray-700">
-              Purpose: Document all electrical works required for safety compliance – from rough-in wiring to fixture installations.
-            </p>
+            <p class="mb-2 text-sm text-gray-700">Purpose: Document all electrical works required for safety compliance.</p>
             <table class="w-full">
               <thead>
                 <tr>
                   <th class="px-2 py-1 border border-gray-300 w-1/6">Task</th>
                   <th class="px-2 py-1 border border-gray-300 w-1/2">Description</th>
-                  <th class="px-2 py-1 border border-gray-300 w-16 bg-gray-200">Quantity</th>
+                  <th class="px-2 py-1 border border-gray-300 w-24 bg-gray-200">Quantity</th>
                   <th class="px-2 py-1 border border-gray-300 w-24 bg-gray-200">Unit</th>
-                  <th class="px-2 py-1 border border-gray-300 w-16 bg-gray-200">Price</th>
-                  <th class="px-2 py-1 border border-gray-300 w-20 bg-gray-300">Material Cost</th>
-                  <th class="px-2 py-1 border border-gray-300 w-20">Total</th>
-                  <th class="px-2 py-1 border border-gray-300 w-10">Actions</th>
+                  <th class="px-2 py-1 border border-gray-300 w-24 bg-gray-200">Price</th>
+                  <th class="px-2 py-1 border border-gray-300 w-24 bg-gray-300">Material Cost</th>
+                  <th class="px-2 py-1 border border-gray-300 w-24">Total</th>
+                  <th class="px-2 py-1 border border-gray-300 w-24">Actions</th>
                 </tr>
               </thead>
               <tbody class="section-body"></tbody>
@@ -267,20 +261,18 @@
             <span class="toggle-button" data-target="waterproofing">▼</span>
           </div>
           <div class="section-content px-4 py-2">
-            <p class="mb-2 text-sm text-gray-700">
-              Purpose: Outline all waterproofing tasks, including surface preparation and membrane application, ensuring compliance with building codes.
-            </p>
+            <p class="mb-2 text-sm text-gray-700">Purpose: Outline all waterproofing tasks, ensuring compliance with building codes.</p>
             <table class="w-full">
               <thead>
                 <tr>
                   <th class="px-2 py-1 border border-gray-300 w-1/6">Task</th>
                   <th class="px-2 py-1 border border-gray-300 w-1/2">Description</th>
-                  <th class="px-2 py-1 border border-gray-300 w-16 bg-gray-200">Quantity</th>
+                  <th class="px-2 py-1 border border-gray-300 w-24 bg-gray-200">Quantity</th>
                   <th class="px-2 py-1 border border-gray-300 w-24 bg-gray-200">Unit</th>
-                  <th class="px-2 py-1 border border-gray-300 w-16 bg-gray-200">Price</th>
-                  <th class="px-2 py-1 border border-gray-300 w-20 bg-gray-300">Material Cost</th>
-                  <th class="px-2 py-1 border border-gray-300 w-20">Total</th>
-                  <th class="px-2 py-1 border border-gray-300 w-10">Actions</th>
+                  <th class="px-2 py-1 border border-gray-300 w-24 bg-gray-200">Price</th>
+                  <th class="px-2 py-1 border border-gray-300 w-24 bg-gray-300">Material Cost</th>
+                  <th class="px-2 py-1 border border-gray-300 w-24">Total</th>
+                  <th class="px-2 py-1 border border-gray-300 w-24">Actions</th>
                 </tr>
               </thead>
               <tbody class="section-body"></tbody>
@@ -297,20 +289,18 @@
             <span class="toggle-button" data-target="tiling">▼</span>
           </div>
           <div class="section-content px-4 py-2">
-            <p class="mb-2 text-sm text-gray-700">
-              Purpose: Record all tiling tasks including floor screeding, tile laying, grouting, and sealing. This helps in estimating labour and material costs per square meter.
-            </p>
+            <p class="mb-2 text-sm text-gray-700">Purpose: Record all tiling tasks including floor screeding, tile laying, grouting, and sealing.</p>
             <table class="w-full">
               <thead>
                 <tr>
                   <th class="px-2 py-1 border border-gray-300 w-1/6">Task</th>
                   <th class="px-2 py-1 border border-gray-300 w-1/2">Description</th>
-                  <th class="px-2 py-1 border border-gray-300 w-16 bg-gray-200">Quantity</th>
+                  <th class="px-2 py-1 border border-gray-300 w-24 bg-gray-200">Quantity</th>
                   <th class="px-2 py-1 border border-gray-300 w-24 bg-gray-200">Unit</th>
-                  <th class="px-2 py-1 border border-gray-300 w-16 bg-gray-200">Price</th>
-                  <th class="px-2 py-1 border border-gray-300 w-20 bg-gray-300">Material Cost</th>
-                  <th class="px-2 py-1 border border-gray-300 w-20">Total</th>
-                  <th class="px-2 py-1 border border-gray-300 w-10">Actions</th>
+                  <th class="px-2 py-1 border border-gray-300 w-24 bg-gray-200">Price</th>
+                  <th class="px-2 py-1 border border-gray-300 w-24 bg-gray-300">Material Cost</th>
+                  <th class="px-2 py-1 border border-gray-300 w-24">Total</th>
+                  <th class="px-2 py-1 border border-gray-300 w-24">Actions</th>
                 </tr>
               </thead>
               <tbody class="section-body"></tbody>
@@ -327,20 +317,18 @@
             <span class="toggle-button" data-target="painting">▼</span>
           </div>
           <div class="section-content px-4 py-2">
-            <p class="mb-2 text-sm text-gray-700">
-              Purpose: Detail all painting and decorative finish tasks. Use this section to record ceiling, wall, trim, and specialty finishes.
-            </p>
+            <p class="mb-2 text-sm text-gray-700">Purpose: Detail all painting and decorative finish tasks.</p>
             <table class="w-full">
               <thead>
                 <tr>
                   <th class="px-2 py-1 border border-gray-300 w-1/6">Task</th>
                   <th class="px-2 py-1 border border-gray-300 w-1/2">Description</th>
-                  <th class="px-2 py-1 border border-gray-300 w-16 bg-gray-200">Quantity</th>
+                  <th class="px-2 py-1 border border-gray-300 w-24 bg-gray-200">Quantity</th>
                   <th class="px-2 py-1 border border-gray-300 w-24 bg-gray-200">Unit</th>
-                  <th class="px-2 py-1 border border-gray-300 w-16 bg-gray-200">Price</th>
-                  <th class="px-2 py-1 border border-gray-300 w-20 bg-gray-300">Material Cost</th>
-                  <th class="px-2 py-1 border border-gray-300 w-20">Total</th>
-                  <th class="px-2 py-1 border border-gray-300 w-10">Actions</th>
+                  <th class="px-2 py-1 border border-gray-300 w-24 bg-gray-200">Price</th>
+                  <th class="px-2 py-1 border border-gray-300 w-24 bg-gray-300">Material Cost</th>
+                  <th class="px-2 py-1 border border-gray-300 w-24">Total</th>
+                  <th class="px-2 py-1 border border-gray-300 w-24">Actions</th>
                 </tr>
               </thead>
               <tbody class="section-body"></tbody>
@@ -357,20 +345,18 @@
             <span class="toggle-button" data-target="glazing">▼</span>
           </div>
           <div class="section-content px-4 py-2">
-            <p class="mb-2 text-sm text-gray-700">
-              Purpose: Capture tasks for the supply and installation of glass components such as shower screens and mirrors. Include any special installation notes.
-            </p>
+            <p class="mb-2 text-sm text-gray-700">Purpose: Capture tasks for the supply and installation of glass components.</p>
             <table class="w-full">
               <thead>
                 <tr>
                   <th class="px-2 py-1 border border-gray-300 w-1/6">Task</th>
                   <th class="px-2 py-1 border border-gray-300 w-1/2">Description</th>
-                  <th class="px-2 py-1 border border-gray-300 w-16 bg-gray-200">Quantity</th>
+                  <th class="px-2 py-1 border border-gray-300 w-24 bg-gray-200">Quantity</th>
                   <th class="px-2 py-1 border border-gray-300 w-24 bg-gray-200">Unit</th>
-                  <th class="px-2 py-1 border border-gray-300 w-16 bg-gray-200">Price</th>
-                  <th class="px-2 py-1 border border-gray-300 w-20 bg-gray-300">Material Cost</th>
-                  <th class="px-2 py-1 border border-gray-300 w-20">Total</th>
-                  <th class="px-2 py-1 border border-gray-300 w-10">Actions</th>
+                  <th class="px-2 py-1 border border-gray-300 w-24 bg-gray-200">Price</th>
+                  <th class="px-2 py-1 border border-gray-300 w-24 bg-gray-300">Material Cost</th>
+                  <th class="px-2 py-1 border border-gray-300 w-24">Total</th>
+                  <th class="px-2 py-1 border border-gray-300 w-24">Actions</th>
                 </tr>
               </thead>
               <tbody class="section-body"></tbody>
@@ -387,20 +373,18 @@
             <span class="toggle-button" data-target="finalFitOff">▼</span>
           </div>
           <div class="section-content px-4 py-2">
-            <p class="mb-2 text-sm text-gray-700">
-              Purpose: List all finishing touches and hardware installations required once the main work is complete.
-            </p>
+            <p class="mb-2 text-sm text-gray-700">Purpose: List all finishing touches and hardware installations required once the main work is complete.</p>
             <table class="w-full">
               <thead>
                 <tr>
                   <th class="px-2 py-1 border border-gray-300 w-1/6">Task</th>
                   <th class="px-2 py-1 border border-gray-300 w-1/2">Description</th>
-                  <th class="px-2 py-1 border border-gray-300 w-16 bg-gray-200">Quantity</th>
+                  <th class="px-2 py-1 border border-gray-300 w-24 bg-gray-200">Quantity</th>
                   <th class="px-2 py-1 border border-gray-300 w-24 bg-gray-200">Unit</th>
-                  <th class="px-2 py-1 border border-gray-300 w-16 bg-gray-200">Price</th>
-                  <th class="px-2 py-1 border border-gray-300 w-20 bg-gray-300">Material Cost</th>
-                  <th class="px-2 py-1 border border-gray-300 w-20">Total</th>
-                  <th class="px-2 py-1 border border-gray-300 w-10">Actions</th>
+                  <th class="px-2 py-1 border border-gray-300 w-24 bg-gray-200">Price</th>
+                  <th class="px-2 py-1 border border-gray-300 w-24 bg-gray-300">Material Cost</th>
+                  <th class="px-2 py-1 border border-gray-300 w-24">Total</th>
+                  <th class="px-2 py-1 border border-gray-300 w-24">Actions</th>
                 </tr>
               </thead>
               <tbody class="section-body"></tbody>
@@ -417,20 +401,18 @@
             <span class="toggle-button" data-target="contingency">▼</span>
           </div>
           <div class="section-content px-4 py-2">
-            <p class="mb-2 text-sm text-gray-700">
-              Purpose: Note any potential extra work or risks discovered on site. Use this section to capture allowances for unforeseen issues.
-            </p>
+            <p class="mb-2 text-sm text-gray-700">Purpose: Note any potential extra work or risks discovered on site.</p>
             <table class="w-full">
               <thead>
                 <tr>
                   <th class="px-2 py-1 border border-gray-300 w-1/6">Task</th>
                   <th class="px-2 py-1 border border-gray-300 w-1/2">Description</th>
-                  <th class="px-2 py-1 border border-gray-300 w-16 bg-gray-200">Quantity</th>
+                  <th class="px-2 py-1 border border-gray-300 w-24 bg-gray-200">Quantity</th>
                   <th class="px-2 py-1 border border-gray-300 w-24 bg-gray-200">Unit</th>
-                  <th class="px-2 py-1 border border-gray-300 w-16 bg-gray-200">Price</th>
-                  <th class="px-2 py-1 border border-gray-300 w-20 bg-gray-300">Material Cost</th>
-                  <th class="px-2 py-1 border border-gray-300 w-20">Total</th>
-                  <th class="px-2 py-1 border border-gray-300 w-10">Actions</th>
+                  <th class="px-2 py-1 border border-gray-300 w-24 bg-gray-200">Price</th>
+                  <th class="px-2 py-1 border border-gray-300 w-24 bg-gray-300">Material Cost</th>
+                  <th class="px-2 py-1 border border-gray-300 w-24">Total</th>
+                  <th class="px-2 py-1 border border-gray-300 w-24">Actions</th>
                 </tr>
               </thead>
               <tbody class="section-body"></tbody>
@@ -458,9 +440,7 @@
             <h2 class="text-xl font-bold">Client &amp; Access Notes</h2>
           </div>
           <div class="section-content px-4 py-2">
-            <p class="mb-2 text-sm text-gray-700">
-              Purpose: Record any client-specific instructions, site restrictions, or design notes that do not fit into the cost columns.
-            </p>
+            <p class="mb-2 text-sm text-gray-700">Purpose: Record any client-specific instructions or site restrictions.</p>
             <textarea class="w-full border border-gray-300 p-2" id="clientNotes" rows="8" placeholder="Enter any client, access, or additional notes here..."></textarea>
           </div>
         </div>
@@ -477,16 +457,16 @@
   <!-- Row Template for adding tasks -->
   <template id="rowTemplate">
     <tr class="row">
-      <td class="border border-gray-300 px-2 py-1">
+      <td class="border border-gray-300 px-2 py-1 w-1/6">
         <textarea class="w-full task" rows="2" placeholder="Task"></textarea>
       </td>
-      <td class="border border-gray-300 px-2 py-1">
+      <td class="border border-gray-300 px-2 py-1 w-1/2">
         <textarea class="w-full description" rows="2" placeholder="Description"></textarea>
       </td>
-      <td class="border border-gray-300 px-2 py-1 bg-gray-200">
+      <td class="border border-gray-300 px-2 py-1 bg-gray-200 w-24">
         <input type="number" step="any" class="w-full quantity" placeholder="0" />
       </td>
-      <td class="border border-gray-300 px-2 py-1 relative bg-gray-200">
+      <td class="border border-gray-300 px-2 py-1 relative bg-gray-200 w-24">
         <select class="unit-select p-1 border rounded" style="width: 100%;">
           <option value="LM">LM</option>
           <option value="Sqm">Sqm</option>
@@ -494,14 +474,14 @@
           <option value="Hrs" selected>Hrs</option>
         </select>
       </td>
-      <td class="border border-gray-300 px-2 py-1 bg-gray-200">
+      <td class="border border-gray-300 px-2 py-1 bg-gray-200 w-24">
         <input type="number" step="any" class="w-full price" placeholder="0" />
       </td>
-      <td class="border border-gray-300 px-2 py-1 bg-gray-300">
+      <td class="border border-gray-300 px-2 py-1 bg-gray-300 w-24">
         <input type="number" step="any" class="w-full material-cost" placeholder="0" />
       </td>
-      <td class="border border-gray-300 px-2 py-1 total-task" data-total="0">0.00</td>
-      <td class="border border-gray-300 px-2 py-1 flex space-x-1">
+      <td class="border border-gray-300 px-2 py-1 total-task w-24" data-total="0">0.00</td>
+      <td class="border border-gray-300 px-2 py-1 flex space-x-1 w-24">
         <!-- Photo Button with Camera Icon -->
         <button type="button" class="text-blue-500 photo-button" title="Add Photo">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline" viewBox="0 0 20 20" fill="currentColor">
@@ -519,18 +499,18 @@
     // Default tasks for each section (prepopulated)
     const defaultTasks = {
       siteSetup: [
-        { task: "Protect existing areas", description: "Install floor protection in hallway and cover furniture (Preparation to prevent damage to other areas during works)." },
-        { task: "Establish site facilities", description: "Deliver skip bin and site toilet (Ordering a skip for waste and portable toilet if needed for trades)." },
-        { task: "Safety setup", description: "Isolate power/water, set up dust barriers (Shut off utilities as needed, plastic dust sheets over doorways)." },
-        { task: "Access arrangements", description: "Client to provide access keys, parking permit for van (Notes on how trades will access the site, where to park, etc.)." }
+        { task: "Protect existing areas", description: "Install floor protection in hallway and cover furniture (prevents damage to other areas)." },
+        { task: "Establish site facilities", description: "Deliver skip bin and site toilet (ordering a skip for waste and portable toilet if needed)." },
+        { task: "Safety setup", description: "Isolate power/water, set up dust barriers (shut off utilities as needed, cover doorways with plastic sheets)." },
+        { task: "Access arrangements", description: "Client to provide access keys, parking permit for van (notes on how trades will access the site)." }
       ],
       demolition: [
-        { task: "Remove fixtures", description: "Remove existing toilet, vanity, shower screen (for three fixtures, remove by labourer)." },
+        { task: "Remove fixtures", description: "Remove existing toilet, vanity, shower screen (three fixtures, removed by labourer)." },
         { task: "Strip wall tiles", description: "Remove wall tiles and plaster back to studs (upper walls); may expose asbestos." },
-        { task: "Strip floor tiles", description: "Jackhammer up floor tiles and bedding; include removal of tile bed/screed if applicable." },
-        { task: "Remove bath or spa", description: "Demolish and remove bathtub (cutting out tub and disposing)." },
-        { task: "Remove fittings/accessories", description: "Take out mirror, towel rails, shower head, tapware (small items may be grouped)." },
-        { task: "Initial plumbing & electrical isolations", description: "Cap off plumbing services and make safe electrical (temporary isolation during demolition)." },
+        { task: "Strip floor tiles", description: "Jackhammer floor tiles and bedding; include removal of tile bed/screed if applicable." },
+        { task: "Remove bath or spa", description: "Demolish and remove bathtub (cut out tub and dispose)." },
+        { task: "Remove fittings/accessories", description: "Remove mirror, towel rails, shower head, tapware (small items may be grouped)." },
+        { task: "Initial plumbing & electrical isolations", description: "Cap off plumbing services and isolate electrical (temporary during demolition)." },
         { task: "Rubbish disposal", description: "Load debris into skip bin (include dumping fees and disposal)." }
       ],
       asbestos: [
@@ -541,22 +521,22 @@
       ],
       carpentry: [
         { task: "Repair/replace subfloor", description: "Replace rotten subfloor sections if demo reveals water damage." },
-        { task: "Frame modifications", description: "Modify wall framing for niche and plumbing (cut/insert framing for shower niche or moving studs)." },
+        { task: "Frame modifications", description: "Modify wall framing for niche and plumbing (cut/insert framing for niche or moving studs)." },
         { task: "Door adjustments", description: "Widen doorway to 820mm for accessibility (may require new jamb or door)." },
-        { task: "Shower hob or floor recess", description: "Construct shower hob (100mm height) or recess floor for hobless shower (if designing accessible shower)." },
+        { task: "Shower hob or floor recess", description: "Construct shower hob (100mm height) or recess floor for hobless shower." },
         { task: "Wall re-sheeting", description: "Install new wall boards (villaboard in wet areas, plaster elsewhere)." },
-        { task: "Ceiling works", description: "Install new ceiling plasterboard and cornice (if ceiling damaged or requires replacement)." },
-        { task: "Install fixtures (carpentry)", description: "Install vanity cabinet and mirror cabinet (securely fix to wall)." },
+        { task: "Ceiling works", description: "Install new ceiling plasterboard and cornice (if ceiling is damaged or needs replacement)." },
+        { task: "Install fixtures (carpentry)", description: "Install vanity and mirror cabinets (securely fixed to wall)." },
         { task: "Backblocking for grab rails", description: "Install noggins in walls for future grab rails (as per AS1428)." },
-        { task: "Other structural modifications", description: "Re-frame window opening or install support for wall-hung toilet cistern as required." }
+        { task: "Other structural modifications", description: "Re-frame window opening or add support for wall-hung toilet cistern as required." }
       ],
       plumbing: [
-        { task: "Relocate sewer drain for shower/toilet", description: "Relocate sewer drain if fixture position is moved; note LM of new drain line if needed." },
+        { task: "Relocate sewer drain for shower/toilet", description: "Relocate sewer drain if fixture position is moved; note LM of new drain line." },
         { task: "Run new water lines", description: "Run new hot/cold water lines (copper/PEX) to fixtures; measure total LM." },
         { task: "Install new floor waste drain", description: "Install or relocate floor waste drain as required." },
         { task: "Upgrade shower plumbing", description: "Adjust plumbing for shower mixer and rainhead installation." },
         { task: "Install plumbing for bathtub", description: "Rough-in plumbing for bathtub (waste and filler connections)." },
-        { task: "Fit off new toilet suite", description: "Install new toilet, ensuring proper seals and connections." },
+        { task: "Fit off new toilet suite", description: "Install new toilet ensuring proper seals and connections." },
         { task: "Fit off vanity taps and waste", description: "Install and connect new vanity taps and waste trap." },
         { task: "Install shower fittings", description: "Fit off shower mixer, head, and rail." },
         { task: "Connect washing machine taps", description: "Connect washing machine taps if located in bathroom." },
@@ -564,13 +544,13 @@
         { task: "Replace old stopcocks/isolators", description: "Upgrade old valves at fixtures as needed." },
         { task: "New floor trap with puddle flange", description: "Install new floor trap with puddle flange for wet areas." },
         { task: "Test and certify plumbing work", description: "Conduct pressure tests and issue compliance certificate." },
-        { task: "Accessible modifications (plumbing)", description: "Install hand-held shower on rail and adjust basin height for wheelchair access; ensure tempering valve is used." }
+        { task: "Accessible modifications (plumbing)", description: "Install hand-held shower on rail and adjust basin height for wheelchair access." }
       ],
       electrical: [
         { task: "Rough-in wiring for ceiling light and exhaust fan", description: "Run new wiring for ceiling light and exhaust fan." },
-        { task: "Add power outlet next to vanity", description: "Install new power outlet next to vanity, including wiring and outlet hardware." },
+        { task: "Add power outlet next to vanity", description: "Install new power outlet next to vanity with wiring and outlet hardware." },
         { task: "Wire for heated towel rail", description: "Install wiring for heated towel rail (may need dedicated circuit)." },
-        { task: "Install heat lamp / IXL unit", description: "Install combined heat lamp/exhaust fan/light unit, including wiring and switch installation." },
+        { task: "Install heat lamp / IXL unit", description: "Install combined heat lamp/exhaust fan/light unit with wiring and switch." },
         { task: "Move light switch to outside room", description: "Relocate light switch if necessary for safety compliance." },
         { task: "Install LED downlights", description: "Install LED downlights and connect to circuit." },
         { task: "Install exhaust fan unit and ducting", description: "Install new exhaust fan, including ducting to roof vent if required." },
@@ -636,7 +616,7 @@
       return parseFloat(num).toFixed(2);
     }
 
-    // Update a single row's total using: Total = (Quantity * Price) + Material Cost
+    // Update a single row's total: Total = (Quantity * Price) + Material Cost
     function updateRowTotal(row) {
       const quantity = parseFloat(row.querySelector('.quantity').value) || 0;
       const price = parseFloat(row.querySelector('.price').value) || 0;
