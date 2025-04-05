@@ -1,40 +1,44 @@
 // js/excelExport.js
 
-// This function exports the checklist data to an Excel file.
+// Function to export the checklist data to Excel using ExcelJS.
 // Each section (with a data-section attribute) becomes its own worksheet.
-// Photos and attachments are added in a dedicated table within each sheet.
+// Photos/attachments are added as a table within each worksheet.
 const exportToExcel = () => {
   const workbook = new ExcelJS.Workbook();
   workbook.creator = 'Bathroom Renovation Checklist App';
   workbook.created = new Date();
 
-  // Keep track of used sheet names to avoid duplicates.
+  // Use a Set to track sheet names (normalized to lower case) to avoid duplicates.
   const usedSheetNames = new Set();
 
   // Iterate over each checklist section.
   const sections = document.querySelectorAll('[data-section]');
   sections.forEach(section => {
-    // Determine the raw sheet name from the section's <h2> text or data-section attribute.
+    // Determine a raw sheet name: use the h2 text if available; otherwise, the data-section attribute.
     const sectionTitleEl = section.querySelector('h2');
-    const rawSectionName = sectionTitleEl ? sectionTitleEl.innerText : section.getAttribute('data-section') || 'Sheet';
+    const rawSectionName = sectionTitleEl
+      ? sectionTitleEl.innerText
+      : section.getAttribute('data-section') || 'Sheet';
 
-    // Sanitize the sheet name (remove invalid characters, trim to 31 characters).
+    // Sanitize the sheet name: remove invalid characters and trim whitespace.
     let sheetName = rawSectionName.replace(/[\\\/\*\?\[\]:]/g, '').trim();
     if (sheetName.length > 31) sheetName = sheetName.substring(0, 31);
 
-    // Append numeric suffix if needed to ensure uniqueness.
+    // Normalize for duplicate checking (Excel is case-insensitive).
+    let sheetNameKey = sheetName.toLowerCase();
     const baseName = sheetName;
     let counter = 2;
-    while (usedSheetNames.has(sheetName) || !sheetName) {
+    while (usedSheetNames.has(sheetNameKey) || !sheetName) {
       sheetName = `${baseName} (${counter++})`;
       if (sheetName.length > 31) sheetName = sheetName.substring(0, 31);
+      sheetNameKey = sheetName.toLowerCase();
     }
-    usedSheetNames.add(sheetName);
+    usedSheetNames.add(sheetNameKey);
 
     // Create the worksheet.
     const worksheet = workbook.addWorksheet(sheetName);
 
-    // Define columns for the tasks.
+    // Define the columns.
     worksheet.columns = [
       { header: 'Task', key: 'task', width: 20 },
       { header: 'Description', key: 'description', width: 30 },
@@ -45,7 +49,7 @@ const exportToExcel = () => {
       { header: 'Total', key: 'total', width: 10 }
     ];
 
-    // Get the task rows (each row in the table with class "row").
+    // Process task rows from the table within the section.
     const taskRows = section.querySelectorAll('table .row');
     taskRows.forEach((row, index) => {
       const task = row.querySelector('.task') ? row.querySelector('.task').value : '';
@@ -57,7 +61,7 @@ const exportToExcel = () => {
       // Data rows start at row 2 (row 1 is the header)
       const excelRowIndex = index + 2;
 
-      // Add a row; the 'total' cell will have a formula (Quantity * Price + Material Cost)
+      // Add a row with a formula for the Total cell.
       worksheet.addRow({
         task,
         description,
@@ -77,7 +81,7 @@ const exportToExcel = () => {
       worksheet.addRow(['Client Name:', clientName]);
       worksheet.addRow(['Client Address:', clientAddress]);
 
-      // Get PDF attachment file names for OT Report and Drawings.
+      // Gather PDF attachment file names for OT Report and Drawings.
       const otInput = document.getElementById('otReportAttachment');
       let otFiles = [];
       if (otInput && otInput.files.length > 0) {
@@ -96,12 +100,12 @@ const exportToExcel = () => {
       worksheet.addRow(['Drawings Attachments:', drawingFiles.join(', ')]);
     }
 
-    // Append photo/attachment data if available in this section.
+    // Append photo/attachment data if available.
     const photoGroups = section.querySelector('.photo-groups');
     if (photoGroups) {
       worksheet.addRow([]); // Blank row.
       worksheet.addRow(['Photos/Attachments']);
-      // Add a header row for photo data.
+      // Header row for photo data.
       worksheet.addRow(['Task', 'Photo Count', 'Photo Data (Base64)']);
       const groups = photoGroups.querySelectorAll('.task-photo-group');
       groups.forEach(group => {
@@ -109,7 +113,7 @@ const exportToExcel = () => {
         const images = group.querySelectorAll('img');
         let photoDataList = [];
         images.forEach(img => {
-          // For simplicity, we store the data URL.
+          // Store the data URL (for a real-world app, consider a more efficient approach).
           photoDataList.push(img.src);
         });
         const photoDataCombined = photoDataList.join('\n');
@@ -118,10 +122,10 @@ const exportToExcel = () => {
     }
   });
 
-  // Generate the Excel file and trigger the download.
+  // Write the workbook to a buffer and trigger the download.
   workbook.xlsx.writeBuffer().then(buffer => {
-    const blob = new Blob([buffer], { 
-      type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' 
+    const blob = new Blob([buffer], {
+      type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
     });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
@@ -134,5 +138,5 @@ const exportToExcel = () => {
   });
 };
 
-// Expose exportToExcel to the global scope so that it can be called by your HTML.
+// Expose the function globally.
 window.exportToExcel = exportToExcel;
