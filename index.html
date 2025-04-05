@@ -833,6 +833,8 @@
               imgContainer.className = "inline-block mr-2 mb-2 text-center";
               const imgElement = document.createElement('img');
               imgElement.src = imgSrc;
+              imgElement.addEventListener('click', function() {
+              window.open(this.src, '_blank');
               imgElement.className = "w-24 h-24 object-cover border rounded";
               // Number the photo (count how many images already exist in this group)
               const photoCount = groupDiv.querySelectorAll('img').length + 1;
