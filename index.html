@@ -688,15 +688,16 @@
       });
     });
 
-// Export the checklist as CSV
+// Export the checklist as CSV using a Blob
 document.getElementById('exportCSV').addEventListener('click', function() {
   let csvData = "";
   const sections = document.querySelectorAll('[data-section]');
   sections.forEach(sectionDiv => {
     const sectionName = sectionDiv.getAttribute('data-section');
     if (sectionName === 'clientNotes' || sectionName === 'total') return;
-    csvData += '"' + sectionDiv.querySelector('h2').innerText + '"\n';
-    csvData += '"Task","Description","Quantity","Unit","Price","Material Cost","Total Task Cost"\n';
+    const header = sectionDiv.querySelector('h2') ? sectionDiv.querySelector('h2').innerText : sectionName;
+    csvData += `"${header}"\n`;
+    csvData += `"Task","Description","Quantity","Unit","Price","Material Cost","Total Task Cost"\n`;
     sectionDiv.querySelectorAll('.row').forEach(row => {
       const task = row.querySelector('.task').value;
       const desc = row.querySelector('.description').value;
@@ -710,10 +711,15 @@ document.getElementById('exportCSV').addEventListener('click', function() {
     csvData += "\n";
   });
   csvData += `"Overall Total",,,,,,"` + document.getElementById('overallTotal').innerText + `"\n`;
+
+  // Prepend BOM for proper Excel recognition (optional but recommended)
+  const csvWithBOM = "\ufeff" + csvData;
   
-  const encodedUri = "data:text/csv;charset=utf-8," + encodeURIComponent(csvData);
+  // Create a Blob and URL for download
+  const blob = new Blob([csvWithBOM], { type: "text/csv;charset=utf-8;" });
+  const url = URL.createObjectURL(blob);
   const link = document.createElement("a");
-  link.setAttribute("href", encodedUri);
+  link.setAttribute("href", url);
   link.setAttribute("download", "bathroom_renovation_checklist.csv");
   document.body.appendChild(link);
   link.click();
