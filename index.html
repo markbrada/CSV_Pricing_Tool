@@ -9,25 +9,9 @@
   <!-- html2pdf.js CDN -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
   <style>
-    /* Allow textareas to be resizable */
+    /* Fixed textarea size */
     textarea {
-      resize: both;
-    }
-    /* Center the unit dropdown vertically */
-    .unit-select {
-      position: absolute;
-      right: 0;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 100%;
-      text-align-last: center;
-    }
-    /* Toggle button styling */
-    .toggle-button {
-      cursor: pointer;
-      user-select: none;
-      font-weight: bold;
-      margin-left: 0.5rem;
+      resize: none;
     }
   </style>
 </head>
@@ -43,40 +27,40 @@
       <form id="checklistForm">
         <!-- New Section: Client & Project Details -->
         <div class="mb-8 bg-white shadow rounded" data-section="clientDetails">
-          <div class="flex items-center justify-between bg-indigo-100 px-4 py-2 border-b border-gray-300">
+          <div class="flex items-center justify-between bg-indigo-100 px-4 py-2 border-b border-gray-400">
             <h2 class="text-xl font-bold">Client &amp; Project Details</h2>
           </div>
-          <!-- Centered container for details -->
+          <!-- Content now in a smaller, left-aligned container -->
           <div class="section-content px-4 py-2">
-            <div class="max-w-lg mx-auto space-y-4">
+            <div class="max-w-md space-y-4">
               <div>
                 <label for="clientName" class="block font-semibold">Client Name</label>
-                <input type="text" id="clientName" class="w-full border border-gray-300 p-2" placeholder="Enter client name">
+                <input type="text" id="clientName" class="w-full border border-gray-400 p-2" placeholder="Enter client name">
               </div>
               <div>
                 <label for="clientAddress" class="block font-semibold">Client Address</label>
-                <textarea id="clientAddress" class="w-full border border-gray-300 p-2" rows="3" placeholder="Enter client address"></textarea>
+                <textarea id="clientAddress" class="w-full border border-gray-400 p-2" rows="3" placeholder="Enter client address"></textarea>
               </div>
               <div>
                 <label for="otReportAvailable" class="block font-semibold">OT Report Available?</label>
-                <select id="otReportAvailable" class="w-full border border-gray-300 p-2">
+                <select id="otReportAvailable" class="w-full border border-gray-400 p-2">
                   <option value="no" selected>No</option>
                   <option value="yes">Yes</option>
                 </select>
                 <div id="otReportAttachmentContainer" class="mt-2 hidden">
                   <label class="block font-semibold">Attach OT Report(s) (PDF)</label>
-                  <input type="file" id="otReportAttachment" accept="application/pdf" class="w-full border border-gray-300 p-2" multiple>
+                  <input type="file" id="otReportAttachment" accept="application/pdf" class="w-full border border-gray-400 p-2" multiple>
                 </div>
               </div>
               <div>
                 <label for="drawingsAvailable" class="block font-semibold">Drawings Available?</label>
-                <select id="drawingsAvailable" class="w-full border border-gray-300 p-2">
+                <select id="drawingsAvailable" class="w-full border border-gray-400 p-2">
                   <option value="no" selected>No</option>
                   <option value="yes">Yes</option>
                 </select>
                 <div id="drawingsAttachmentContainer" class="mt-2 hidden">
                   <label class="block font-semibold">Attach Drawings (PDF)</label>
-                  <input type="file" id="drawingsAttachment" accept="application/pdf" class="w-full border border-gray-300 p-2" multiple>
+                  <input type="file" id="drawingsAttachment" accept="application/pdf" class="w-full border border-gray-400 p-2" multiple>
                 </div>
               </div>
             </div>
@@ -85,25 +69,25 @@
 
         <!-- Section: Site Setup & Preliminaries -->
         <div class="mb-8 bg-white shadow rounded" data-section="siteSetup">
-          <div class="flex items-center justify-between bg-yellow-100 px-4 py-2 border-b border-gray-300">
+          <div class="flex items-center justify-between bg-yellow-100 px-4 py-2 border-b border-gray-400">
             <h2 class="text-xl font-bold">Site Setup &amp; Preliminaries</h2>
             <span class="toggle-button" data-target="siteSetup">▼</span>
           </div>
           <div class="section-content px-4 py-2">
             <p class="mb-2 text-sm text-gray-700">
-              Purpose: Capture tasks and considerations for preparing the site.
+              Capture tasks and considerations for preparing the site before demolition or construction begins.
             </p>
             <table class="w-full table-fixed">
               <thead>
                 <tr>
-                  <th class="px-2 py-1 border border-gray-300 w-1/6">Task</th>
-                  <th class="px-2 py-1 border border-gray-300 w-1/2">Description</th>
-                  <th class="px-2 py-1 border border-gray-300 w-24 bg-gray-200">Quantity</th>
-                  <th class="px-2 py-1 border border-gray-300 w-24 bg-gray-200">Unit</th>
-                  <th class="px-2 py-1 border border-gray-300 w-24 bg-gray-200">Price</th>
-                  <th class="px-2 py-1 border border-gray-300 w-24 bg-gray-300">Material Cost</th>
-                  <th class="px-2 py-1 border border-gray-300 w-24">Total</th>
-                  <th class="px-2 py-1 border border-gray-300 w-24">Actions</th>
+                  <th class="px-2 py-1 border border-gray-400 w-1/6">Task</th>
+                  <th class="px-2 py-1 border border-gray-400 w-1/2">Description</th>
+                  <th class="px-2 py-1 border border-gray-400 w-24 bg-gray-200">Quantity</th>
+                  <th class="px-2 py-1 border border-gray-400 w-24 bg-gray-200">Unit</th>
+                  <th class="px-2 py-1 border border-gray-400 w-24 bg-gray-200">Price</th>
+                  <th class="px-2 py-1 border border-gray-400 w-24 bg-gray-200">Material Cost</th>
+                  <th class="px-2 py-1 border border-gray-400 w-24 bg-gray-200">Total</th>
+                  <th class="px-2 py-1 border border-gray-400 w-24 bg-gray-200">Actions</th>
                 </tr>
               </thead>
               <tbody class="section-body"></tbody>
@@ -113,26 +97,25 @@
           </div>
         </div>
 
-        <!-- Repeat similar updated table headers with table-fixed for each section -->
         <!-- Section: Demolition & Rubbish Removal -->
         <div class="mb-8 bg-white shadow rounded" data-section="demolition">
-          <div class="flex items-center justify-between bg-gray-100 px-4 py-2 border-b border-gray-300">
+          <div class="flex items-center justify-between bg-gray-100 px-4 py-2 border-b border-gray-400">
             <h2 class="text-xl font-bold">Demolition &amp; Rubbish Removal</h2>
             <span class="toggle-button" data-target="demolition">▼</span>
           </div>
           <div class="section-content px-4 py-2">
-            <p class="mb-2 text-sm text-gray-700">Purpose: Log tasks related to removing old bathroom elements.</p>
+            <p class="mb-2 text-sm text-gray-700">Log all tasks related to removing the old bathroom elements.</p>
             <table class="w-full table-fixed">
               <thead>
                 <tr>
-                  <th class="px-2 py-1 border border-gray-300 w-1/6">Task</th>
-                  <th class="px-2 py-1 border border-gray-300 w-1/2">Description</th>
-                  <th class="px-2 py-1 border border-gray-300 w-24 bg-gray-200">Quantity</th>
-                  <th class="px-2 py-1 border border-gray-300 w-24 bg-gray-200">Unit</th>
-                  <th class="px-2 py-1 border border-gray-300 w-24 bg-gray-200">Price</th>
-                  <th class="px-2 py-1 border border-gray-300 w-24 bg-gray-300">Material Cost</th>
-                  <th class="px-2 py-1 border border-gray-300 w-24">Total</th>
-                  <th class="px-2 py-1 border border-gray-300 w-24">Actions</th>
+                  <th class="px-2 py-1 border border-gray-400 w-1/6">Task</th>
+                  <th class="px-2 py-1 border border-gray-400 w-1/2">Description</th>
+                  <th class="px-2 py-1 border border-gray-400 w-24 bg-gray-200">Quantity</th>
+                  <th class="px-2 py-1 border border-gray-400 w-24 bg-gray-200">Unit</th>
+                  <th class="px-2 py-1 border border-gray-400 w-24 bg-gray-200">Price</th>
+                  <th class="px-2 py-1 border border-gray-400 w-24 bg-gray-200">Material Cost</th>
+                  <th class="px-2 py-1 border border-gray-400 w-24 bg-gray-200">Total</th>
+                  <th class="px-2 py-1 border border-gray-400 w-24 bg-gray-200">Actions</th>
                 </tr>
               </thead>
               <tbody class="section-body"></tbody>
@@ -144,23 +127,23 @@
 
         <!-- Section: Asbestos (Hazardous Materials) -->
         <div class="mb-8 bg-white shadow rounded" data-section="asbestos">
-          <div class="flex items-center justify-between bg-red-100 px-4 py-2 border-b border-gray-300">
+          <div class="flex items-center justify-between bg-red-100 px-4 py-2 border-b border-gray-400">
             <h2 class="text-xl font-bold">Asbestos (Hazardous Materials)</h2>
             <span class="toggle-button" data-target="asbestos">▼</span>
           </div>
           <div class="section-content px-4 py-2">
-            <p class="mb-2 text-sm text-gray-700">Purpose: Account for hazardous material handling if asbestos is suspected.</p>
+            <p class="mb-2 text-sm text-gray-700">Account for hazardous material handling if asbestos is suspected.</p>
             <table class="w-full table-fixed">
               <thead>
                 <tr>
-                  <th class="px-2 py-1 border border-gray-300 w-1/6">Task</th>
-                  <th class="px-2 py-1 border border-gray-300 w-1/2">Description</th>
-                  <th class="px-2 py-1 border border-gray-300 w-24 bg-gray-200">Quantity</th>
-                  <th class="px-2 py-1 border border-gray-300 w-24 bg-gray-200">Unit</th>
-                  <th class="px-2 py-1 border border-gray-300 w-24 bg-gray-200">Price</th>
-                  <th class="px-2 py-1 border border-gray-300 w-24 bg-gray-300">Material Cost</th>
-                  <th class="px-2 py-1 border border-gray-300 w-24">Total</th>
-                  <th class="px-2 py-1 border border-gray-300 w-24">Actions</th>
+                  <th class="px-2 py-1 border border-gray-400 w-1/6">Task</th>
+                  <th class="px-2 py-1 border border-gray-400 w-1/2">Description</th>
+                  <th class="px-2 py-1 border border-gray-400 w-24 bg-gray-200">Quantity</th>
+                  <th class="px-2 py-1 border border-gray-400 w-24 bg-gray-200">Unit</th>
+                  <th class="px-2 py-1 border border-gray-400 w-24 bg-gray-200">Price</th>
+                  <th class="px-2 py-1 border border-gray-400 w-24 bg-gray-200">Material Cost</th>
+                  <th class="px-2 py-1 border border-gray-400 w-24 bg-gray-200">Total</th>
+                  <th class="px-2 py-1 border border-gray-400 w-24 bg-gray-200">Actions</th>
                 </tr>
               </thead>
               <tbody class="section-body"></tbody>
@@ -172,23 +155,23 @@
 
         <!-- Section: Carpentry & Structural -->
         <div class="mb-8 bg-white shadow rounded" data-section="carpentry">
-          <div class="flex items-center justify-between bg-green-100 px-4 py-2 border-b border-gray-300">
+          <div class="flex items-center justify-between bg-green-100 px-4 py-2 border-b border-gray-400">
             <h2 class="text-xl font-bold">Carpentry &amp; Structural</h2>
             <span class="toggle-button" data-target="carpentry">▼</span>
           </div>
           <div class="section-content px-4 py-2">
-            <p class="mb-2 text-sm text-gray-700">Purpose: Capture all building and carpentry tasks after demolition.</p>
+            <p class="mb-2 text-sm text-gray-700">Capture all building and carpentry tasks after demolition.</p>
             <table class="w-full table-fixed">
               <thead>
                 <tr>
-                  <th class="px-2 py-1 border border-gray-300 w-1/6">Task</th>
-                  <th class="px-2 py-1 border border-gray-300 w-1/2">Description</th>
-                  <th class="px-2 py-1 border border-gray-300 w-24 bg-gray-200">Quantity</th>
-                  <th class="px-2 py-1 border border-gray-300 w-24 bg-gray-200">Unit</th>
-                  <th class="px-2 py-1 border border-gray-300 w-24 bg-gray-200">Price</th>
-                  <th class="px-2 py-1 border border-gray-300 w-24 bg-gray-300">Material Cost</th>
-                  <th class="px-2 py-1 border border-gray-300 w-24">Total</th>
-                  <th class="px-2 py-1 border border-gray-300 w-24">Actions</th>
+                  <th class="px-2 py-1 border border-gray-400 w-1/6">Task</th>
+                  <th class="px-2 py-1 border border-gray-400 w-1/2">Description</th>
+                  <th class="px-2 py-1 border border-gray-400 w-24 bg-gray-200">Quantity</th>
+                  <th class="px-2 py-1 border border-gray-400 w-24 bg-gray-200">Unit</th>
+                  <th class="px-2 py-1 border border-gray-400 w-24 bg-gray-200">Price</th>
+                  <th class="px-2 py-1 border border-gray-400 w-24 bg-gray-200">Material Cost</th>
+                  <th class="px-2 py-1 border border-gray-400 w-24 bg-gray-200">Total</th>
+                  <th class="px-2 py-1 border border-gray-400 w-24 bg-gray-200">Actions</th>
                 </tr>
               </thead>
               <tbody class="section-body"></tbody>
@@ -200,23 +183,23 @@
 
         <!-- Section: Plumbing -->
         <div class="mb-8 bg-white shadow rounded" data-section="plumbing">
-          <div class="flex items-center justify-between bg-blue-100 px-4 py-2 border-b border-gray-300">
+          <div class="flex items-center justify-between bg-blue-100 px-4 py-2 border-b border-gray-400">
             <h2 class="text-xl font-bold">Plumbing</h2>
             <span class="toggle-button" data-target="plumbing">▼</span>
           </div>
           <div class="section-content px-4 py-2">
-            <p class="mb-2 text-sm text-gray-700">Purpose: Record all plumbing tasks, both rough-in and fixture installations.</p>
+            <p class="mb-2 text-sm text-gray-700">Record all plumbing tasks, both rough-in and fixture installations.</p>
             <table class="w-full table-fixed">
               <thead>
                 <tr>
-                  <th class="px-2 py-1 border border-gray-300 w-1/6">Task</th>
-                  <th class="px-2 py-1 border border-gray-300 w-1/2">Description</th>
-                  <th class="px-2 py-1 border border-gray-300 w-24 bg-gray-200">Quantity</th>
-                  <th class="px-2 py-1 border border-gray-300 w-24 bg-gray-200">Unit</th>
-                  <th class="px-2 py-1 border border-gray-300 w-24 bg-gray-200">Price</th>
-                  <th class="px-2 py-1 border border-gray-300 w-24 bg-gray-300">Material Cost</th>
-                  <th class="px-2 py-1 border border-gray-300 w-24">Total</th>
-                  <th class="px-2 py-1 border border-gray-300 w-24">Actions</th>
+                  <th class="px-2 py-1 border border-gray-400 w-1/6">Task</th>
+                  <th class="px-2 py-1 border border-gray-400 w-1/2">Description</th>
+                  <th class="px-2 py-1 border border-gray-400 w-24 bg-gray-200">Quantity</th>
+                  <th class="px-2 py-1 border border-gray-400 w-24 bg-gray-200">Unit</th>
+                  <th class="px-2 py-1 border border-gray-400 w-24 bg-gray-200">Price</th>
+                  <th class="px-2 py-1 border border-gray-400 w-24 bg-gray-200">Material Cost</th>
+                  <th class="px-2 py-1 border border-gray-400 w-24 bg-gray-200">Total</th>
+                  <th class="px-2 py-1 border border-gray-400 w-24 bg-gray-200">Actions</th>
                 </tr>
               </thead>
               <tbody class="section-body"></tbody>
@@ -228,23 +211,23 @@
 
         <!-- Section: Electrical -->
         <div class="mb-8 bg-white shadow rounded" data-section="electrical">
-          <div class="flex items-center justify-between bg-orange-100 px-4 py-2 border-b border-gray-300">
+          <div class="flex items-center justify-between bg-orange-100 px-4 py-2 border-b border-gray-400">
             <h2 class="text-xl font-bold">Electrical</h2>
             <span class="toggle-button" data-target="electrical">▼</span>
           </div>
           <div class="section-content px-4 py-2">
-            <p class="mb-2 text-sm text-gray-700">Purpose: Document all electrical works required for safety compliance.</p>
+            <p class="mb-2 text-sm text-gray-700">Document all electrical works required for safety compliance.</p>
             <table class="w-full table-fixed">
               <thead>
                 <tr>
-                  <th class="px-2 py-1 border border-gray-300 w-1/6">Task</th>
-                  <th class="px-2 py-1 border border-gray-300 w-1/2">Description</th>
-                  <th class="px-2 py-1 border border-gray-300 w-24 bg-gray-200">Quantity</th>
-                  <th class="px-2 py-1 border border-gray-300 w-24 bg-gray-200">Unit</th>
-                  <th class="px-2 py-1 border border-gray-300 w-24 bg-gray-200">Price</th>
-                  <th class="px-2 py-1 border border-gray-300 w-24 bg-gray-300">Material Cost</th>
-                  <th class="px-2 py-1 border border-gray-300 w-24">Total</th>
-                  <th class="px-2 py-1 border border-gray-300 w-24">Actions</th>
+                  <th class="px-2 py-1 border border-gray-400 w-1/6">Task</th>
+                  <th class="px-2 py-1 border border-gray-400 w-1/2">Description</th>
+                  <th class="px-2 py-1 border border-gray-400 w-24 bg-gray-200">Quantity</th>
+                  <th class="px-2 py-1 border border-gray-400 w-24 bg-gray-200">Unit</th>
+                  <th class="px-2 py-1 border border-gray-400 w-24 bg-gray-200">Price</th>
+                  <th class="px-2 py-1 border border-gray-400 w-24 bg-gray-200">Material Cost</th>
+                  <th class="px-2 py-1 border border-gray-400 w-24 bg-gray-200">Total</th>
+                  <th class="px-2 py-1 border border-gray-400 w-24 bg-gray-200">Actions</th>
                 </tr>
               </thead>
               <tbody class="section-body"></tbody>
@@ -256,23 +239,23 @@
 
         <!-- Section: Waterproofing -->
         <div class="mb-8 bg-white shadow rounded" data-section="waterproofing">
-          <div class="flex items-center justify-between bg-teal-100 px-4 py-2 border-b border-gray-300">
+          <div class="flex items-center justify-between bg-teal-100 px-4 py-2 border-b border-gray-400">
             <h2 class="text-xl font-bold">Waterproofing</h2>
             <span class="toggle-button" data-target="waterproofing">▼</span>
           </div>
           <div class="section-content px-4 py-2">
-            <p class="mb-2 text-sm text-gray-700">Purpose: Outline all waterproofing tasks, ensuring compliance with building codes.</p>
+            <p class="mb-2 text-sm text-gray-700">Outline all waterproofing tasks, ensuring compliance with building codes.</p>
             <table class="w-full table-fixed">
               <thead>
                 <tr>
-                  <th class="px-2 py-1 border border-gray-300 w-1/6">Task</th>
-                  <th class="px-2 py-1 border border-gray-300 w-1/2">Description</th>
-                  <th class="px-2 py-1 border border-gray-300 w-24 bg-gray-200">Quantity</th>
-                  <th class="px-2 py-1 border border-gray-300 w-24 bg-gray-200">Unit</th>
-                  <th class="px-2 py-1 border border-gray-300 w-24 bg-gray-200">Price</th>
-                  <th class="px-2 py-1 border border-gray-300 w-24 bg-gray-300">Material Cost</th>
-                  <th class="px-2 py-1 border border-gray-300 w-24">Total</th>
-                  <th class="px-2 py-1 border border-gray-300 w-24">Actions</th>
+                  <th class="px-2 py-1 border border-gray-400 w-1/6">Task</th>
+                  <th class="px-2 py-1 border border-gray-400 w-1/2">Description</th>
+                  <th class="px-2 py-1 border border-gray-400 w-24 bg-gray-200">Quantity</th>
+                  <th class="px-2 py-1 border border-gray-400 w-24 bg-gray-200">Unit</th>
+                  <th class="px-2 py-1 border border-gray-400 w-24 bg-gray-200">Price</th>
+                  <th class="px-2 py-1 border border-gray-400 w-24 bg-gray-200">Material Cost</th>
+                  <th class="px-2 py-1 border border-gray-400 w-24 bg-gray-200">Total</th>
+                  <th class="px-2 py-1 border border-gray-400 w-24 bg-gray-200">Actions</th>
                 </tr>
               </thead>
               <tbody class="section-body"></tbody>
@@ -284,23 +267,23 @@
 
         <!-- Section: Tiling -->
         <div class="mb-8 bg-white shadow rounded" data-section="tiling">
-          <div class="flex items-center justify-between bg-purple-100 px-4 py-2 border-b border-gray-300">
+          <div class="flex items-center justify-between bg-purple-100 px-4 py-2 border-b border-gray-400">
             <h2 class="text-xl font-bold">Tiling</h2>
             <span class="toggle-button" data-target="tiling">▼</span>
           </div>
           <div class="section-content px-4 py-2">
-            <p class="mb-2 text-sm text-gray-700">Purpose: Record all tiling tasks including floor screeding, tile laying, grouting, and sealing.</p>
+            <p class="mb-2 text-sm text-gray-700">Record all tiling tasks including floor screeding, tile laying, grouting, and sealing.</p>
             <table class="w-full table-fixed">
               <thead>
                 <tr>
-                  <th class="px-2 py-1 border border-gray-300 w-1/6">Task</th>
-                  <th class="px-2 py-1 border border-gray-300 w-1/2">Description</th>
-                  <th class="px-2 py-1 border border-gray-300 w-24 bg-gray-200">Quantity</th>
-                  <th class="px-2 py-1 border border-gray-300 w-24 bg-gray-200">Unit</th>
-                  <th class="px-2 py-1 border border-gray-300 w-24 bg-gray-200">Price</th>
-                  <th class="px-2 py-1 border border-gray-300 w-24 bg-gray-300">Material Cost</th>
-                  <th class="px-2 py-1 border border-gray-300 w-24">Total</th>
-                  <th class="px-2 py-1 border border-gray-300 w-24">Actions</th>
+                  <th class="px-2 py-1 border border-gray-400 w-1/6">Task</th>
+                  <th class="px-2 py-1 border border-gray-400 w-1/2">Description</th>
+                  <th class="px-2 py-1 border border-gray-400 w-24 bg-gray-200">Quantity</th>
+                  <th class="px-2 py-1 border border-gray-400 w-24 bg-gray-200">Unit</th>
+                  <th class="px-2 py-1 border border-gray-400 w-24 bg-gray-200">Price</th>
+                  <th class="px-2 py-1 border border-gray-400 w-24 bg-gray-200">Material Cost</th>
+                  <th class="px-2 py-1 border border-gray-400 w-24 bg-gray-200">Total</th>
+                  <th class="px-2 py-1 border border-gray-400 w-24 bg-gray-200">Actions</th>
                 </tr>
               </thead>
               <tbody class="section-body"></tbody>
@@ -312,23 +295,23 @@
 
         <!-- Section: Painting & Finishes -->
         <div class="mb-8 bg-white shadow rounded" data-section="painting">
-          <div class="flex items-center justify-between bg-pink-100 px-4 py-2 border-b border-gray-300">
+          <div class="flex items-center justify-between bg-pink-100 px-4 py-2 border-b border-gray-400">
             <h2 class="text-xl font-bold">Painting &amp; Finishes</h2>
             <span class="toggle-button" data-target="painting">▼</span>
           </div>
           <div class="section-content px-4 py-2">
-            <p class="mb-2 text-sm text-gray-700">Purpose: Detail all painting and decorative finish tasks.</p>
+            <p class="mb-2 text-sm text-gray-700">Detail all painting and decorative finish tasks.</p>
             <table class="w-full table-fixed">
               <thead>
                 <tr>
-                  <th class="px-2 py-1 border border-gray-300 w-1/6">Task</th>
-                  <th class="px-2 py-1 border border-gray-300 w-1/2">Description</th>
-                  <th class="px-2 py-1 border border-gray-300 w-24 bg-gray-200">Quantity</th>
-                  <th class="px-2 py-1 border border-gray-300 w-24 bg-gray-200">Unit</th>
-                  <th class="px-2 py-1 border border-gray-300 w-24 bg-gray-200">Price</th>
-                  <th class="px-2 py-1 border border-gray-300 w-24 bg-gray-300">Material Cost</th>
-                  <th class="px-2 py-1 border border-gray-300 w-24">Total</th>
-                  <th class="px-2 py-1 border border-gray-300 w-24">Actions</th>
+                  <th class="px-2 py-1 border border-gray-400 w-1/6">Task</th>
+                  <th class="px-2 py-1 border border-gray-400 w-1/2">Description</th>
+                  <th class="px-2 py-1 border border-gray-400 w-24 bg-gray-200">Quantity</th>
+                  <th class="px-2 py-1 border border-gray-400 w-24 bg-gray-200">Unit</th>
+                  <th class="px-2 py-1 border border-gray-400 w-24 bg-gray-200">Price</th>
+                  <th class="px-2 py-1 border border-gray-400 w-24 bg-gray-200">Material Cost</th>
+                  <th class="px-2 py-1 border border-gray-400 w-24 bg-gray-200">Total</th>
+                  <th class="px-2 py-1 border border-gray-400 w-24 bg-gray-200">Actions</th>
                 </tr>
               </thead>
               <tbody class="section-body"></tbody>
@@ -340,23 +323,23 @@
 
         <!-- Section: Glazing & Fixtures -->
         <div class="mb-8 bg-white shadow rounded" data-section="glazing">
-          <div class="flex items-center justify-between bg-indigo-100 px-4 py-2 border-b border-gray-300">
+          <div class="flex items-center justify-between bg-indigo-100 px-4 py-2 border-b border-gray-400">
             <h2 class="text-xl font-bold">Glazing &amp; Fixtures</h2>
             <span class="toggle-button" data-target="glazing">▼</span>
           </div>
           <div class="section-content px-4 py-2">
-            <p class="mb-2 text-sm text-gray-700">Purpose: Capture tasks for the supply and installation of glass components.</p>
+            <p class="mb-2 text-sm text-gray-700">Capture tasks for supply and installation of glass components.</p>
             <table class="w-full table-fixed">
               <thead>
                 <tr>
-                  <th class="px-2 py-1 border border-gray-300 w-1/6">Task</th>
-                  <th class="px-2 py-1 border border-gray-300 w-1/2">Description</th>
-                  <th class="px-2 py-1 border border-gray-300 w-24 bg-gray-200">Quantity</th>
-                  <th class="px-2 py-1 border border-gray-300 w-24 bg-gray-200">Unit</th>
-                  <th class="px-2 py-1 border border-gray-300 w-24 bg-gray-200">Price</th>
-                  <th class="px-2 py-1 border border-gray-300 w-24 bg-gray-300">Material Cost</th>
-                  <th class="px-2 py-1 border border-gray-300 w-24">Total</th>
-                  <th class="px-2 py-1 border border-gray-300 w-24">Actions</th>
+                  <th class="px-2 py-1 border border-gray-400 w-1/6">Task</th>
+                  <th class="px-2 py-1 border border-gray-400 w-1/2">Description</th>
+                  <th class="px-2 py-1 border border-gray-400 w-24 bg-gray-200">Quantity</th>
+                  <th class="px-2 py-1 border border-gray-400 w-24 bg-gray-200">Unit</th>
+                  <th class="px-2 py-1 border border-gray-400 w-24 bg-gray-200">Price</th>
+                  <th class="px-2 py-1 border border-gray-400 w-24 bg-gray-200">Material Cost</th>
+                  <th class="px-2 py-1 border border-gray-400 w-24 bg-gray-200">Total</th>
+                  <th class="px-2 py-1 border border-gray-400 w-24 bg-gray-200">Actions</th>
                 </tr>
               </thead>
               <tbody class="section-body"></tbody>
@@ -368,23 +351,23 @@
 
         <!-- Section: Final Fit-Off & Accessories -->
         <div class="mb-8 bg-white shadow rounded" data-section="finalFitOff">
-          <div class="flex items-center justify-between bg-lime-100 px-4 py-2 border-b border-gray-300">
+          <div class="flex items-center justify-between bg-lime-100 px-4 py-2 border-b border-gray-400">
             <h2 class="text-xl font-bold">Final Fit-Off &amp; Accessories</h2>
             <span class="toggle-button" data-target="finalFitOff">▼</span>
           </div>
           <div class="section-content px-4 py-2">
-            <p class="mb-2 text-sm text-gray-700">Purpose: List finishing touches and hardware installations once work is complete.</p>
+            <p class="mb-2 text-sm text-gray-700">List finishing touches and hardware installations once work is complete.</p>
             <table class="w-full table-fixed">
               <thead>
                 <tr>
-                  <th class="px-2 py-1 border border-gray-300 w-1/6">Task</th>
-                  <th class="px-2 py-1 border border-gray-300 w-1/2">Description</th>
-                  <th class="px-2 py-1 border border-gray-300 w-24 bg-gray-200">Quantity</th>
-                  <th class="px-2 py-1 border border-gray-300 w-24 bg-gray-200">Unit</th>
-                  <th class="px-2 py-1 border border-gray-300 w-24 bg-gray-200">Price</th>
-                  <th class="px-2 py-1 border border-gray-300 w-24 bg-gray-300">Material Cost</th>
-                  <th class="px-2 py-1 border border-gray-300 w-24">Total</th>
-                  <th class="px-2 py-1 border border-gray-300 w-24">Actions</th>
+                  <th class="px-2 py-1 border border-gray-400 w-1/6">Task</th>
+                  <th class="px-2 py-1 border border-gray-400 w-1/2">Description</th>
+                  <th class="px-2 py-1 border border-gray-400 w-24 bg-gray-200">Quantity</th>
+                  <th class="px-2 py-1 border border-gray-400 w-24 bg-gray-200">Unit</th>
+                  <th class="px-2 py-1 border border-gray-400 w-24 bg-gray-200">Price</th>
+                  <th class="px-2 py-1 border border-gray-400 w-24 bg-gray-200">Material Cost</th>
+                  <th class="px-2 py-1 border border-gray-400 w-24 bg-gray-200">Total</th>
+                  <th class="px-2 py-1 border border-gray-400 w-24 bg-gray-200">Actions</th>
                 </tr>
               </thead>
               <tbody class="section-body"></tbody>
@@ -396,23 +379,23 @@
 
         <!-- Section: Hidden/Unforeseen Work & Contingency -->
         <div class="mb-8 bg-white shadow rounded" data-section="contingency">
-          <div class="flex items-center justify-between bg-red-200 px-4 py-2 border-b border-gray-300">
+          <div class="flex items-center justify-between bg-red-200 px-4 py-2 border-b border-gray-400">
             <h2 class="text-xl font-bold">Hidden/Unforeseen Work &amp; Contingency</h2>
             <span class="toggle-button" data-target="contingency">▼</span>
           </div>
           <div class="section-content px-4 py-2">
-            <p class="mb-2 text-sm text-gray-700">Purpose: Note any potential extra work or risks discovered on site.</p>
+            <p class="mb-2 text-sm text-gray-700">Note any potential extra work or risks discovered on site.</p>
             <table class="w-full table-fixed">
               <thead>
                 <tr>
-                  <th class="px-2 py-1 border border-gray-300 w-1/6">Task</th>
-                  <th class="px-2 py-1 border border-gray-300 w-1/2">Description</th>
-                  <th class="px-2 py-1 border border-gray-300 w-24 bg-gray-200">Quantity</th>
-                  <th class="px-2 py-1 border border-gray-300 w-24 bg-gray-200">Unit</th>
-                  <th class="px-2 py-1 border border-gray-300 w-24 bg-gray-200">Price</th>
-                  <th class="px-2 py-1 border border-gray-300 w-24 bg-gray-300">Material Cost</th>
-                  <th class="px-2 py-1 border border-gray-300 w-24">Total</th>
-                  <th class="px-2 py-1 border border-gray-300 w-24">Actions</th>
+                  <th class="px-2 py-1 border border-gray-400 w-1/6">Task</th>
+                  <th class="px-2 py-1 border border-gray-400 w-1/2">Description</th>
+                  <th class="px-2 py-1 border border-gray-400 w-24 bg-gray-200">Quantity</th>
+                  <th class="px-2 py-1 border border-gray-400 w-24 bg-gray-200">Unit</th>
+                  <th class="px-2 py-1 border border-gray-400 w-24 bg-gray-200">Price</th>
+                  <th class="px-2 py-1 border border-gray-400 w-24 bg-gray-200">Material Cost</th>
+                  <th class="px-2 py-1 border border-gray-400 w-24 bg-gray-200">Total</th>
+                  <th class="px-2 py-1 border border-gray-400 w-24 bg-gray-200">Actions</th>
                 </tr>
               </thead>
               <tbody class="section-body"></tbody>
@@ -424,7 +407,7 @@
 
         <!-- New Section: Total -->
         <div class="mb-8 bg-white shadow rounded" data-section="total">
-          <div class="flex items-center justify-between bg-indigo-50 px-4 py-2 border-b border-gray-300">
+          <div class="flex items-center justify-between bg-indigo-50 px-4 py-2 border-b border-gray-400">
             <h2 class="text-xl font-bold">Total</h2>
           </div>
           <div class="section-content px-4 py-2 text-right">
@@ -436,12 +419,12 @@
 
         <!-- Section: Client & Access Notes -->
         <div class="mb-8 bg-white shadow rounded" data-section="clientNotes">
-          <div class="flex items-center justify-between bg-gray-50 px-4 py-2 border-b border-gray-300">
+          <div class="flex items-center justify-between bg-gray-50 px-4 py-2 border-b border-gray-400">
             <h2 class="text-xl font-bold">Client &amp; Access Notes</h2>
           </div>
           <div class="section-content px-4 py-2">
-            <p class="mb-2 text-sm text-gray-700">Purpose: Record any client-specific instructions or site restrictions.</p>
-            <textarea class="w-full border border-gray-300 p-2" id="clientNotes" rows="8" placeholder="Enter any client, access, or additional notes here..."></textarea>
+            <p class="mb-2 text-sm text-gray-700">Record any client-specific instructions or site restrictions.</p>
+            <textarea class="w-full border border-gray-400 p-2" id="clientNotes" rows="8" placeholder="Enter any client, access, or additional notes here..."></textarea>
           </div>
         </div>
       </form>
@@ -456,32 +439,32 @@
 
   <!-- Row Template for adding tasks -->
   <template id="rowTemplate">
-    <tr class="row">
-      <td class="border border-gray-300 px-2 py-1 w-1/6">
-        <textarea class="w-full task" rows="2" placeholder="Task"></textarea>
+    <tr class="row h-16">
+      <td class="border border-gray-400 px-2 py-1 w-1/6">
+        <textarea class="w-full h-full task" rows="2" placeholder="Task"></textarea>
       </td>
-      <td class="border border-gray-300 px-2 py-1 w-1/2">
-        <textarea class="w-full description" rows="2" placeholder="Description"></textarea>
+      <td class="border border-gray-400 px-2 py-1 w-1/2">
+        <textarea class="w-full h-full description" rows="2" placeholder="Description"></textarea>
       </td>
-      <td class="border border-gray-300 px-2 py-1 bg-gray-200 w-24">
-        <input type="number" step="any" class="w-full quantity" placeholder="0" />
+      <td class="border border-gray-400 px-2 py-1 bg-gray-200 w-24">
+        <input type="number" step="any" class="w-full h-full quantity" placeholder="0" />
       </td>
-      <td class="border border-gray-300 px-2 py-1 relative bg-gray-200 w-24">
-        <select class="unit-select p-1 border rounded" style="width: 100%;">
+      <td class="border border-gray-400 px-2 py-1 relative bg-gray-200 w-24">
+        <select class="unit-select p-1 border rounded h-full" style="width: 100%;">
           <option value="LM">LM</option>
           <option value="Sqm">Sqm</option>
           <option value="ea">ea</option>
           <option value="Hrs" selected>Hrs</option>
         </select>
       </td>
-      <td class="border border-gray-300 px-2 py-1 bg-gray-200 w-24">
-        <input type="number" step="any" class="w-full price" placeholder="0" />
+      <td class="border border-gray-400 px-2 py-1 bg-gray-200 w-24">
+        <input type="number" step="any" class="w-full h-full price" placeholder="0" />
       </td>
-      <td class="border border-gray-300 px-2 py-1 bg-gray-300 w-24">
-        <input type="number" step="any" class="w-full material-cost" placeholder="0" />
+      <td class="border border-gray-400 px-2 py-1 bg-gray-200 w-24">
+        <input type="number" step="any" class="w-full h-full material-cost" placeholder="0" />
       </td>
-      <td class="border border-gray-300 px-2 py-1 total-task w-24" data-total="0">0.00</td>
-      <td class="border border-gray-300 px-2 py-1 flex space-x-1 w-24">
+      <td class="border border-gray-400 px-2 py-1 w-24 total-task" data-total="0">0.00</td>
+      <td class="border border-gray-400 px-2 py-1 flex items-center justify-center w-24">
         <!-- Photo Button with Camera Icon -->
         <button type="button" class="text-blue-500 photo-button" title="Add Photo">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline" viewBox="0 0 20 20" fill="currentColor">
@@ -515,7 +498,7 @@
       ],
       asbestos: [
         { task: "Asbestos testing", description: "Test wall sheeting and flooring for asbestos." },
-        { task: "Remove asbestos wall linings", description: "Remove asbestos cement wall panels (if applicable)." },
+        { task: "Remove asbestos wall linings", description: "Remove asbestos cement wall panels if applicable." },
         { task: "Remove asbestos flooring", description: "Remove old vinyl flooring with asbestos backing." },
         { task: "Disposal and clearance", description: "Dispose of asbestos waste and obtain clearance." }
       ],
@@ -524,7 +507,7 @@
         { task: "Frame modifications", description: "Modify wall framing for niche or plumbing adjustments." },
         { task: "Door adjustments", description: "Widen doorway to 820mm for accessibility." },
         { task: "Shower hob or floor recess", description: "Construct shower hob or recess floor for hobless shower." },
-        { task: "Wall re-sheeting", description: "Install new wall boards in affected areas." },
+        { task: "Wall re-sheeting", description: "Install new wall boards where needed." },
         { task: "Ceiling works", description: "Install new ceiling plasterboard and cornice." },
         { task: "Install fixtures (carpentry)", description: "Install vanity and mirror cabinets." },
         { task: "Backblocking for grab rails", description: "Install noggins for future grab rails." },
@@ -537,58 +520,58 @@
         { task: "Upgrade shower plumbing", description: "Adjust plumbing for shower mixer and rainhead." },
         { task: "Install plumbing for bathtub", description: "Rough-in plumbing for bathtub connections." },
         { task: "Fit off new toilet suite", description: "Install new toilet with proper seals." },
-        { task: "Fit off vanity taps and waste", description: "Install and connect new vanity taps." },
+        { task: "Fit off vanity taps", description: "Install and connect new vanity taps." },
         { task: "Install shower fittings", description: "Fit off shower mixer, head, and rail." },
         { task: "Connect washing machine taps", description: "Connect washing machine taps if applicable." },
-        { task: "Pressure-limiting valve installation", description: "Install valve on mains to protect tapware." },
+        { task: "Pressure-limiting valve", description: "Install valve on mains to protect tapware." },
         { task: "Replace old stopcocks", description: "Upgrade old valves at fixtures." },
-        { task: "New floor trap with puddle flange", description: "Install new floor trap for wet areas." },
-        { task: "Test and certify plumbing work", description: "Conduct pressure tests and issue certificate." },
+        { task: "New floor trap", description: "Install new floor trap with puddle flange." },
+        { task: "Test and certify plumbing", description: "Conduct pressure tests and issue certificate." },
         { task: "Accessible modifications", description: "Install hand-held shower and adjust basin height for accessibility." }
       ],
       electrical: [
         { task: "Rough-in wiring", description: "Run new wiring for ceiling light and exhaust fan." },
         { task: "Add power outlet", description: "Install new power outlet next to vanity." },
         { task: "Wire for heated towel rail", description: "Install wiring for heated towel rail." },
-        { task: "Install heat lamp / IXL unit", description: "Install combined unit with wiring and switch." },
+        { task: "Install heat lamp / IXL", description: "Install combined unit with wiring and switch." },
         { task: "Move light switch", description: "Relocate light switch for safety compliance." },
         { task: "Install LED downlights", description: "Install LED downlights and connect." },
-        { task: "Install exhaust fan and ducting", description: "Install new exhaust fan with ducting." },
+        { task: "Install exhaust fan", description: "Install new exhaust fan with ducting." },
         { task: "Fit off power outlet", description: "Final installation of power outlet post-paint." },
         { task: "Connect heated towel rail", description: "Connect and test heated towel rail." },
         { task: "Replace circuit breaker", description: "Upgrade circuit breaker to include RCD." },
         { task: "Bonding/grounding", description: "Perform bonding and grounding as required." },
         { task: "Install mirror light", description: "Install mirror light with sensor if needed." },
-        { task: "Certificate of Electrical Safety", description: "Obtain certificate post-installation." }
+        { task: "Electrical safety certificate", description: "Obtain certificate post-installation." }
       ],
       waterproofing: [
         { task: "Prep for waterproofing", description: "Apply primer to floor and walls in wet areas." },
         { task: "Waterproof shower area", description: "Apply 2-coat waterproof membrane to shower area." },
-        { task: "Waterproof entire floor", description: "Waterproof full bathroom floor area if needed." },
-        { task: "Seal wet penetrations", description: "Seal around pipes and drains with collars." },
-        { task: "Install waterstop angle", description: "Install waterstop at bathroom doorway." }
+        { task: "Waterproof entire floor", description: "Waterproof full bathroom floor if needed." },
+        { task: "Seal penetrations", description: "Seal around pipes and drains with collars." },
+        { task: "Install waterstop", description: "Install waterstop angle at bathroom doorway." }
       ],
       tiling: [
         { task: "Floor screed", description: "Screed floor to create proper falls toward drain." },
         { task: "Lay floor tiles", description: "Install floor tiles, including mosaic areas if applicable." },
         { task: "Tile shower walls", description: "Tile shower walls full height with ceramic tiles." },
         { task: "Tile walls (half height)", description: "Tile walls up to 1.2m if specified." },
-        { task: "Finish niche interior", description: "Tile niche interior with mosaic tile." },
+        { task: "Finish niche", description: "Tile niche interior with mosaic tile." },
         { task: "Grouting", description: "Apply grout to all tiled surfaces." },
-        { task: "Silicone seal", description: "Apply silicone sealant to all edges after grouting." },
+        { task: "Silicone seal", description: "Apply silicone sealant to edges after grouting." },
         { task: "Install aluminum trim", description: "Install tile edging with aluminum trim." },
         { task: "Clean and seal tiles", description: "Acid wash and seal tiles if required." }
       ],
       painting: [
         { task: "Paint ceiling", description: "Prep and paint ceiling with mold-resistant paint." },
-        { task: "Paint walls above tile line", description: "Paint upper walls with suitable interior paint." },
-        { task: "Paint door &amp; trim", description: "Paint entry door and frame after hardware removal." },
+        { task: "Paint walls", description: "Paint upper walls with suitable interior paint." },
+        { task: "Paint door & trim", description: "Paint entry door and frame after hardware removal." },
         { task: "Paint window frame", description: "Repaint window architrave as needed." },
         { task: "Touch up woodwork", description: "Paint any new woodwork such as cupboards." },
         { task: "Apply decorative finish", description: "Apply waterproof wallpaper or wall panels for feature wall." }
       ],
       glazing: [
-        { task: "Supply &amp; install shower screen", description: "Measure and install frameless/toughened shower screen." },
+        { task: "Install shower screen", description: "Measure and install frameless/toughened shower screen." },
         { task: "Install fixed mirror", description: "Install fixed mirror above vanity." },
         { task: "Install glass shelf", description: "Install additional glass elements such as shelves." },
         { task: "Replace window glass", description: "Replace window glass with frosted safety glass if needed." }
@@ -598,25 +581,25 @@
         { task: "Install grab rails", description: "Install grab rails per accessibility requirements." },
         { task: "Install shower curtain rod", description: "Install shower curtain rod or seal as applicable." },
         { task: "Install bath accessories", description: "Install additional accessories like shower shelf." },
-        { task: "Final silicon caulking", description: "Perform final caulking around fixtures and edges." },
-        { task: "Builders final cleaning", description: "Conduct final cleaning and debris removal." }
+        { task: "Final caulking", description: "Perform final silicon caulking around fixtures and edges." },
+        { task: "Builders cleaning", description: "Conduct final cleaning and debris removal." }
       ],
       contingency: [
-        { task: "Provisional sum – Asbestos removal", description: "Allowance for asbestos removal if discovered." },
-        { task: "Provisional sum – Subfloor repair", description: "Allowance for replacing rotten subfloor sections." },
-        { task: "Provisional sum – Electrical upgrade", description: "Allowance for upgrading switchboard or RCD." },
-        { task: "Provisional sum – Hidden plumbing issues", description: "Allowance for addressing unseen plumbing issues." },
-        { task: "Provisional sum – Structural reinforcement", description: "Allowance for reinforcing floor for heavy fixtures." },
-        { task: "Provisional sum – Other unforeseen issues", description: "Allowance for any additional hidden issues." }
+        { task: "Provisional – Asbestos removal", description: "Allowance for asbestos removal if discovered." },
+        { task: "Provisional – Subfloor repair", description: "Allowance for replacing rotten subfloor sections." },
+        { task: "Provisional – Electrical upgrade", description: "Allowance for upgrading switchboard or RCD." },
+        { task: "Provisional – Plumbing issues", description: "Allowance for addressing unseen plumbing issues." },
+        { task: "Provisional – Structural reinforcement", description: "Allowance for reinforcing floor for heavy fixtures." },
+        { task: "Provisional – Other unforeseen", description: "Allowance for any additional hidden issues." }
       ]
     };
 
-    // Format a number to currency format (2 decimals)
+    // Format a number to currency (2 decimals)
     function formatCurrency(num) {
       return parseFloat(num).toFixed(2);
     }
 
-    // Update a single row's total: Total = (Quantity * Price) + Material Cost
+    // Update a row's total: (Quantity * Price) + Material Cost
     function updateRowTotal(row) {
       const quantity = parseFloat(row.querySelector('.quantity').value) || 0;
       const price = parseFloat(row.querySelector('.price').value) || 0;
@@ -626,7 +609,7 @@
       row.querySelector('.total-task').setAttribute('data-total', total);
     }
 
-    // Update the total for a section
+    // Update section total
     function updateSectionTotal(sectionBody) {
       let sectionTotal = 0;
       sectionBody.querySelectorAll('.row').forEach(row => {
@@ -638,7 +621,7 @@
       updateOverallTotal();
     }
 
-    // Update overall total and recalc Total Section
+    // Update overall total and GST
     function updateOverallTotal() {
       let overall = 0;
       document.querySelectorAll('.section-total').forEach(span => {
@@ -648,7 +631,6 @@
       updateTotalSection(overall);
     }
 
-    // Update the Total section with GST calculations (GST 10%)
     function updateTotalSection(total) {
       document.getElementById('totalPrice').innerText = formatCurrency(total);
       const gst = total * 0.10;
@@ -656,7 +638,7 @@
       document.getElementById('totalWithGst').innerText = formatCurrency(total + gst);
     }
 
-    // Add a new row to a section; defaultData is optional
+    // Add row to section; defaultData optional
     function addRow(sectionName, defaultData) {
       const sectionDiv = document.querySelector(`[data-section="${sectionName}"]`);
       const tbody = sectionDiv.querySelector('.section-body');
@@ -669,7 +651,7 @@
       updateSectionTotal(tbody);
     }
 
-    // Delete a row when the delete button is clicked
+    // Delete row
     document.addEventListener('click', function(e) {
       if (e.target && e.target.classList.contains('delete-row')) {
         const row = e.target.closest('.row');
@@ -679,7 +661,7 @@
       }
     });
 
-    // Listen for input changes to update totals live
+    // Update totals on input
     document.addEventListener('input', function(e) {
       if (e.target.matches('.quantity, .price, .material-cost')) {
         const row = e.target.closest('.row');
@@ -688,7 +670,7 @@
       }
     });
 
-    // Attach event listeners to "Add Task" buttons
+    // Add Task button event
     document.querySelectorAll('.add-row').forEach(button => {
       button.addEventListener('click', function() {
         const sectionName = this.getAttribute('data-section');
@@ -696,7 +678,7 @@
       });
     });
 
-    // Toggle collapse/expand for each section
+    // Toggle collapse/expand for sections
     document.querySelectorAll('.toggle-button').forEach(button => {
       button.addEventListener('click', function() {
         const targetSection = this.getAttribute('data-target');
@@ -712,7 +694,7 @@
       });
     });
 
-    // Export the checklist as CSV using a Blob
+    // Export CSV using Blob
     document.getElementById('exportCSV').addEventListener('click', function() {
       let csvData = "";
       const sections = document.querySelectorAll('[data-section]');
@@ -735,8 +717,6 @@
         csvData += "\n";
       });
       csvData += `"Overall Total",,,,,,"` + document.getElementById('overallTotal').innerText + `"\n`;
-
-      // Prepend BOM for Excel recognition
       const csvWithBOM = "\ufeff" + csvData;
       const blob = new Blob([csvWithBOM], { type: "text/csv;charset=utf-8;" });
       const url = URL.createObjectURL(blob);
@@ -748,7 +728,7 @@
       document.body.removeChild(link);
     });
 
-    // Export the checklist as PDF using html2pdf.js
+    // Export PDF using html2pdf.js
     document.getElementById('exportPDF').addEventListener('click', function() {
       const element = document.getElementById('app');
       const opt = {
@@ -761,7 +741,7 @@
       html2pdf().set(opt).from(element).save();
     });
 
-    // Photo button functionality: When clicked, open file picker and group the photo by task name.
+    // Photo button: open file picker and group photo by task name.
     document.addEventListener('click', function(e) {
       if (e.target.closest('.photo-button')) {
         const row = e.target.closest('.row');
@@ -802,7 +782,7 @@
               const imgElement = document.createElement('img');
               imgElement.src = imgSrc;
               imgElement.className = "w-24 h-24 object-cover border rounded cursor-pointer";
-              // Open full image in a new tab with proper HTML
+              // Open full image in new tab
               imgElement.addEventListener('click', function() {
                 const newWindow = window.open('', '_blank');
                 newWindow.document.write(
@@ -832,7 +812,7 @@
       }
     });
 
-    // Toggle display of OT Report and Drawings attachment fields
+    // Toggle display for OT Report and Drawings attachment fields
     document.getElementById('otReportAvailable').addEventListener('change', function() {
       const container = document.getElementById('otReportAttachmentContainer');
       if (this.value === 'yes') {
@@ -850,7 +830,7 @@
       }
     });
 
-    // Prepopulate sections with default tasks on page load
+    // Prepopulate default tasks on page load
     document.addEventListener("DOMContentLoaded", function() {
       Object.keys(defaultTasks).forEach(section => {
         if (defaultTasks[section].length) {
