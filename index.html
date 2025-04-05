@@ -47,42 +47,48 @@
           <div class="flex items-center justify-between bg-indigo-100 px-4 py-2 border-b border-gray-300">
             <h2 class="text-xl font-bold">Client &amp; Project Details</h2>
           </div>
-          <!-- Left-aligned, shorter container -->
-          <div class="section-content px-4 py-2 hidden">
-            <div class="max-w-md space-y-4">
-              <div>
-                <label for="clientName" class="block font-semibold">Client Name</label>
-                <input type="text" id="clientName" class="w-full border border-gray-300 p-2" placeholder="Enter client name">
-              </div>
-              <div>
-                <label for="clientAddress" class="block font-semibold">Client Address</label>
-                <textarea id="clientAddress" class="w-full border border-gray-300 p-2" rows="3" placeholder="Enter client address"></textarea>
-              </div>
-              <div>
-                <label for="otReportAvailable" class="block font-semibold">OT Report Available?</label>
-                <select id="otReportAvailable" class="w-full border border-gray-300 p-2">
-                  <option value="no" selected>No</option>
-                  <option value="yes">Yes</option>
-                </select>
-                <div id="otReportAttachmentContainer" class="mt-2 hidden">
-                  <label class="block font-semibold">Attach OT Report(s) (PDF)</label>
-                  <input type="file" id="otReportAttachment" accept="application/pdf" class="w-full border border-gray-300 p-2" multiple>
-                </div>
-              </div>
-              <div>
-                <label for="drawingsAvailable" class="block font-semibold">Drawings Available?</label>
-                <select id="drawingsAvailable" class="w-full border border-gray-300 p-2">
-                  <option value="no" selected>No</option>
-                  <option value="yes">Yes</option>
-                </select>
-                <div id="drawingsAttachmentContainer" class="mt-2 hidden">
-                  <label class="block font-semibold">Attach Drawings (PDF)</label>
-                  <input type="file" id="drawingsAttachment" accept="application/pdf" class="w-full border border-gray-300 p-2" multiple>
-                </div>
-              </div>
-            </div>
-          </div>
+<!-- Client & Project Details Section -->
+<div class="mb-8 bg-white shadow rounded" data-section="clientDetails">
+  <div class="flex items-center justify-between bg-indigo-100 px-4 py-2 border-b border-gray-300">
+    <h2 class="text-xl font-bold">Client &amp; Project Details</h2>
+    <span class="toggle-button" data-target="clientDetails" role="button" aria-expanded="false">►</span>
+  </div>
+  <!-- Left-aligned, shorter container -->
+  <div class="section-content px-4 py-2 hidden">
+    <div class="max-w-md space-y-4">
+      <div>
+        <label for="clientName" class="block font-semibold">Client Name</label>
+        <input type="text" id="clientName" class="w-full border border-gray-300 p-2" placeholder="Enter client name">
+      </div>
+      <div>
+        <label for="clientAddress" class="block font-semibold">Client Address</label>
+        <textarea id="clientAddress" class="w-full border border-gray-300 p-2" rows="3" placeholder="Enter client address"></textarea>
+      </div>
+      <div>
+        <label for="otReportAvailable" class="block font-semibold">OT Report Available?</label>
+        <select id="otReportAvailable" class="w-full border border-gray-300 p-2">
+          <option value="no" selected>No</option>
+          <option value="yes">Yes</option>
+        </select>
+        <div id="otReportAttachmentContainer" class="mt-2 hidden">
+          <label class="block font-semibold">Attach OT Report(s) (PDF)</label>
+          <input type="file" id="otReportAttachment" accept="application/pdf" class="w-full border border-gray-300 p-2" multiple>
         </div>
+      </div>
+      <div>
+        <label for="drawingsAvailable" class="block font-semibold">Drawings Available?</label>
+        <select id="drawingsAvailable" class="w-full border border-gray-300 p-2">
+          <option value="no" selected>No</option>
+          <option value="yes">Yes</option>
+        </select>
+        <div id="drawingsAttachmentContainer" class="mt-2 hidden">
+          <label class="block font-semibold">Attach Drawings (PDF)</label>
+          <input type="file" id="drawingsAttachment" accept="application/pdf" class="w-full border border-gray-300 p-2" multiple>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
         <!-- Site Setup & Preliminaries Section -->
         <div class="mb-8 bg-white shadow rounded" data-section="siteSetup">
