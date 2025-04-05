@@ -80,7 +80,6 @@
           </div>
         </div>
 
-        <!-- (Other Sections remain unchanged.) -->
         <!-- Section: Site Setup & Preliminaries -->
         <div class="mb-8 bg-white shadow rounded" data-section="siteSetup">
           <div class="flex items-center justify-between bg-yellow-100 px-4 py-2 border-b border-gray-300">
@@ -88,9 +87,7 @@
             <span class="toggle-button" data-target="siteSetup">▼</span>
           </div>
           <div class="section-content px-4 py-2">
-            <p class="mb-2 text-sm text-gray-700">
-              Purpose: Capture tasks and considerations for preparing the site before demolition or construction begins.
-            </p>
+            <p class="mb-2 text-sm text-gray-700">Capture tasks and considerations for preparing the site before work begins.</p>
             <table class="w-full">
               <thead>
                 <tr>
@@ -111,9 +108,7 @@
           </div>
         </div>
 
-        <!-- (Repeat similar blocks for other sections: Demolition, Asbestos, Carpentry, Plumbing, Electrical, Waterproofing, Tiling, Painting, Glazing, Final Fit-Off, Contingency, Total, Client & Access Notes) -->
-        <!-- For brevity, these sections are the same as in the previous code. They are included in the full code below. -->
-
+        <!-- (Other sections are similar in structure; for brevity, they are included below.) -->
         <!-- Section: Demolition & Rubbish Removal -->
         <div class="mb-8 bg-white shadow rounded" data-section="demolition">
           <div class="flex items-center justify-between bg-gray-100 px-4 py-2 border-b border-gray-300">
@@ -121,9 +116,6 @@
             <span class="toggle-button" data-target="demolition">▼</span>
           </div>
           <div class="section-content px-4 py-2">
-            <p class="mb-2 text-sm text-gray-700">
-              Purpose: Log all tasks related to removing the old bathroom elements.
-            </p>
             <table class="w-full">
               <thead>
                 <tr>
@@ -151,9 +143,6 @@
             <span class="toggle-button" data-target="asbestos">▼</span>
           </div>
           <div class="section-content px-4 py-2">
-            <p class="mb-2 text-sm text-gray-700">
-              Purpose: Account for hazardous material handling if asbestos is suspected.
-            </p>
             <table class="w-full">
               <thead>
                 <tr>
@@ -181,9 +170,6 @@
             <span class="toggle-button" data-target="carpentry">▼</span>
           </div>
           <div class="section-content px-4 py-2">
-            <p class="mb-2 text-sm text-gray-700">
-              Purpose: Capture all building and carpentry tasks after demolition.
-            </p>
             <table class="w-full">
               <thead>
                 <tr>
@@ -211,9 +197,6 @@
             <span class="toggle-button" data-target="plumbing">▼</span>
           </div>
           <div class="section-content px-4 py-2">
-            <p class="mb-2 text-sm text-gray-700">
-              Purpose: Record all plumbing tasks, both rough-in and fixture installations.
-            </p>
             <table class="w-full">
               <thead>
                 <tr>
@@ -241,9 +224,6 @@
             <span class="toggle-button" data-target="electrical">▼</span>
           </div>
           <div class="section-content px-4 py-2">
-            <p class="mb-2 text-sm text-gray-700">
-              Purpose: Document all electrical works required for safety compliance.
-            </p>
             <table class="w-full">
               <thead>
                 <tr>
@@ -271,9 +251,6 @@
             <span class="toggle-button" data-target="waterproofing">▼</span>
           </div>
           <div class="section-content px-4 py-2">
-            <p class="mb-2 text-sm text-gray-700">
-              Purpose: Outline all waterproofing tasks.
-            </p>
             <table class="w-full">
               <thead>
                 <tr>
@@ -301,9 +278,6 @@
             <span class="toggle-button" data-target="tiling">▼</span>
           </div>
           <div class="section-content px-4 py-2">
-            <p class="mb-2 text-sm text-gray-700">
-              Purpose: Record all tiling tasks.
-            </p>
             <table class="w-full">
               <thead>
                 <tr>
@@ -331,9 +305,6 @@
             <span class="toggle-button" data-target="painting">▼</span>
           </div>
           <div class="section-content px-4 py-2">
-            <p class="mb-2 text-sm text-gray-700">
-              Purpose: Detail all painting and decorative finish tasks.
-            </p>
             <table class="w-full">
               <thead>
                 <tr>
@@ -361,9 +332,6 @@
             <span class="toggle-button" data-target="glazing">▼</span>
           </div>
           <div class="section-content px-4 py-2">
-            <p class="mb-2 text-sm text-gray-700">
-              Purpose: Capture tasks for glass components such as shower screens.
-            </p>
             <table class="w-full">
               <thead>
                 <tr>
@@ -391,9 +359,6 @@
             <span class="toggle-button" data-target="finalFitOff">▼</span>
           </div>
           <div class="section-content px-4 py-2">
-            <p class="mb-2 text-sm text-gray-700">
-              Purpose: List all finishing touches and hardware installations required.
-            </p>
             <table class="w-full">
               <thead>
                 <tr>
@@ -421,9 +386,6 @@
             <span class="toggle-button" data-target="contingency">▼</span>
           </div>
           <div class="section-content px-4 py-2">
-            <p class="mb-2 text-sm text-gray-700">
-              Purpose: Note any potential extra work or risks discovered on site.
-            </p>
             <table class="w-full">
               <thead>
                 <tr>
@@ -462,9 +424,6 @@
             <h2 class="text-xl font-bold">Client &amp; Access Notes</h2>
           </div>
           <div class="section-content px-4 py-2">
-            <p class="mb-2 text-sm text-gray-700">
-              Purpose: Record any client-specific instructions, site restrictions, or design notes.
-            </p>
             <textarea class="w-full border border-gray-300 p-2" id="clientNotes" rows="8" placeholder="Enter any client, access, or additional notes here..."></textarea>
           </div>
         </div>
@@ -703,48 +662,49 @@
 
     // Export as self-contained HTML
     document.getElementById('exportHTML').addEventListener('click', function() {
-      // Clone the #app element
-      const appClone = document.getElementById('app').cloneNode(true);
-      
-      // Disable all input and textarea elements in the clone to make it read-only.
-      appClone.querySelectorAll('input, textarea, select, button').forEach(el => {
-        el.disabled = true;
-      });
-      
-      // In the clientDetails section, replace file inputs with anchor links if attachments exist.
-      const clientDetails = appClone.querySelector('[data-section="clientDetails"]');
-      if (clientDetails) {
-        // OT Report
-        const otContainer = clientDetails.querySelector('#otReportAttachmentContainer');
-        if (otReportBase64) {
-          otContainer.innerHTML = `<a href="${otReportBase64}" target="_blank" style="color:blue; text-decoration:underline;">View OT Report</a>`;
-        } else {
-          otContainer.innerHTML = "No OT Report attached.";
+      try {
+        // Clone the #app element
+        const appClone = document.getElementById('app').cloneNode(true);
+        
+        // Disable all input and textarea elements in the clone to make it read-only.
+        appClone.querySelectorAll('input, textarea, select, button').forEach(el => {
+          el.disabled = true;
+        });
+        
+        // In the clientDetails section, replace file inputs with anchor links if attachments exist.
+        const clientDetails = appClone.querySelector('[data-section="clientDetails"]');
+        if (clientDetails) {
+          // OT Report
+          const otContainer = clientDetails.querySelector('#otReportAttachmentContainer');
+          if (otReportBase64) {
+            otContainer.innerHTML = `<a href="${otReportBase64}" target="_blank" style="color:blue; text-decoration:underline;">View OT Report</a>`;
+          } else {
+            otContainer.innerHTML = "No OT Report attached.";
+          }
+          // Drawings
+          const drawingsContainer = clientDetails.querySelector('#drawingsAttachmentContainer');
+          if (drawingsBase64) {
+            drawingsContainer.innerHTML = `<a href="${drawingsBase64}" target="_blank" style="color:blue; text-decoration:underline;">View Drawings</a>`;
+          } else {
+            drawingsContainer.innerHTML = "No Drawings attached.";
+          }
         }
-        // Drawings
-        const drawingsContainer = clientDetails.querySelector('#drawingsAttachmentContainer');
-        if (drawingsBase64) {
-          drawingsContainer.innerHTML = `<a href="${drawingsBase64}" target="_blank" style="color:blue; text-decoration:underline;">View Drawings</a>`;
-        } else {
-          drawingsContainer.innerHTML = "No Drawings attached.";
-        }
-      }
-      
-      // Prepend a header with timestamp
-      const now = new Date();
-      const timeStamp = now.toLocaleTimeString() + " " + now.toLocaleDateString();
-      const headerDiv = document.createElement('div');
-      headerDiv.style.textAlign = "center";
-      headerDiv.style.padding = "10px";
-      headerDiv.innerHTML = `<h1 style="font-size:24px;">Bathroom Renovation Checklist Report</h1><p>Exported on: ${timeStamp}</p><hr>`;
-      
-      // Create a container for the exported HTML
-      const exportContainer = document.createElement('div');
-      exportContainer.appendChild(headerDiv);
-      exportContainer.appendChild(appClone);
-      
-      // Build the complete HTML string (include minimal inline CSS)
-      const completeHTML = `
+        
+        // Prepend a header with timestamp
+        const now = new Date();
+        const timeStamp = now.toLocaleTimeString() + " " + now.toLocaleDateString();
+        const headerDiv = document.createElement('div');
+        headerDiv.style.textAlign = "center";
+        headerDiv.style.padding = "10px";
+        headerDiv.innerHTML = `<h1 style="font-size:24px;">Bathroom Renovation Checklist Report</h1><p>Exported on: ${timeStamp}</p><hr>`;
+        
+        // Create a container for the exported HTML
+        const exportContainer = document.createElement('div');
+        exportContainer.appendChild(headerDiv);
+        exportContainer.appendChild(appClone);
+        
+        // Build the complete HTML string (include minimal inline CSS)
+        const completeHTML = `
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -762,17 +722,20 @@
   ${exportContainer.innerHTML}
 </body>
 </html>
-      `;
-      
-      // Create a blob and download the file
-      const blob = new Blob([completeHTML], { type: "text/html;charset=utf-8" });
-      const url = URL.createObjectURL(blob);
-      const link = document.createElement("a");
-      link.href = url;
-      link.download = `bathroom_renovation_report_${now.getTime()}.html`;
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
+        `;
+        
+        // Create a blob and download the file
+        const blob = new Blob([completeHTML], { type: "text/html;charset=utf-8" });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement("a");
+        link.href = url;
+        link.download = `bathroom_renovation_report_${now.getTime()}.html`;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      } catch (err) {
+        console.error("Error exporting HTML:", err);
+      }
     });
 
     // Photo button functionality: When clicked, open file picker and group the photo by task name.
@@ -877,8 +840,7 @@
 
     // Prepopulate sections with default tasks on page load
     document.addEventListener("DOMContentLoaded", function() {
-      const sections = Object.keys(defaultTasks);
-      sections.forEach(section => {
+      Object.keys(defaultTasks).forEach(section => {
         if (defaultTasks[section].length) {
           defaultTasks[section].forEach(taskObj => {
             addRow(section, taskObj);
