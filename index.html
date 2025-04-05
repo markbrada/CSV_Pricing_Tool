@@ -688,36 +688,37 @@
       });
     });
 
-    // Export the checklist as CSV
-    document.getElementById('exportCSV').addEventListener('click', function() {
-      let csvContent = "data:text/csv;charset=utf-8,";
-      const sections = document.querySelectorAll('[data-section]');
-      sections.forEach(sectionDiv => {
-        if (sectionDiv.getAttribute('data-section') === 'clientNotes') return;
-        if (sectionDiv.getAttribute('data-section') === 'total') return;
-        csvContent += '"' + sectionDiv.querySelector('h2').innerText + '"\n';
-        csvContent += '"Task","Description","Quantity","Unit","Price","Material Cost","Total Task Cost"\n';
-        sectionDiv.querySelectorAll('.row').forEach(row => {
-          const task = row.querySelector('.task').value;
-          const desc = row.querySelector('.description').value;
-          const quantity = row.querySelector('.quantity').value;
-          const unit = row.querySelector('select').value;
-          const price = row.querySelector('.price').value;
-          const materialCost = row.querySelector('.material-cost').value;
-          const total = row.querySelector('.total-task').innerText;
-          csvContent += `"${task}","${desc}",${quantity},${unit},${price},${materialCost},${total}\n`;
-        });
-        csvContent += "\n";
-      });
-      csvContent += `"Overall Total",,,,,,"` + document.getElementById('overallTotal').innerText + `"\n`;
-      const encodedUri = encodeURI(csvContent);
-      const link = document.createElement("a");
-      link.setAttribute("href", encodedUri);
-      link.setAttribute("download", "bathroom_renovation_checklist.csv");
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
+// Export the checklist as CSV
+document.getElementById('exportCSV').addEventListener('click', function() {
+  let csvData = "";
+  const sections = document.querySelectorAll('[data-section]');
+  sections.forEach(sectionDiv => {
+    const sectionName = sectionDiv.getAttribute('data-section');
+    if (sectionName === 'clientNotes' || sectionName === 'total') return;
+    csvData += '"' + sectionDiv.querySelector('h2').innerText + '"\n';
+    csvData += '"Task","Description","Quantity","Unit","Price","Material Cost","Total Task Cost"\n';
+    sectionDiv.querySelectorAll('.row').forEach(row => {
+      const task = row.querySelector('.task').value;
+      const desc = row.querySelector('.description').value;
+      const quantity = row.querySelector('.quantity').value;
+      const unit = row.querySelector('select').value;
+      const price = row.querySelector('.price').value;
+      const materialCost = row.querySelector('.material-cost').value;
+      const total = row.querySelector('.total-task').innerText;
+      csvData += `"${task}","${desc}",${quantity},${unit},${price},${materialCost},${total}\n`;
     });
+    csvData += "\n";
+  });
+  csvData += `"Overall Total",,,,,,"` + document.getElementById('overallTotal').innerText + `"\n`;
+  
+  const encodedUri = "data:text/csv;charset=utf-8," + encodeURIComponent(csvData);
+  const link = document.createElement("a");
+  link.setAttribute("href", encodedUri);
+  link.setAttribute("download", "bathroom_renovation_checklist.csv");
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+});
 
     // Export the checklist as PDF using html2pdf.js
     document.getElementById('exportPDF').addEventListener('click', function() {
