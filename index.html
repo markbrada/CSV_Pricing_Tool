@@ -6,9 +6,8 @@
   <title>Bathroom Renovation Checklist</title>
   <!-- Tailwind CSS CDN -->
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <!-- External Libraries for Excel Export -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/exceljs/4.3.0/exceljs.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+  <!-- html2pdf.js CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
   <style>
     /* Disable resizing for fixed textareas and enable vertical scrolling */
     textarea.fixed-size {
@@ -567,6 +566,7 @@
         <div class="mb-8 bg-white shadow rounded" data-section="clientNotes">
           <div class="flex items-center justify-between bg-gray-50 px-4 py-2 border-b border-gray-300">
             <h2 class="text-xl font-bold">Client &amp; Access Notes</h2>
+            <span class="toggle-button" data-target="clientNotes" role="button" aria-expanded="false">►</span>
           </div>
           <div class="section-content px-4 py-2 hidden">
             <p class="mb-2 text-sm text-gray-700">
@@ -581,7 +581,7 @@
       <div class="flex flex-col md:flex-row justify-end space-y-2 md:space-y-0 md:space-x-2 mt-4">
         <button id="exportCSV" class="bg-green-500 text-white px-4 py-2 rounded">Export CSV</button>
         <button id="exportPDF" class="bg-purple-500 text-white px-4 py-2 rounded">Export PDF</button>
-        <button id="exportExcel" class="bg-blue-500 text-white px-4 py-2 rounded">Export Excel</button>
+        <button id="exportExcel" class="bg-blue-700 text-white px-4 py-2 rounded">Export Excel</button>
       </div>
       <div class="mt-4 text-right font-bold">Overall Total: $<span id="overallTotal">0.00</span></div>
     </div>
@@ -628,9 +628,9 @@
     </tr>
   </template>
 
-  <!-- Core Checklist Logic -->
+  <!-- Main App Script -->
   <script>
-    // Use ES6 features and const/arrow functions for consistency.
+    // Core Functions
     const formatCurrency = (num) => parseFloat(num).toFixed(2);
 
     const updateRowTotal = (row) => {
@@ -712,7 +712,8 @@
         const targetSection = btn.getAttribute('data-target');
         const sectionDiv = document.querySelector(`[data-section="${targetSection}"]`);
         const content = sectionDiv.querySelector('.section-content');
-        if (content.classList.contains('hidden')) {
+        const isHidden = content.classList.contains('hidden');
+        if (isHidden) {
           content.classList.remove('hidden');
           btn.innerText = "▼";
           btn.setAttribute('aria-expanded', 'true');
@@ -769,7 +770,12 @@
       html2pdf().set(opt).from(element).save();
     });
 
-    // Photo handling with delete option
+    // New Export Excel button event
+    document.getElementById('exportExcel').addEventListener('click', () => {
+      exportToExcel(); // This function is defined in js/excelExport.js
+    });
+
+    // Photo Button Event Listener with Delete Option
     document.addEventListener('click', (e) => {
       if (e.target.closest('.photo-button')) {
         const row = e.target.closest('.row');
@@ -831,7 +837,7 @@
               caption.innerText = "Photo " + photoCount;
               imgContainer.appendChild(imgElement);
               imgContainer.appendChild(caption);
-              // Add delete photo button
+              // Delete Photo Option
               const deletePhotoButton = document.createElement('button');
               deletePhotoButton.type = "button";
               deletePhotoButton.innerText = "Delete";
@@ -849,7 +855,6 @@
       }
     });
 
-    // Handling showing/hiding PDF attachment inputs
     document.getElementById('otReportAvailable').addEventListener('change', (e) => {
       const container = document.getElementById('otReportAttachmentContainer');
       if (e.target.value === 'yes') {
@@ -868,7 +873,9 @@
       }
     });
   </script>
-  <!-- Include the Excel export functionality from the separate file -->
-  <script src="js/Create exportExcel.js"></script>
+  
+  <!-- Include ExcelJS library and Excel export script -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/exceljs/4.3.0/exceljs.min.js"></script>
+  <script src="js/excelExport.js"></script>
 </body>
 </html>
