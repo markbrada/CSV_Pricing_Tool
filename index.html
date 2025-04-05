@@ -6,6 +6,9 @@
   <title>Bathroom Renovation Checklist</title>
   <!-- Tailwind CSS CDN -->
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Include ExcelJS and FileSaver.js Libraries -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/exceljs/4.3.0/exceljs.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
   <!-- html2pdf.js CDN -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
   <style>
@@ -585,6 +588,7 @@
       <div class="mt-4 text-right font-bold">Overall Total: $<span id="overallTotal">0.00</span></div>
     </div>
   </div>
+
 
   <!-- Row Template for adding tasks -->
   <template id="rowTemplate">
