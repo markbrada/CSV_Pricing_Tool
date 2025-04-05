@@ -833,9 +833,11 @@
               imgContainer.className = "inline-block mr-2 mb-2 text-center";
               const imgElement = document.createElement('img');
               imgElement.src = imgSrc;
+              imgElement.className = "w-24 h-24 object-cover border rounded cursor-pointer";
+              // When thumbnail is clicked, open full image in new tab
               imgElement.addEventListener('click', function() {
-              window.open(this.src, '_blank');
-              imgElement.className = "w-24 h-24 object-cover border rounded";
+                window.open(this.src, '_blank');
+              });
               // Number the photo (count how many images already exist in this group)
               const photoCount = groupDiv.querySelectorAll('img').length + 1;
               const caption = document.createElement('div');
