@@ -42,12 +42,12 @@
     </header>
     <div id="app">
       <form id="checklistForm">
-        <!-- New Section: Client & Project Details -->
+        <!-- Client & Project Details Section -->
         <div class="mb-8 bg-white shadow rounded" data-section="clientDetails">
           <div class="flex items-center justify-between bg-indigo-100 px-4 py-2 border-b border-gray-300">
             <h2 class="text-xl font-bold">Client &amp; Project Details</h2>
           </div>
-          <!-- Details container aligned left and shorter -->
+          <!-- Left-aligned, shorter container -->
           <div class="section-content px-4 py-2">
             <div class="max-w-md space-y-4">
               <div>
@@ -84,7 +84,7 @@
           </div>
         </div>
 
-        <!-- Section: Site Setup & Preliminaries -->
+        <!-- Site Setup & Preliminaries Section -->
         <div class="mb-8 bg-white shadow rounded" data-section="siteSetup">
           <div class="flex items-center justify-between bg-yellow-100 px-4 py-2 border-b border-gray-300">
             <h2 class="text-xl font-bold">Site Setup &amp; Preliminaries</h2>
@@ -94,6 +94,15 @@
             <p class="mb-2 text-sm text-gray-700">
               Capture tasks and considerations for preparing the site.
             </p>
+            <!-- Inspirational Checklist -->
+            <ul class="list-disc list-inside text-sm text-gray-600 mb-4">
+              <li>Specify extent of protection to install around floors, furniture, etc.</li>
+              <li>Is a skip bin required? What size and where can it be placed?</li>
+              <li>Is a site toilet required for trades?</li>
+              <li>Initial plumbing and electrical isolation (cap plumbing and isolate electrical services)</li>
+              <li>Are there access constraints (stairs, multi-storey, narrow doorways)?</li>
+              <li>Are there any additional access costs (lift usage, parking permits, limited working hours)?</li>
+            </ul>
             <table class="w-full table-fixed">
               <thead>
                 <tr>
@@ -114,14 +123,23 @@
           </div>
         </div>
 
-        <!-- Section: Demolition & Rubbish Removal -->
+        <!-- Demolition & Rubbish Removal Section -->
         <div class="mb-8 bg-white shadow rounded" data-section="demolition">
           <div class="flex items-center justify-between bg-gray-100 px-4 py-2 border-b border-gray-300">
             <h2 class="text-xl font-bold">Demolition &amp; Rubbish Removal</h2>
             <span class="toggle-button" data-target="demolition">▼</span>
           </div>
           <div class="section-content px-4 py-2">
-            <p class="mb-2 text-sm text-gray-700">Log tasks related to removing old bathroom elements.</p>
+            <p class="mb-2 text-sm text-gray-700">
+              Log tasks related to removing the existing bathroom.
+            </p>
+            <ul class="list-disc list-inside text-sm text-gray-600 mb-4">
+              <li>What fixtures need removal? (toilet, bath, spa, vanity, shower, etc.)</li>
+              <li>What fittings/accessories need removal? (mirror, towel rails, shower head, tapware)</li>
+              <li>Strip wall tiles (including any plasterboard removal if needed)</li>
+              <li>Strip floor tiles (jackhammer floor tiles and bedding)</li>
+              <li>Rubbish disposal requirements (volume and type of debris)</li>
+            </ul>
             <table class="w-full table-fixed">
               <thead>
                 <tr>
@@ -142,14 +160,21 @@
           </div>
         </div>
 
-        <!-- Section: Asbestos (Hazardous Materials) -->
+        <!-- Asbestos (Hazardous Materials) Section -->
         <div class="mb-8 bg-white shadow rounded" data-section="asbestos">
           <div class="flex items-center justify-between bg-red-100 px-4 py-2 border-b border-gray-300">
             <h2 class="text-xl font-bold">Asbestos (Hazardous Materials)</h2>
             <span class="toggle-button" data-target="asbestos">▼</span>
           </div>
           <div class="section-content px-4 py-2">
-            <p class="mb-2 text-sm text-gray-700">Account for hazardous material handling if asbestos is suspected.</p>
+            <p class="mb-2 text-sm text-gray-700">
+              Determine the need for hazardous materials handling.
+            </p>
+            <ul class="list-disc list-inside text-sm text-gray-600 mb-4">
+              <li>Is asbestos testing required for wall sheeting and flooring?</li>
+              <li>If required, is removal of asbestos wall linings needed?</li>
+              <li>If required, is removal of asbestos flooring needed?</li>
+            </ul>
             <table class="w-full table-fixed">
               <thead>
                 <tr>
@@ -170,14 +195,27 @@
           </div>
         </div>
 
-        <!-- Section: Carpentry & Structural -->
+        <!-- Carpentry & Structural Section -->
         <div class="mb-8 bg-white shadow rounded" data-section="carpentry">
           <div class="flex items-center justify-between bg-green-100 px-4 py-2 border-b border-gray-300">
             <h2 class="text-xl font-bold">Carpentry &amp; Structural</h2>
             <span class="toggle-button" data-target="carpentry">▼</span>
           </div>
           <div class="section-content px-4 py-2">
-            <p class="mb-2 text-sm text-gray-700">Capture all building and carpentry tasks after demolition.</p>
+            <p class="mb-2 text-sm text-gray-700">
+              Identify required carpentry and structural works.
+            </p>
+            <ul class="list-disc list-inside text-sm text-gray-600 mb-4">
+              <li>Is subfloor repair or replacement required?</li>
+              <li>Are wall framing modifications needed for niches or plumbing adjustments?</li>
+              <li>Is doorway widening for accessibility required?</li>
+              <li>Is a shower hob or recess floor required for the shower?</li>
+              <li>Do walls need re-sheeting (villaboard or plasterboard) in affected areas?</li>
+              <li>Is ceiling re-sheeting and cornice work required?</li>
+              <li>Are carpentry fixture installations (vanity/mirror cabinets) required?</li>
+              <li>Are studs for future grab rails required?</li>
+              <li>Are additional structural modifications needed (re-framing or support additions)?</li>
+            </ul>
             <table class="w-full table-fixed">
               <thead>
                 <tr>
@@ -198,14 +236,30 @@
           </div>
         </div>
 
-        <!-- Section: Plumbing -->
+        <!-- Plumbing Section -->
         <div class="mb-8 bg-white shadow rounded" data-section="plumbing">
           <div class="flex items-center justify-between bg-blue-100 px-4 py-2 border-b border-gray-300">
             <h2 class="text-xl font-bold">Plumbing</h2>
             <span class="toggle-button" data-target="plumbing">▼</span>
           </div>
           <div class="section-content px-4 py-2">
-            <p class="mb-2 text-sm text-gray-700">Record all plumbing tasks, both rough-in and fixture installations.</p>
+            <p class="mb-2 text-sm text-gray-700">
+              Determine all plumbing requirements.
+            </p>
+            <ul class="list-disc list-inside text-sm text-gray-600 mb-4">
+              <li>Does the sewer drain need relocation? (Specify length and new location)</li>
+              <li>Do new water lines need to be run? (Specify total length and material)</li>
+              <li>Is a new floor waste drain required?</li>
+              <li>Is an upgrade to shower plumbing required for a mixer, rail, or rain head?</li>
+              <li>Is a new toilet suite required with proper seals?</li>
+              <li>Are vanity taps and waste connections required?</li>
+              <li>Are shower fittings (mixer, head, rail) required?</li>
+              <li>Should washing machine taps be connected (if applicable)?</li>
+              <li>Is a pressure-limiting valve needed?</li>
+              <li>Is a new floor trap with a puddle flange required?</li>
+              <li>Is plumbing testing and certification required?</li>
+              <li>Are accessible plumbing modifications (hand-held shower, lower basin) required?</li>
+            </ul>
             <table class="w-full table-fixed">
               <thead>
                 <tr>
@@ -226,14 +280,29 @@
           </div>
         </div>
 
-        <!-- Section: Electrical -->
+        <!-- Electrical Section -->
         <div class="mb-8 bg-white shadow rounded" data-section="electrical">
           <div class="flex items-center justify-between bg-orange-100 px-4 py-2 border-b border-gray-300">
             <h2 class="text-xl font-bold">Electrical</h2>
             <span class="toggle-button" data-target="electrical">▼</span>
           </div>
           <div class="section-content px-4 py-2">
-            <p class="mb-2 text-sm text-gray-700">Document all electrical works required for safety compliance.</p>
+            <p class="mb-2 text-sm text-gray-700">
+              Determine all electrical requirements.
+            </p>
+            <ul class="list-disc list-inside text-sm text-gray-600 mb-4">
+              <li>Is new wiring required for ceiling lights and exhaust fans?</li>
+              <li>Are additional power outlets required?</li>
+              <li>Is a heat lamp or IXL unit required with proper wiring and switch?</li>
+              <li>Do light switches need relocation?</li>
+              <li>Are LED downlights required? (Specify quantity and location)</li>
+              <li>Is a new exhaust fan with ducting required?</li>
+              <li>Are power outlets to be fitted off post-paint?</li>
+              <li>Is an upgrade to the circuit breaker required?</li>
+              <li>Are bonding and grounding measures required?</li>
+              <li>Is a mirror light with sensor required?</li>
+              <li>Is certification of electrical safety required?</li>
+            </ul>
             <table class="w-full table-fixed">
               <thead>
                 <tr>
@@ -254,14 +323,23 @@
           </div>
         </div>
 
-        <!-- Section: Waterproofing -->
+        <!-- Waterproofing Section -->
         <div class="mb-8 bg-white shadow rounded" data-section="waterproofing">
           <div class="flex items-center justify-between bg-teal-100 px-4 py-2 border-b border-gray-300">
             <h2 class="text-xl font-bold">Waterproofing</h2>
             <span class="toggle-button" data-target="waterproofing">▼</span>
           </div>
           <div class="section-content px-4 py-2">
-            <p class="mb-2 text-sm text-gray-700">Outline waterproofing tasks to ensure code compliance.</p>
+            <p class="mb-2 text-sm text-gray-700">
+              Outline the waterproofing requirements.
+            </p>
+            <ul class="list-disc list-inside text-sm text-gray-600 mb-4">
+              <li>Prep for waterproofing (apply primer and seal joints)</li>
+              <li>Waterproofing of the shower area (specify number of coats)</li>
+              <li>Should the entire floor be waterproofed?</li>
+              <li>Seal all wet penetrations (around pipes and drains)</li>
+              <li>Is a waterstop angle required at the bathroom doorway?</li>
+            </ul>
             <table class="w-full table-fixed">
               <thead>
                 <tr>
@@ -282,14 +360,26 @@
           </div>
         </div>
 
-        <!-- Section: Tiling -->
+        <!-- Tiling Section -->
         <div class="mb-8 bg-white shadow rounded" data-section="tiling">
           <div class="flex items-center justify-between bg-purple-100 px-4 py-2 border-b border-gray-300">
             <h2 class="text-xl font-bold">Tiling</h2>
             <span class="toggle-button" data-target="tiling">▼</span>
           </div>
           <div class="section-content px-4 py-2">
-            <p class="mb-2 text-sm text-gray-700">Record tiling tasks including screeding, laying, grouting, and sealing.</p>
+            <p class="mb-2 text-sm text-gray-700">
+              Record all tiling requirements.
+            </p>
+            <ul class="list-disc list-inside text-sm text-gray-600 mb-4">
+              <li>Is a floor screed required to create proper falls toward the drain?</li>
+              <li>What is the floor tiling requirement? (tile type, size, area)</li>
+              <li>Is full-height tiling required for the shower walls?</li>
+              <li>Is wall tiling required to a specified height (e.g. 1.2m)?</li>
+              <li>Is grouting required for all tiled surfaces?</li>
+              <li>Is silicone sealant required around tile edges?</li>
+              <li>Is aluminum tile trim required?</li>
+              <li>Is cleaning and sealing of tiles required?</li>
+            </ul>
             <table class="w-full table-fixed">
               <thead>
                 <tr>
@@ -310,14 +400,24 @@
           </div>
         </div>
 
-        <!-- Section: Painting & Finishes -->
+        <!-- Painting & Finishes Section -->
         <div class="mb-8 bg-white shadow rounded" data-section="painting">
           <div class="flex items-center justify-between bg-pink-100 px-4 py-2 border-b border-gray-300">
             <h2 class="text-xl font-bold">Painting &amp; Finishes</h2>
             <span class="toggle-button" data-target="painting">▼</span>
           </div>
           <div class="section-content px-4 py-2">
-            <p class="mb-2 text-sm text-gray-700">Detail all painting and decorative finish tasks.</p>
+            <p class="mb-2 text-sm text-gray-700">
+              Determine painting and finishing requirements.
+            </p>
+            <ul class="list-disc list-inside text-sm text-gray-600 mb-4">
+              <li>Is ceiling painting required with mould‑resistant paint?</li>
+              <li>Is painting above the tile line required?</li>
+              <li>Is door and trim painting required (after hardware removal)?</li>
+              <li>Is painting of window frames required?</li>
+              <li>Is touch‑up of new woodwork required?</li>
+              <li>Is a decorative finish (waterproof wallpaper or wall panels) required?</li>
+            </ul>
             <table class="w-full table-fixed">
               <thead>
                 <tr>
@@ -338,14 +438,22 @@
           </div>
         </div>
 
-        <!-- Section: Glazing & Fixtures -->
+        <!-- Glazing & Fixtures Section -->
         <div class="mb-8 bg-white shadow rounded" data-section="glazing">
           <div class="flex items-center justify-between bg-indigo-100 px-4 py-2 border-b border-gray-300">
             <h2 class="text-xl font-bold">Glazing &amp; Fixtures</h2>
             <span class="toggle-button" data-target="glazing">▼</span>
           </div>
           <div class="section-content px-4 py-2">
-            <p class="mb-2 text-sm text-gray-700">Capture tasks for the supply and installation of glass components.</p>
+            <p class="mb-2 text-sm text-gray-700">
+              Determine the glazing and fixture requirements.
+            </p>
+            <ul class="list-disc list-inside text-sm text-gray-600 mb-4">
+              <li>Is a frameless/toughened shower screen required? (Specify type)</li>
+              <li>Is a fixed mirror required above the vanity? (Specify size)</li>
+              <li>Are glass shelves or additional glazing elements required?</li>
+              <li>Is window glass replacement required with frosted safety glass?</li>
+            </ul>
             <table class="w-full table-fixed">
               <thead>
                 <tr>
@@ -366,14 +474,24 @@
           </div>
         </div>
 
-        <!-- Section: Final Fit-Off & Accessories -->
+        <!-- Final Fit-Off & Accessories Section -->
         <div class="mb-8 bg-white shadow rounded" data-section="finalFitOff">
           <div class="flex items-center justify-between bg-lime-100 px-4 py-2 border-b border-gray-300">
             <h2 class="text-xl font-bold">Final Fit-Off &amp; Accessories</h2>
             <span class="toggle-button" data-target="finalFitOff">▼</span>
           </div>
           <div class="section-content px-4 py-2">
-            <p class="mb-2 text-sm text-gray-700">List finishing touches and hardware installations once work is complete.</p>
+            <p class="mb-2 text-sm text-gray-700">
+              List finishing touches and hardware installations.
+            </p>
+            <ul class="list-disc list-inside text-sm text-gray-600 mb-4">
+              <li>Which bathroom accessories are required? (towel rails, hooks, etc.)</li>
+              <li>Are grab rails required?</li>
+              <li>Is a shower curtain rod required?</li>
+              <li>Are additional bath accessories required? (e.g. shower shelf)</li>
+              <li>Silicon caulking around fixtures and edges</li>
+              <li>Is final cleaning and debris removal required?</li>
+            </ul>
             <table class="w-full table-fixed">
               <thead>
                 <tr>
@@ -394,14 +512,24 @@
           </div>
         </div>
 
-        <!-- Section: Hidden/Unforeseen Work & Contingency -->
+        <!-- Hidden/Unforeseen Work & Contingency Section -->
         <div class="mb-8 bg-white shadow rounded" data-section="contingency">
           <div class="flex items-center justify-between bg-red-200 px-4 py-2 border-b border-gray-300">
             <h2 class="text-xl font-bold">Hidden/Unforeseen Work &amp; Contingency</h2>
             <span class="toggle-button" data-target="contingency">▼</span>
           </div>
           <div class="section-content px-4 py-2">
-            <p class="mb-2 text-sm text-gray-700">Note any potential extra work or risks discovered on site.</p>
+            <p class="mb-2 text-sm text-gray-700">
+              Note potential extra work or risks.
+            </p>
+            <ul class="list-disc list-inside text-sm text-gray-600 mb-4">
+              <li>Allowance for asbestos removal if discovered</li>
+              <li>Allowance for subfloor repair</li>
+              <li>Allowance for electrical upgrades (switchboard/RCD)</li>
+              <li>Allowance for hidden plumbing issues</li>
+              <li>Allowance for structural reinforcement (for heavy fixtures)</li>
+              <li>Allowance for other unforeseen issues</li>
+            </ul>
             <table class="w-full table-fixed">
               <thead>
                 <tr>
@@ -422,7 +550,7 @@
           </div>
         </div>
 
-        <!-- New Section: Total -->
+        <!-- Total Section -->
         <div class="mb-8 bg-white shadow rounded" data-section="total">
           <div class="flex items-center justify-between bg-indigo-50 px-4 py-2 border-b border-gray-300">
             <h2 class="text-xl font-bold">Total</h2>
@@ -434,13 +562,15 @@
           </div>
         </div>
 
-        <!-- Section: Client & Access Notes -->
+        <!-- Client & Access Notes Section -->
         <div class="mb-8 bg-white shadow rounded" data-section="clientNotes">
           <div class="flex items-center justify-between bg-gray-50 px-4 py-2 border-b border-gray-300">
             <h2 class="text-xl font-bold">Client &amp; Access Notes</h2>
           </div>
           <div class="section-content px-4 py-2">
-            <p class="mb-2 text-sm text-gray-700">Record any client-specific instructions or site restrictions.</p>
+            <p class="mb-2 text-sm text-gray-700">
+              Record any client-specific instructions or site restrictions.
+            </p>
             <textarea class="w-full border border-gray-300 p-2 fixed-size" id="clientNotes" rows="8" placeholder="Enter any client, access, or additional notes here..."></textarea>
           </div>
         </div>
@@ -496,127 +626,12 @@
   </template>
 
   <script>
-    // Default tasks for each section (prepopulated)
-    const defaultTasks = {
-      siteSetup: [
-        { task: "Protect existing areas", description: "Install floor protection in hallway and cover furniture." },
-        { task: "Establish site facilities", description: "Deliver skip bin and site toilet as needed." },
-        { task: "Safety setup", description: "Isolate power/water, set up dust barriers." },
-        { task: "Access arrangements", description: "Client to provide access keys and parking permit." }
-      ],
-      demolition: [
-        { task: "Remove fixtures", description: "Remove existing toilet, vanity, shower screen." },
-        { task: "Strip wall tiles", description: "Remove wall tiles and plaster back to studs." },
-        { task: "Strip floor tiles", description: "Jackhammer floor tiles and bedding." },
-        { task: "Remove bath or spa", description: "Demolish and remove bathtub." },
-        { task: "Remove fittings/accessories", description: "Remove mirror, towel rails, shower head, tapware." },
-        { task: "Initial plumbing & electrical isolations", description: "Cap off plumbing and isolate electrical." },
-        { task: "Rubbish disposal", description: "Load debris into skip bin." }
-      ],
-      asbestos: [
-        { task: "Asbestos testing", description: "Test wall sheeting and flooring for asbestos." },
-        { task: "Remove asbestos wall linings", description: "Remove asbestos cement wall panels if applicable." },
-        { task: "Remove asbestos flooring", description: "Remove old vinyl flooring with asbestos backing." },
-        { task: "Disposal and clearance", description: "Dispose of asbestos waste and obtain clearance." }
-      ],
-      carpentry: [
-        { task: "Repair/replace subfloor", description: "Replace rotten subfloor sections if needed." },
-        { task: "Frame modifications", description: "Modify wall framing for niche or plumbing adjustments." },
-        { task: "Door adjustments", description: "Widen doorway to 820mm for accessibility." },
-        { task: "Shower hob or floor recess", description: "Construct shower hob or recess floor for hobless shower." },
-        { task: "Wall re-sheeting", description: "Install new wall boards in affected areas." },
-        { task: "Ceiling works", description: "Install new ceiling plasterboard and cornice." },
-        { task: "Install fixtures (carpentry)", description: "Install vanity and mirror cabinets." },
-        { task: "Backblocking for grab rails", description: "Install noggins for future grab rails." },
-        { task: "Other structural modifications", description: "Re-frame openings or add support as required." }
-      ],
-      plumbing: [
-        { task: "Relocate sewer drain", description: "Relocate sewer drain if fixture position is moved." },
-        { task: "Run new water lines", description: "Run new hot/cold water lines to fixtures." },
-        { task: "Install new floor waste drain", description: "Install or relocate floor waste drain." },
-        { task: "Upgrade shower plumbing", description: "Adjust plumbing for shower mixer and rainhead." },
-        { task: "Install plumbing for bathtub", description: "Rough-in plumbing for bathtub connections." },
-        { task: "Fit off new toilet suite", description: "Install new toilet with proper seals." },
-        { task: "Fit off vanity taps and waste", description: "Install and connect new vanity taps." },
-        { task: "Install shower fittings", description: "Fit off shower mixer, head, and rail." },
-        { task: "Connect washing machine taps", description: "Connect washing machine taps if applicable." },
-        { task: "Pressure-limiting valve installation", description: "Install valve on mains to protect tapware." },
-        { task: "Replace old stopcocks", description: "Upgrade old valves at fixtures." },
-        { task: "New floor trap with puddle flange", description: "Install new floor trap for wet areas." },
-        { task: "Test and certify plumbing work", description: "Conduct pressure tests and issue certificate." },
-        { task: "Accessible modifications", description: "Install hand-held shower and adjust basin height for accessibility." }
-      ],
-      electrical: [
-        { task: "Rough-in wiring", description: "Run new wiring for ceiling light and exhaust fan." },
-        { task: "Add power outlet", description: "Install new power outlet next to vanity." },
-        { task: "Wire for heated towel rail", description: "Install wiring for heated towel rail." },
-        { task: "Install heat lamp / IXL unit", description: "Install combined unit with wiring and switch." },
-        { task: "Move light switch", description: "Relocate light switch for safety compliance." },
-        { task: "Install LED downlights", description: "Install LED downlights and connect." },
-        { task: "Install exhaust fan and ducting", description: "Install new exhaust fan with ducting." },
-        { task: "Fit off power outlet", description: "Final installation of power outlet post-paint." },
-        { task: "Connect heated towel rail", description: "Connect and test heated towel rail." },
-        { task: "Replace circuit breaker", description: "Upgrade circuit breaker to include RCD." },
-        { task: "Bonding/grounding", description: "Perform bonding and grounding as required." },
-        { task: "Install mirror light", description: "Install mirror light with sensor if needed." },
-        { task: "Certificate of Electrical Safety", description: "Obtain certificate post-installation." }
-      ],
-      waterproofing: [
-        { task: "Prep for waterproofing", description: "Apply primer to floor and walls in wet areas." },
-        { task: "Waterproof shower area", description: "Apply 2-coat waterproof membrane to shower area." },
-        { task: "Waterproof entire floor", description: "Waterproof full bathroom floor if needed." },
-        { task: "Seal wet penetrations", description: "Seal around pipes and drains with collars." },
-        { task: "Install waterstop angle", description: "Install waterstop at bathroom doorway." }
-      ],
-      tiling: [
-        { task: "Floor screed", description: "Screed floor to create proper falls toward drain." },
-        { task: "Lay floor tiles", description: "Install floor tiles, including mosaic areas if applicable." },
-        { task: "Tile shower walls", description: "Tile shower walls full height with ceramic tiles." },
-        { task: "Tile walls (half height)", description: "Tile walls up to 1.2m if specified." },
-        { task: "Finish niche interior", description: "Tile niche interior with mosaic tile." },
-        { task: "Grouting", description: "Apply grout to all tiled surfaces." },
-        { task: "Silicone seal", description: "Apply silicone sealant to edges after grouting." },
-        { task: "Install aluminum trim", description: "Install tile edging with aluminum trim." },
-        { task: "Clean and seal tiles", description: "Acid wash and seal tiles if required." }
-      ],
-      painting: [
-        { task: "Paint ceiling", description: "Prep and paint ceiling with mold-resistant paint." },
-        { task: "Paint walls above tile line", description: "Paint upper walls with suitable interior paint." },
-        { task: "Paint door &amp; trim", description: "Paint entry door and frame after hardware removal." },
-        { task: "Paint window frame", description: "Repaint window architrave as needed." },
-        { task: "Touch up woodwork", description: "Paint any new woodwork such as cupboards." },
-        { task: "Apply decorative finish", description: "Apply waterproof wallpaper or wall panels for feature wall." }
-      ],
-      glazing: [
-        { task: "Supply &amp; install shower screen", description: "Measure and install frameless/toughened shower screen." },
-        { task: "Install fixed mirror", description: "Install fixed mirror above vanity." },
-        { task: "Install glass shelf", description: "Install additional glass elements such as shelves." },
-        { task: "Replace window glass", description: "Replace window glass with frosted safety glass if needed." }
-      ],
-      finalFitOff: [
-        { task: "Install accessories", description: "Install bathroom accessories (towel rails, hooks, etc.)." },
-        { task: "Install grab rails", description: "Install grab rails per accessibility requirements." },
-        { task: "Install shower curtain rod", description: "Install shower curtain rod or seal as applicable." },
-        { task: "Install bath accessories", description: "Install additional accessories like a shower shelf." },
-        { task: "Final silicon caulking", description: "Perform final caulking around fixtures and edges." },
-        { task: "Builders final cleaning", description: "Conduct final cleaning and debris removal." }
-      ],
-      contingency: [
-        { task: "Provisional sum – Asbestos removal", description: "Allowance for asbestos removal if discovered." },
-        { task: "Provisional sum – Subfloor repair", description: "Allowance for replacing rotten subfloor sections." },
-        { task: "Provisional sum – Electrical upgrade", description: "Allowance for upgrading switchboard or RCD." },
-        { task: "Provisional sum – Hidden plumbing issues", description: "Allowance for addressing unseen plumbing issues." },
-        { task: "Provisional sum – Structural reinforcement", description: "Allowance for reinforcing floor for heavy fixtures." },
-        { task: "Provisional sum – Other unforeseen issues", description: "Allowance for any additional hidden issues." }
-      ]
-    };
+    // ---- Core Functions ----
 
-    // Format number to currency (2 decimals)
     function formatCurrency(num) {
       return parseFloat(num).toFixed(2);
     }
 
-    // Update a single row's total: (Quantity * Price) + Material Cost
     function updateRowTotal(row) {
       const quantity = parseFloat(row.querySelector('.quantity').value) || 0;
       const price = parseFloat(row.querySelector('.price').value) || 0;
@@ -626,7 +641,6 @@
       row.querySelector('.total-task').setAttribute('data-total', total);
     }
 
-    // Update section total
     function updateSectionTotal(sectionBody) {
       let sectionTotal = 0;
       sectionBody.querySelectorAll('.row').forEach(row => {
@@ -638,7 +652,6 @@
       updateOverallTotal();
     }
 
-    // Update overall total and GST calculations
     function updateOverallTotal() {
       let overall = 0;
       document.querySelectorAll('.section-total').forEach(span => {
@@ -647,6 +660,7 @@
       document.getElementById('overallTotal').innerText = formatCurrency(overall);
       updateTotalSection(overall);
     }
+
     function updateTotalSection(total) {
       document.getElementById('totalPrice').innerText = formatCurrency(total);
       const gst = total * 0.10;
@@ -654,7 +668,6 @@
       document.getElementById('totalWithGst').innerText = formatCurrency(total + gst);
     }
 
-    // Add new row
     function addRow(sectionName, defaultData) {
       const sectionDiv = document.querySelector(`[data-section="${sectionName}"]`);
       const tbody = sectionDiv.querySelector('.section-body');
@@ -667,7 +680,8 @@
       updateSectionTotal(tbody);
     }
 
-    // Delete row
+    // ---- Event Listeners ----
+
     document.addEventListener('click', function(e) {
       if (e.target && e.target.classList.contains('delete-row')) {
         const row = e.target.closest('.row');
@@ -677,7 +691,6 @@
       }
     });
 
-    // Update totals on input change
     document.addEventListener('input', function(e) {
       if (e.target.matches('.quantity, .price, .material-cost')) {
         const row = e.target.closest('.row');
@@ -686,7 +699,6 @@
       }
     });
 
-    // "Add Task" button listeners
     document.querySelectorAll('.add-row').forEach(button => {
       button.addEventListener('click', function() {
         const sectionName = this.getAttribute('data-section');
@@ -694,7 +706,6 @@
       });
     });
 
-    // Toggle collapse/expand for sections
     document.querySelectorAll('.toggle-button').forEach(button => {
       button.addEventListener('click', function() {
         const targetSection = this.getAttribute('data-target');
@@ -710,7 +721,6 @@
       });
     });
 
-    // Export CSV using Blob
     document.getElementById('exportCSV').addEventListener('click', function() {
       let csvData = "";
       const sections = document.querySelectorAll('[data-section]');
@@ -744,7 +754,6 @@
       document.body.removeChild(link);
     });
 
-    // Export PDF using html2pdf.js
     document.getElementById('exportPDF').addEventListener('click', function() {
       const element = document.getElementById('app');
       const opt = {
@@ -757,7 +766,6 @@
       html2pdf().set(opt).from(element).save();
     });
 
-    // Photo button functionality: open file picker and group photo by task name.
     document.addEventListener('click', function(e) {
       if (e.target.closest('.photo-button')) {
         const row = e.target.closest('.row');
@@ -827,7 +835,6 @@
       }
     });
 
-    // Toggle display of OT Report and Drawings attachment fields
     document.getElementById('otReportAvailable').addEventListener('change', function() {
       const container = document.getElementById('otReportAttachmentContainer');
       if (this.value === 'yes') {
@@ -836,6 +843,7 @@
         container.classList.add('hidden');
       }
     });
+
     document.getElementById('drawingsAvailable').addEventListener('change', function() {
       const container = document.getElementById('drawingsAttachmentContainer');
       if (this.value === 'yes') {
@@ -843,17 +851,6 @@
       } else {
         container.classList.add('hidden');
       }
-    });
-
-    // Prepopulate sections with default tasks on page load
-    document.addEventListener("DOMContentLoaded", function() {
-      Object.keys(defaultTasks).forEach(section => {
-        if (defaultTasks[section].length) {
-          defaultTasks[section].forEach(taskObj => {
-            addRow(section, taskObj);
-          });
-        }
-      });
     });
   </script>
 </body>
