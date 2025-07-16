@@ -69,13 +69,9 @@ const exportToExcel = () => {
       taskSheet.addRow([]);
       const clientName = document.getElementById('clientName') ? document.getElementById('clientName').value : '';
       const clientAddress = document.getElementById('clientAddress') ? document.getElementById('clientAddress').value : '';
-      const inspectedOn = document.getElementById('inspectedOn') ? document.getElementById('inspectedOn').value : '';
-      const csvInspector = document.getElementById('csvInspector') ? document.getElementById('csvInspector').value : '';
       taskSheet.addRow(['Client Name:', clientName]);
       taskSheet.addRow(['Client Address:', clientAddress]);
-      taskSheet.addRow(['Inspected On:', inspectedOn]);
-      taskSheet.addRow(['CSV Inspector:', csvInspector]);
-      taskRowIndex += 5;
+      taskRowIndex += 3;
       
       // Attachments for OT Report and Drawings
       const otInput = document.getElementById('otReportAttachment');
